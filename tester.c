@@ -6,13 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 15:31:57 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/23 18:56:31 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/23 19:34:00 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-int		main(int argc, char **av)
+int		main()
 {
     ft_putstr("Test du ft_putstr :\n");
     ft_putstr("42 ");
@@ -23,6 +23,7 @@ int		main(int argc, char **av)
 
     ft_putstr("Test du ft_strcpy :\n");
     char *src, *dest;
+    dest = "eh";
     src = "source --";
     *dest = ft_strcpy(dest, src);
     ft_putstr(src); ft_putchar('\n');
