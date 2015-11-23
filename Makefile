@@ -6,11 +6,11 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/23 16:23:08 by lpoujade          #+#    #+#              #
-#    Updated: 2015/11/23 21:28:33 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/11/23 22:18:14 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft
+NAME=libft.a
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra -ansi
 INCLUDESDIR=
@@ -20,7 +20,8 @@ SRC=ft_putchar.c	\
 	ft_putnbr.c		\
 	ft_strlen.c		\
 	ft_strcpy.c		\
-	ft_strcmp.c
+	ft_strcmp.c		\
+	ft_memalloc.c
 
 OBJ=$(SRC:.c=.o)
 
