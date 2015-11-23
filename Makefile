@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/23 16:23:08 by lpoujade          #+#    #+#              #
-#    Updated: 2015/11/23 17:51:24 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/11/23 21:28:33 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ OBJ=$(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -c $(SRC) $(INCLUDESDIR) 
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 

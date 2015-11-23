@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 16:42:52 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/23 18:14:06 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/23 21:18:33 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/23 21:18:49 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(char *s1, char *s2)
 {
-    if (*s1 > *s2)
-        return (*s1 - *s2);
-    if (*s1 < *s2)
-        return (*s2 - *s1);
-    if (*s1 == *s2)
-        return (0);
-    ft_strcmp(s1++, s2++);
-    return(0);
+	if (*s1 > *s2)
+		return (*s1 - *s2);
+	if (*s1 < *s2)
+		return (*s2 - *s1);
+	if (*s1 == *s2)
+		return (0);
+	ft_strcmp(s1++, s2++);
+	return (0);
 }

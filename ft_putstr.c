@@ -5,24 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 15:37:34 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/23 16:14:51 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/23 21:17:14 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/23 21:18:12 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putstr(char const *s)
+void	ft_putstr(char const *s)
 {
-    int c;
+	int c;
 
-    c = 0;
-    if (s)
-    {
-        while(s[c])
-        {
-            ft_putchar(s[c]);
-            c++;
-        }
-    }
+	c = 0;
+	if (s)
+	{
+		while (s[c])
+		{
+			ft_putchar(s[c]);
+			c++;
+		}
+	}
 }
