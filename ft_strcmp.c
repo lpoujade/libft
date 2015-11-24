@@ -10,14 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_strcmp(char *s1, char *s2)
 {
-	if (*s1 > *s2)
-		return (*s1 - *s2);
-	if (*s1 < *s2)
-		return (*s2 - *s1);
-	if (*s1 == *s2)
-		return (0);
-	ft_strcmp(s1++, s2++);
-	return (0);
+    if (!*s1 || !*s2)
+    {
+        int c;
+
+        c = 0;
+        while (s1[c]|| s2[c])
+        {
+            if (s1[c] == s1[c])
+                c++;
+            else
+                return (*s1 - *s2);
+        }
+    }
+    return (0);
 }

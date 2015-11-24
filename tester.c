@@ -31,11 +31,12 @@ int		main(int ac, char **av)
 	p = ft_strdup(args[arg_number]);
 	ft_putendl(p);
 
-	ft_putstr("ft_strcmp : diff with executable name (arg0) ... ");
+	ft_putstr("ft_strcmp : diff with executable name (arg0: ");ft_putstr(args[0]);ft_putstr(") ... ");
 	if (ft_strcmp(p, args[0]) == 0)
 		ft_putendl("identicals");
 	else
 		ft_putendl("differents");
+    ft_putstr("funct. result : ");ft_putnbr(ft_strcmp(p, args[0]));ft_putchar('\n');
 
 	ft_putstr("ft_strjoin : ... ");
 	ft_putendl(ft_strjoin(p, args[arg_number]));
