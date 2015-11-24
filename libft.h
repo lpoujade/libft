@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:10 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 14:08:40 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/24 15:20:27 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	ft_putnbr(int n);
 void	ft_putnbr_fd(int n, int fd);
 
 void	*ft_memalloc(size_t size);
-void	 ft_memdel(void **ap);
+void	ft_memdel(void **ap);
+//char	*ft_strdup(const char *s1); --> ft_memalloc(sizeof(s1)) && ft_strcpy && return *p
 
 /*
 **
@@ -38,7 +39,6 @@ void	 ft_memdel(void **ap);
 **
 ** classiques 
 **
-** char *ft_strdup(const char *s1); --> ft_memalloc(sizeof(s1)) && ft_strcpy && return *p
 ** char *ft_strncpy(char *dest, const char *src, size_t n); --> copy almost n caract, else fill with \0
 ** char *ft_strcat(char *s1, const char *s2); --> if s1 >= s1+s2, s1.append(s2).append(\0)
 ** char *ft_strncat(char *s1, const char *s2); --> if s1 >= s1+s2, s1.append(s2).append(\0) | n caract MAX

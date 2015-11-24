@@ -14,54 +14,51 @@
 
 int		main(int ac, char **av)
 {
-	int c;
-	char *p;
-	char *p_infos;
+	void *p;
+	int compare;
 
 	while (ac != 1)
 	{
 		ac--;
 		av++;
 	}
-	c = sizeof(*av);
-	p = ft_memalloc(c); /* or p = ft_memalloc(sizeof(*av));  ? */
 
-	*p = ft_strcpy(p, *av);
-
+	ft_putstr("work on last arg : ");
 	ft_putendl(*av);
 
+	ft_putstr("strlen, putnbr : ");
+	ft_putnbr(ft_strlen(*av));
+	ft_putchar('\n');
+
+	ft_putstr("memalloc from sizeof(last_arg) ... ");
+	p = ft_memalloc(sizeof(*av));
+	if (p)
+		ft_putendl("ok");
+	else
+		ft_putendl("fail");
+
+	ft_putstr("ft_strcpy to new *p ... ");
+	ft_strcpy(p, *av);
+	ft_putendl(p);
+
+	ft_putstr("ft_strcmp : ");
+	compare = ft_strcmp(p, "one45");
+	ft_putnbr(compare);
+	ft_putchar('\n');
+
+	ft_putstr("ft_memdel ... ");
+	ft_memdel(p);
 	if (!p)
-		ft_putendl_fd("void p", 2);
+		ft_putendl("ok");
 	else
 	{
-		ft_putendl("right");
+		ft_putendl("fail");
 		ft_putendl(p);
 	}
 
-	/*
-	   ft_putstr("Test du ft_putstr :\n");
-	   ft_putstr("42 ");
-	   ft_putstr("´@");
-	   ft_putstr("");
 
-	   ft_putstr("\n\n--\n\n");
 
-	   ft_putstr("Test du ft_strcpy :\n");
-	   char *src, *dest;
-	   dest = "eh";
-	   src = "source --";
-	 *dest = ft_strcpy(dest, src);
-	 ft_putstr(src); ft_putchar('\n');
-	 ft_putstr(dest); ft_putchar('\n');
-
-	 ft_putstr("\n\n--\n\n");
-
-	 ft_putstr("Test du ft_strlen et du ft_putnbr :\n");
-	 int lenstr = ft_strlen("Et test du ft_putnbr");
-	 ft_putnbr(lenstr);
-
-	 ft_putstr("\n\n--\n\n");
-
+		/*
 	 ft_putstr("Test du ft_strcmp ( via les chaines copiees avec ft_strcpy ) :\n");
 	 int ornot = ft_strcmp(src, dest);
 	 ft_putnbr(ornot);
