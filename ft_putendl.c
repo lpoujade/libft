@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 09:59:15 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 18:42:10 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/24 21:36:03 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putendl(char const *s)
 {
-	ft_putendl_fd(s, 1)
+	ft_putendl_fd(s, 1);
 }

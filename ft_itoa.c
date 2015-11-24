@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 18:49:07 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 19:48:12 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/24 21:34:54 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char	*itoa(int n)
 {
+	/*
 	void *nb;
 	bool re;
 
@@ -26,6 +27,7 @@ char	*itoa(int n)
 			nb = "-";
 		if (n >= 10)
 
-
+*/
+	return ((char*)(long)n); // FOR WARNINGS, NONSENSE
 }
 
