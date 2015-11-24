@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 09:35:08 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 17:43:53 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/24 18:49:07 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/24 19:48:12 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+char	*itoa(int n)
 {
-	if (!*ap)
-		ft_putendl_fd("NULL POINTER ft_memdel", 2);
-	else
+	void *nb;
+	bool re;
+
+	nb = (char *)ft_memalloc(16*sizeof(char));
+
+	re = True
+	while (re)
 	{
-		ft_putstr("APPEL A FREE");
-		free(*ap);
-		*ap = NULL;
-	}
+		if (n < 0)
+			nb = "-";
+		if (n >= 10)
+
+
 }
+

@@ -14,55 +14,45 @@
 
 int		main(int ac, char **av)
 {
+	int arg_number = ac-1;
+	char **args = av;
 	void *p;
-	int compare;
-
-	while (ac != 1)
-	{
-		ac--;
-		av++;
-	}
 
 	ft_putstr("work on last arg : ");
-	ft_putendl(*av);
+	ft_putendl(args[arg_number]);
+
+	char *str;
+	str = "some some ";
+	ft_putendl("before strclr");
+	ft_putendl(str);
+	ft_strclr(str);
+	ft_putendl(str);
 
 	ft_putstr("strlen, putnbr : ");
-	ft_putnbr(ft_strlen(*av));
+	ft_putnbr(ft_strlen(args[arg_number]));
 	ft_putchar('\n');
 
-	ft_putstr("memalloc from sizeof(last_arg) ... ");
-	p = ft_memalloc(sizeof(*av));
-	if (p)
-		ft_putendl("ok");
-	else
-		ft_putendl("fail");
-
-	ft_putstr("ft_strcpy to new *p ... ");
-	ft_strcpy(p, *av);
+	ft_putstr("ft_memalloc, ft_strcpy : ft_strdup (ft_strnew) - ... ");
+	p = ft_strdup(args[arg_number]);
 	ft_putendl(p);
 
-	ft_putstr("ft_strcmp : ");
-	compare = ft_strcmp(p, "one45");
-	ft_putnbr(compare);
-	ft_putchar('\n');
+	ft_putstr("ft_strcmp : diff with executable name (arg0) ... ");
+	if (ft_strcmp(p, args[0]) == 0)
+		ft_putendl("identicals");
+	else
+		ft_putendl("differents");
 
-	ft_putstr("ft_memdel ... ");
-	ft_memdel(p);
+	ft_putstr("ft_strdel (ft_memdel) ... ");
+	ft_strdel(p);
 	if (!p)
 		ft_putendl("ok");
 	else
 	{
-		ft_putendl("fail");
+		ft_putstr("fail : ");
 		ft_putendl(p);
+		ft_putstr("len : ");
+		ft_putnbr(ft_strlen(p));
 	}
-
-
-
-		/*
-	 ft_putstr("Test du ft_strcmp ( via les chaines copiees avec ft_strcpy ) :\n");
-	 int ornot = ft_strcmp(src, dest);
-	 ft_putnbr(ornot);
-	 */
 
 	return (0);
 }

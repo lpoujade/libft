@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 09:35:08 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 17:43:53 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/24 17:04:55 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/24 17:09:53 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+char	*ft_strnew(size_t size)
 {
-	if (!*ap)
-		ft_putendl_fd("NULL POINTER ft_memdel", 2);
-	else
+	char *new;
+	int c;
+
+	c = 0;
+	new = ft_memalloc(size);
+	while (c <= ft_strlen(new))
 	{
-		ft_putstr("APPEL A FREE");
-		free(*ap);
-		*ap = NULL;
+		new[c] = '\0';
+		c++;
 	}
+	return (new);
 }
