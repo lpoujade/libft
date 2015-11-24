@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:10 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 18:49:48 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/24 21:34:11 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 int		ft_strlen(const char *str);
 char	*ft_strcpy(char *dest, const char *src);
 int		ft_strcmp(char *s1, char *s2);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 void	ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);
@@ -35,7 +36,7 @@ char	*ft_strdup(const char *s1);
 char 	*ft_strnew(size_t size);
 void	ft_strdel(char **as);
 void	ft_strclr(char *s);
-char	*ft_itoa(int n);
+char	*ft_itoa(int n);	// DO NOT USE
 
 //char *ft_strcat(char *s1, const char *s2); // if s1 >= s1+s2, s1.append(s2).append(\0)
 /*

@@ -20,14 +20,14 @@ int		main(int ac, char **av)
 
 	ft_putstr("work on last arg : ");
 	ft_putendl(args[arg_number]);
-
+/*
 	char *str;
 	str = "some some ";
 	ft_putendl("before strclr");
 	ft_putendl(str);
 	ft_strclr(str);
 	ft_putendl(str);
-
+*/
 	ft_putstr("strlen, putnbr : ");
 	ft_putnbr(ft_strlen(args[arg_number]));
 	ft_putchar('\n');
@@ -42,6 +42,8 @@ int		main(int ac, char **av)
 	else
 		ft_putendl("differents");
 
+	ft_putendl(ft_strjoin(p, args[arg_number]));
+/*
 	ft_putstr("ft_strdel (ft_memdel) ... ");
 	ft_strdel(p);
 	if (!p)
@@ -53,6 +55,6 @@ int		main(int ac, char **av)
 		ft_putstr("len : ");
 		ft_putnbr(ft_strlen(p));
 	}
-
+*/
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 :x
 #    Created: 2015/11/23 16:23:08 by lpoujade          #+#    #+#              #
-#    Updated: 2015/11/24 19:37:31 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/11/24 21:32:42 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRC=ft_itoa.c		\
 	ft_strdel.c		\
 	ft_strclr.c		\
 	ft_strcmp.c		\
+	ft_strjoin.c	\
 	ft_memalloc.c	\
 	ft_memdel.c
 SRC:=$(addprefix $(SRCDIR)/,$(SRC))
