@@ -4,9 +4,9 @@
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
+:x
 #    Created: 2015/11/23 16:23:08 by lpoujade          #+#    #+#              #
-#    Updated: 2015/11/24 10:58:33 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/11/24 14:13:42 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INCLUDESDIR=.
 # TESTING
 TDIR=$(SRCDIR)
 TESTER=$(TDIR)/tester.c
-TOUTPUT=test
+TOUTPUT=test.out
 
 SRC=ft_putchar.c	\
 	ft_putchar_fd.c	\
@@ -51,6 +51,6 @@ clean:
 	-rm $(OBJ)
 
 fclean: clean
-	-rm $(NAME)
+	-rm $(NAME) $(TOUPUT)
 
 re: fclean all
