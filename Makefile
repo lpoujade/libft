@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 :x
 #    Created: 2015/11/23 16:23:08 by lpoujade          #+#    #+#              #
-#    Updated: 2015/11/24 14:13:42 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/11/24 19:37:31 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ TDIR=$(SRCDIR)
 TESTER=$(TDIR)/tester.c
 TOUTPUT=test.out
 
-SRC=ft_putchar.c	\
+SRC=ft_itoa.c		\
+	ft_putchar.c	\
 	ft_putchar_fd.c	\
 	ft_putstr.c		\
 	ft_putstr_fd.c	\
@@ -31,6 +32,10 @@ SRC=ft_putchar.c	\
 	ft_putnbr_fd.c	\
 	ft_strlen.c		\
 	ft_strcpy.c		\
+	ft_strnew.c		\
+	ft_strdup.c		\
+	ft_strdel.c		\
+	ft_strclr.c		\
 	ft_strcmp.c		\
 	ft_memalloc.c	\
 	ft_memdel.c

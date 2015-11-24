@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:17:14 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/23 21:18:12 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/24 18:42:45 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,5 @@
 
 void	ft_putstr(char const *s)
 {
-	int c;
-
-	c = 0;
-	if (s)
-	{
-		while (s[c])
-		{
-			ft_putchar(s[c]);
-			c++;
-		}
-	}
+	ft_putstr_fd(s, 1);
 }
