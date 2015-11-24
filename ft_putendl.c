@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 21:59:31 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 10:12:59 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/24 09:59:15 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/24 10:42:56 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_putendl(char const *s)
 {
-	int *p;
-
-	p = malloc(size);
-	return (p);
+	ft_putstr(s);
+	ft_putchar('\n');
 }

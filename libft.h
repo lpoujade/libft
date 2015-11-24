@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:10 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/23 22:19:35 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/24 10:04:04 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,20 @@
 #include <string.h>
 
 int		ft_strlen(const char *str);
+char	ft_strcpy(char *dest, const char *src);
 int		ft_strcmp(char *s1, char *s2);
 
-char	ft_strcpy(char *dest, const char *src);
-
-void	ft_putnbr(int n);
 void	ft_putchar(char c);
+void	ft_putchar_fd(char c, int fd);
 void	ft_putstr(char const *s);
+void	ft_putstr_fd(char const *s, int fd);
+void	ft_putendl(char const *s);
+void	ft_putendl_fd(char const *s, int fd);
+void	ft_putnbr(int n);
+void	ft_putnbr_fd(int n, int fd);
 
 void	*ft_memalloc(size_t size);
+void	 ft_memdel(void **ap);
 
 /*
 **
@@ -63,13 +68,7 @@ void	*ft_memalloc(size_t size);
 ** pas classique 
 **
 **
-**void	ft_putendl(char const *s);
-**void	ft_putchar_fd(char c, int fd);
-**void	ft_putstr_fd(char const *s, int fd);
-**void	ft_putendl_fd(char const *s, int fd);
-**void	ft_putnbr_fd(int n, int fd);
 **
-**void	  ft_memdel(void **ap);
 **
 **char *  ft_strnew(size_t size);
 **void	  ft_strdel(char **as);
