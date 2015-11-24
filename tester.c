@@ -16,6 +16,7 @@ int		main(int ac, char **av)
 {
 	int c;
 	char *p;
+	char *p_infos;
 
 	while (ac != 1)
 	{
@@ -25,9 +26,17 @@ int		main(int ac, char **av)
 	c = sizeof(*av);
 	p = ft_memalloc(c); /* or p = ft_memalloc(sizeof(*av));  ? */
 
-	p = *av;
+	*p = ft_strcpy(p, *av);
 
-	ft_putstr(p);
+	ft_putendl(*av);
+
+	if (!p)
+		ft_putendl_fd("void p", 2);
+	else
+	{
+		ft_putendl("right");
+		ft_putendl(p);
+	}
 
 	/*
 	   ft_putstr("Test du ft_putstr :\n");
