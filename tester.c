@@ -52,7 +52,6 @@ int		main(int ac, char **av)
     ft_strclr(str);
 	ft_putendl(str);
 
-    /*
 	ft_putstr("ft_strdel (ft_memdel) ... ");
                                                    	ft_strdel(p);
 	if (!p)
@@ -64,6 +63,5 @@ int		main(int ac, char **av)
 		ft_putstr("len : ");
 		ft_putnbr(ft_strlen(p));
 	}
-	*/
 	return (0);
 }

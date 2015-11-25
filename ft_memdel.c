@@ -20,7 +20,7 @@ void	ft_memdel(void **ap)
 	else
 	{
 		ft_putstr("APPEL A FREE");
-		free(*ap);
+		free(ap);
 		*ap = NULL;
 	}
 }
