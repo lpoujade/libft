@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:10 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 21:34:11 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/25 15:06:53 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	ft_strdel(char **as);
 void	ft_strclr(char *s);
 
 void	*ft_memalloc(size_t size);
-void	ft_memdel(void **ap); // PROBLEM
+void	ft_memdel(void **ap); // PROBLEM ?
 char	*ft_strdup(const char *s1);
 
 char	*ft_itoa(int n);	// DO NOT USE
 
-//char *ft_strcat(char *s1, const char *s2); // if s1 >= s1+s2, s1.append(s2).append(\0)
+char *ft_strcat(char *s1, const char *s2); // if s1 >= s1+s2, s1.append(s2).append(\0)
 /*
 **
 **

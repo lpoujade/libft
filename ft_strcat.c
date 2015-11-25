@@ -5,9 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 16:58:02 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 19:48:21 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/25 17:57:20 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/25 17:57:22 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include
+#include "libft.h"
+
+char	*ft_strcat(char *s1, char const *s2)
+{
+	ft_strcpy((s1 + ft_strlen(s1)), s2);
+	return (s1);
+}

@@ -16,16 +16,16 @@ int		main(int ac, char **av)
 {
 	int arg_number = ac-1;
 	char **args = av;
-	void *p;
+	char *p;
 
 	ft_putstr("work on last arg : ");
 	ft_putendl(args[arg_number]);
 
-    ft_putstr("strlen, putnbr : ");
+	ft_putstr("strlen, putnbr : ");
 	ft_putnbr(ft_strlen(args[arg_number]));
 	ft_putchar('\n');
 
-	ft_putstr("ft_memalloc, ft_strcpy : ft_strdup (ft_strnew) - ... ");
+	ft_putstr("ft_memalloc, ft_strcpy : ft_strdup (ft_strnew) ... ");
 	p = ft_strdup(args[arg_number]);
 	ft_putendl(p);
 
@@ -34,26 +34,26 @@ int		main(int ac, char **av)
 		ft_putendl("identicals");
 	else
 		ft_putendl("differents");
-    ft_putstr("funct. result : ");ft_putnbr(ft_strcmp(p, args[0]));ft_putchar('\n');
-    ft_putstr("voids compare ");ft_putnbr(ft_strcmp("", ""));ft_putchar('\n');
+	ft_putstr("funct. result : ");ft_putnbr(ft_strcmp(p, args[0]));ft_putchar('\n');
+	ft_putstr("voids compare ");ft_putnbr(ft_strcmp("", ""));ft_putchar('\n');
 
-	ft_putstr("ft_strjoin : ... ");
-	ft_putendl(ft_strjoin(p, args[arg_number]));
+	ft_putstr("ft_strjoin ");ft_putstr(p); ft_putstr(" "); ft_putstr(args[0]);ft_putstr(" : ");
+	ft_putendl(ft_strjoin(p, args[0]));
 
-//	KIFOIRENT
 	char str[] = "some some";
 	ft_putendl("before strclr");
 	ft_putendl(str);
-    ft_strclr(str);
+	ft_strclr(str);
 	ft_putendl(str);
 
 	ft_putendl("before strclr ( from prec : void, void )");
 	ft_putendl(str);
-    ft_strclr(str);
+	ft_strclr(str);
 	ft_putendl(str);
 
+//	KIFOIRENT
 	ft_putstr("ft_strdel (ft_memdel) ... ");
-                                                   	ft_strdel(p);
+	ft_strdel(&p);
 	if (!p)
 		ft_putendl("ok");
 	else

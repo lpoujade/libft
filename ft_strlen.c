@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:19:53 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/23 21:20:03 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/25 17:18:19 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@ int		ft_strlen(const char *str)
 	int x;
 
 	x = 0;
-	while (str[x] != 0)
-	{
+	while (str[x] != '\0')
 		x++;
-	}
 	return (x);
 }

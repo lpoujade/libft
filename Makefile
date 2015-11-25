@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2015/11/24 22:03:19 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/11/25 17:54:57 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC=ft_itoa.c		\
 	ft_strlen.c		\
 	ft_strcpy.c		\
 	ft_strnew.c		\
+	ft_strcat.c		\
 	ft_strdup.c		\
 	ft_strdel.c		\
 	ft_strclr.c		\

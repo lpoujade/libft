@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 09:35:08 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 17:43:53 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/25 16:26:52 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 void	ft_memdel(void **ap)
 {
 	if (!*ap)
-		ft_putendl_fd("NULL POINTER ft_memdel", 2);
+		ft_putendl("NULL POINTER ft_memdel");
 	else
 	{
-		ft_putstr("APPEL A FREE");
-		free(ap);
+		free(*ap);
 		*ap = NULL;
 	}
 }
