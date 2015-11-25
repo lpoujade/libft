@@ -57,6 +57,6 @@ clean:
 	-rm $(OBJ)
 
 fclean: clean
-	-rm $(NAME) $(TOUPUT)
+	-rm $(NAME) $(TOUTPUT)
 
 re: fclean all
