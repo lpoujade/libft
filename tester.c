@@ -47,7 +47,7 @@ int		main(int ac, char **av)
     ft_strclr(str);
 	ft_putendl(str);
 
-	ft_putendl("before strclr");
+	ft_putendl("before strclr ( from prec : void, void )");
 	ft_putendl(str);
     ft_strclr(str);
 	ft_putendl(str);

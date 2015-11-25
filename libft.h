@@ -15,11 +15,6 @@
 
 #include <string.h>
 
-int		ft_strlen(const char *str);
-char	*ft_strcpy(char *dest, const char *src);
-int		ft_strcmp(char *s1, char *s2);
-char	*ft_strjoin(char const *s1, char const *s2);
-
 void	ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr(char const *s);
@@ -29,13 +24,18 @@ void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr(int n);
 void	ft_putnbr_fd(int n, int fd);
 
+int		ft_strlen(const char *str);
+int		ft_strcmp(char *s1, char *s2);
+char 	*ft_strnew(size_t size);
+char	*ft_strcpy(char *dest, const char *src);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	ft_strdel(char **as);
+void	ft_strclr(char *s);
+
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap); // PROBLEM
 char	*ft_strdup(const char *s1);
 
-char 	*ft_strnew(size_t size);
-void	ft_strdel(char **as);
-void	ft_strclr(char *s);
 char	*ft_itoa(int n);	// DO NOT USE
 
 //char *ft_strcat(char *s1, const char *s2); // if s1 >= s1+s2, s1.append(s2).append(\0)
