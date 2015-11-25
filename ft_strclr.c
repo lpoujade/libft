@@ -14,16 +14,12 @@
 
 void	ft_strclr(char *s)
 {
-	char *origin;
+    int c;
 
-	origin = s;
-	ft_putendl("entry in strclr");
-	if (origin)
-	{
-		while (origin)
-		{
-			origin++;
-			*origin = '\0';
-		}
-	}
+    c = 0;
+    while (s[c])
+    {
+        s[c] = '\0';
+        c++;
+    }
 }
