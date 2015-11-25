@@ -6,14 +6,14 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:10 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/25 15:06:53 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/25 18:09:41 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <string.h>
+# include <string.h>
 
 void	ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);
@@ -26,7 +26,7 @@ void	ft_putnbr_fd(int n, int fd);
 
 int		ft_strlen(const char *str);
 int		ft_strcmp(char *s1, char *s2);
-char 	*ft_strnew(size_t size);
+char	*ft_strnew(size_t size);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	ft_strdel(char **as);
