@@ -37,6 +37,7 @@ int		main(int ac, char **av)
 	else
 		ft_putendl("differents");
     ft_putstr("funct. result : ");ft_putnbr(ft_strcmp(p, args[0]));ft_putchar('\n');
+    ft_putstr("voids compare ");ft_putnbr(ft_strcmp("", ""));ft_putchar('\n');
 
 	ft_putstr("ft_strjoin : ... ");
 	ft_putendl(ft_strjoin(p, args[arg_number]));

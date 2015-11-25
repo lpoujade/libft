@@ -14,18 +14,20 @@
 
 int		ft_strcmp(char *s1, char *s2)
 {
-    if (!*s1 || !*s2)
-    {
-        int c;
+    int c;
+    int ret;
 
-        c = 0;
-        while (s1[c]|| s2[c])
-        {
-            if (s1[c] == s1[c])
-                c++;
-            else
-                return (*s1 - *s2);
-        }
+    ret = 0;
+    c = 0;
+    while (s1[c] || s2[c])
+    {
+        if (s1[c] < s2[c])
+            ret = s2[c] - s1[c];
+        else if (s1[c] > s2[c])
+            ret = s1[c] - s2[c];
+        else
+            ret = 0;
+        c++;
     }
-    return (0);
+    return (ret);
 }
