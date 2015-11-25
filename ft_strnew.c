@@ -18,8 +18,8 @@ char	*ft_strnew(size_t size)
 	int c;
 
 	c = 0;
-	new = ft_memalloc(size);
-	while (c <= ft_strlen(new))
+	new = ft_memalloc(size + 1);
+	while (c <= (ft_strlen(new)+1))
 	{
 		new[c] = '\0';
 		c++;
