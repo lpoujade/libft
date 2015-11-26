@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 18:08:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/26 14:12:30 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/26 12:04:15 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/26 14:02:27 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strchr(char const *s, int c)
 {
-	char *new;
-	int c;
+	char *p;
 
-	c = 0;
-	new = (char *)ft_memalloc(size + 1);
-	while (c <= (ft_strlen(new)))
-	{
-		new[c] = '\0';
-		c++;
-	}
-	return (new);
+	p = ft_strdup(s);
+	while (*p != c)
+		p++;
+	return (p);
 }

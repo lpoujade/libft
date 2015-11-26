@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 18:08:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/26 14:12:30 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/26 13:36:20 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/26 13:41:24 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strncpy(char *dest, const char *src, size_t n) //--> copy almost n caract, else fill with \0
 {
-	char *new;
-	int c;
+	char *origin;
 
-	c = 0;
-	new = (char *)ft_memalloc(size + 1);
-	while (c <= (ft_strlen(new)))
+	origin = dest;
+	while (n || *src)
 	{
-		new[c] = '\0';
-		c++;
+		*dest = *src;
+		dest++;
+		src++;
+		n++;
 	}
-	return (new);
+	return (origin);
 }
+

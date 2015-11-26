@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 18:08:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/26 14:12:30 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/26 11:28:05 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/26 14:27:53 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	**ft_strsplit(char const *s, char c)
 {
-	char *new;
-	int c;
+	char **ret;
+	char **ret_act;
+	char const *s2;
 
-	c = 0;
-	new = (char *)ft_memalloc(size + 1);
-	while (c <= (ft_strlen(new)))
+	ret = (char **)ft_memalloc(ft_strlen(s));
+	ret_act = ret;
+	s2 = s;
+	while (s2)
 	{
-		new[c] = '\0';
-		c++;
+		if ((*s2 == c) && (*(s2 + 1) != c))
+		{
+			//*ret_act = ft_strsub(s2, (s2 + 1), ft_strclchr((s2 + 1), c));
+			ft_strncat(*ret_act, (s2 + 1), ft_strclchr((s2 + 1), c));
+			ret_act++;
+		}
+		s2++;
 	}
-	return (new);
+	return (ret);
 }

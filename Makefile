@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2015/11/26 10:18:38 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/11/26 14:35:20 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,20 @@ SRC=ft_itoa.c		\
 	ft_putnbr_fd.c	\
 	ft_strlen.c		\
 	ft_strcpy.c		\
+	ft_strncpy.c	\
 	ft_strnew.c		\
 	ft_strcat.c		\
+	ft_strncat.c	\
+	ft_strsub.c		\
 	ft_strdup.c		\
 	ft_strdel.c		\
 	ft_strclr.c		\
 	ft_strcmp.c		\
+	ft_strcchr.c	\
+	ft_strclchr.c	\
+	ft_strchr.c		\
 	ft_strjoin.c	\
+	ft_strsplit.c	\
 	ft_memset.c		\
 	ft_bzero.c		\
 	ft_memalloc.c	\

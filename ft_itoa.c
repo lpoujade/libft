@@ -12,19 +12,27 @@
 
 #include "libft.h"
 
-char	*itoa(int n)
+char	*ft_itoa(int n)
 {
-	
+	/*
 	char *nb;
 
-	nb = ;
+	nb = ft_strnew(sizeof(int) * sizeof(char));
 
-	re = True
-	while (re)
+	if (nb)
 	{
-		if (n < 0)
-			nb = "-";
-		if (n >= 10)
-
-	return (n);
+		while (n)
+		{
+			if (n < 0)
+			{
+				nb = "-";
+				n -= n;
+			}
+			if (n >= 10)
+			{
+			}
+		}
+	}
+	*/
+	return ((char*)(long)n);
 }

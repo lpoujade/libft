@@ -6,19 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 09:51:40 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/26 10:07:29 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/26 11:11:27 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-void	ft_bzero(void *s, unsigned long n)
+void	ft_bzero(void *s, size_t n)
 {
-	void *origin;
-
-	origin = s;
-	while (n)
-	{
-		*origin = '\0';
-		origin++;
-	}
+	ft_memset(s, '\0', n);
 }

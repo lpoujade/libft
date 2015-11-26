@@ -17,15 +17,24 @@ int		main(int ac, char **av)
 	int arg_number = ac-1;
 	char **args = av;
 	char *p;
+	char **splitt;
 
-	ft_putstr("work on last arg : ");
+	ft_putstr("work on last arg :  ");
 	ft_putendl(args[arg_number]);
+	
+	ft_putstr("strcchr, how many 'x' on last arg :  ");
+	ft_putnbr(ft_strcchr(args[arg_number], 'x'));
+	ft_putchar('\n');
+
+	ft_putstr("strchr, where 'x' in last arg :  ");
+	ft_putstr(ft_strchr(args[arg_number], 'x'));
+	ft_putchar('\n');
 
 	ft_putstr("strlen, putnbr : ");
 	ft_putnbr(ft_strlen(args[arg_number]));
 	ft_putchar('\n');
 
-	ft_putstr("ft_memalloc, ft_strcpy : ft_strdup (ft_strnew) ... ");
+	ft_putstr("ft_memalloc, ft_strcpy, ft_strdup (ft_strnew) :  ");
 	p = ft_strdup(args[arg_number]);
 	ft_putendl(p);
 
@@ -52,7 +61,7 @@ int		main(int ac, char **av)
 	ft_putendl(str);
 
 //	KIFOIRENT
-	ft_putstr("ft_strdel (ft_memdel) ... ");
+	ft_putstr("ft_strdel (ft_memdel) :   ");
 	ft_strdel(&p);
 	if (!p)
 		ft_putendl("ok");
@@ -62,6 +71,14 @@ int		main(int ac, char **av)
 		ft_putendl(p);
 		ft_putstr("len : ");
 		ft_putnbr(ft_strlen(p));
+	}
+
+	ft_putendl("split last arg with |");
+	splitt = ft_strsplit(args[arg_number], '|');
+	while (splitt)
+	{
+		ft_putendl(*splitt);
+		splitt++;
 	}
 	return (0);
 }

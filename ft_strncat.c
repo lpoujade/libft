@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 18:08:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/26 14:12:30 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/26 13:34:06 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/26 13:49:35 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char *ft_strncat(char *s1, const char *s2, size_t n) // if s1 >= s1+s2, s1.append(s2).append(\0) | n caract MAX
 {
-	char *new;
-	int c;
-
-	c = 0;
-	new = (char *)ft_memalloc(size + 1);
-	while (c <= (ft_strlen(new)))
-	{
-		new[c] = '\0';
-		c++;
-	}
-	return (new);
+	ft_strncpy((s1 + ft_strlen(s1)), s2, n);
+	return (s1);
 }
