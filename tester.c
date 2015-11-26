@@ -16,12 +16,29 @@ int		main(int ac, char **av)
 {
 	int arg_number = ac-1;
 	char **args = av;
-	char *p;
+//	char *p;
 	char **splitt;
+	int c_count;
 
 	ft_putstr("work on last arg :  ");
 	ft_putendl(args[arg_number]);
 	
+	ft_putstr("Nombre d'arguments : ");
+	ft_putnbr(ac);
+	ft_putchar('\n');
+
+	ft_putstr("Vire les espaces/retours chariot/tabulations autour de l'argument : ");
+	ft_putendl(ft_strtrim(args[arg_number]));
+
+	ft_putendl("split last arg with |");
+	splitt = ft_strsplit(args[arg_number], '|');
+	c_count = ft_strcchr(args[arg_number], '|');
+//	while (c_count)
+//	{
+//		ft_putendl(splitt[c_count]);
+//		c_count--;
+//	}
+/*
 	ft_putstr("strcchr, how many 'x' on last arg :  ");
 	ft_putnbr(ft_strcchr(args[arg_number], 'x'));
 	ft_putchar('\n');
@@ -30,9 +47,6 @@ int		main(int ac, char **av)
 	ft_putstr(ft_strchr(args[arg_number], 'x'));
 	ft_putchar('\n');
 
-	ft_putstr("strlen, putnbr : ");
-	ft_putnbr(ft_strlen(args[arg_number]));
-	ft_putchar('\n');
 
 	ft_putstr("ft_memalloc, ft_strcpy, ft_strdup (ft_strnew) :  ");
 	p = ft_strdup(args[arg_number]);
@@ -72,13 +86,7 @@ int		main(int ac, char **av)
 		ft_putstr("len : ");
 		ft_putnbr(ft_strlen(p));
 	}
+*/	
 
-	ft_putendl("split last arg with |");
-	splitt = ft_strsplit(args[arg_number], '|');
-	while (splitt)
-	{
-		ft_putendl(*splitt);
-		splitt++;
-	}
 	return (0);
 }
