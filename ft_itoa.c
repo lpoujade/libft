@@ -14,11 +14,10 @@
 
 char	*itoa(int n)
 {
-	/*
-	void *nb;
-	bool re;
+	
+	char *nb;
 
-	nb = (char *)ft_memalloc(16*sizeof(char));
+	nb = ;
 
 	re = True
 	while (re)
@@ -27,6 +26,5 @@ char	*itoa(int n)
 			nb = "-";
 		if (n >= 10)
 
-*/
-	return ((char*)(long)n); // FOR WARNINGS, NONSENSE
+	return (n);
 }
