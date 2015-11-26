@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:10 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/25 18:09:41 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/26 10:14:55 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,12 @@ char	*ft_strdup(const char *s1);
 
 char	*ft_itoa(int n);	// DO NOT USE
 
+void ft_bzero(void *s, size_t n);
 char *ft_strcat(char *s1, const char *s2); // if s1 >= s1+s2, s1.append(s2).append(\0)
+
+void *ft_memset(void *b, int c, size_t len); // --> write len*c in *b ( return *b)
+
+
 /*
 **
 **
@@ -54,7 +59,6 @@ char *ft_strcat(char *s1, const char *s2); // if s1 >= s1+s2, s1.append(s2).appe
 ** char *ft_strstr(char const *s1, char const *s2); --> locate 1st occurence of s2 in s1
 ** char *ft_strnstr(char const *s1, char const *s2, size_t n); --> strstr but not more n caract are searched ( n caract from s2 ? )
 ** int ft_strncmp(char const *s1, char const *s2, size_t n); --> compare not more than n caract
-** void *ft_memset(void *b, int c, size_t len); --> write len*c in *b ( return *b)
 ** void ft_bzero(void *s, size_t n); --> write n*\0 in s
 ** void *ft_memcpy(void *dest, void const *src, size_t n); --> cp n bytes from src to dest
 ** void *ft_memccpy(void *dest, void const *src, int c, size_t n); --> cp n bytes from src to dest else if c (converted to unsigned char) in src, so point
