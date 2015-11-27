@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:10 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/26 16:44:42 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/27 10:45:36 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
 void	*ft_memset(void *b, int c, size_t len);
 
-char	*ft_itoa(int n);	// DO NOT USE
+char	*ft_itoa(int n);
 
 /*
 **
