@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2015/11/27 20:30:27 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/11/27 23:20:51 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,10 +54,12 @@ SRC=ft_itoa.c		\
 	ft_isupper.c	\
 	ft_toupper.c	\
 	ft_isalpha.c	\
-	ft_memset.c		\
 	ft_bzero.c		\
+	ft_memset.c		\
 	ft_memalloc.c	\
-	ft_memdel.c	
+	ft_memdel.c		\
+	ft_memcpy.c		\
+	ft_memmove.c	
 
 SRC:=$(addprefix $(SRCDIR)/,$(SRC))
 

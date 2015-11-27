@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:10 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/27 15:30:30 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/27 23:21:16 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char	*ft_strdup(const char *s1); // --------------------------------
 char	*ft_strtrim(char const *s);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 int		ft_strequ(char const *s1, char const *s2);
+char	*ft_strstr(char const *s1, char const *s2);
 
 int		ft_isupper(int c);
 int		ft_isalpha(int c);
@@ -60,6 +61,8 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
 void	*ft_memset(void *b, int c, size_t len);
+void	*ft_memcpy(void *dest, void const *src, size_t n);
+void	*ft_memmove(void *dest, void const *src, size_t len);
 
 char	*ft_itoa(int n);
 
@@ -72,13 +75,10 @@ char	*ft_itoa(int n);
 **
 ** size_t ft_strlcat(char *dest, char const *src, size_t size);  --> dest.append(src) + \0 "at most size - len(dest) - 1 bytes" 
 ** char *ft_strrchr(char const *s, int c); --> like strchr, but last occurence instead of first.
-** char *ft_strstr(char const *s1, char const *s2); --> locate 1st occurence of s2 in s1
 ** char *ft_strnstr(char const *s1, char const *s2, size_t n); --> strstr but not more n caract are searched ( n caract from s2 ? )
 ** int ft_strncmp(char const *s1, char const *s2, size_t n); --> compare not more than n caract
 
-** void *ft_memcpy(void *dest, void const *src, size_t n); --> cp n bytes from src to dest
 ** void *ft_memccpy(void *dest, void const *src, int c, size_t n); --> cp n bytes from src to dest else if c (converted to unsigned char) in src, so point
-** void *ft_move(void *dest, void const *src, size_t len); --> cp len bytes from src to dest
 ** void *ft_memchr(void const *s, int c, size_t n); --> locates c (unsigned char) in s, return pointer to it
 ** void *ft_memcmp(void const *s1, void const *s2, size_t n); --> compare s1, s2 : len(both)=n
 
