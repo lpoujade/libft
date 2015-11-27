@@ -1,14 +1,19 @@
 #include "../libft.h"
 
+char c2c(char c);
+
 int	main(int ac, char **av)
 {
-	int (*ptf)(int);
+	char (*ptf)(char);
 
-	ptf = &ft_toupper;
-	if (ac == 0)
+	ptf = &c2c;
+
+	if (ac <= 1)
 		ft_putendl("Need at least one argument");
 	else
-		ft_putendl(ft_strmap(av[1], (*ptf)(av[1][1])));
+	{
+		ft_putendl("ELSE");ft_putendl(av[1]);
+		ft_putendl(ft_strmap(av[1], (*ptf)));
+	}
 	return (0);
 }
-
