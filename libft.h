@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:10 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/27 10:45:36 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/27 15:30:30 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ int		ft_strclchr(char const *s, char c);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s1);
 char	*ft_strtrim(char const *s);
+int		ft_strnequ(char const *s1, char const *s2, size_t n);
+int		ft_strequ(char const *s1, char const *s2);
+
+int		ft_isupper(int c);
+int		ft_isalpha(int c);
+int		ft_toupper(int c);
+
+//char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_strmap(char const *s, char (*f)(char));
 
 void	ft_bzero(void *s, size_t n);
 
@@ -68,7 +77,6 @@ char	*ft_itoa(int n);
 ** void *ft_memchr(void const *s, int c, size_t n); --> locates c (unsigned char) in s, return pointer to it
 ** void *ft_memcmp(void const *s1, void const *s2, size_t n); --> compare s1, s2 : len(both)=n
 ** int ft_atoi(char const *str); --> convert str.... to int representation (???)
-** int ft_isalpha(int c); --> alpha: maj or min
 ** int ft_isdigit(int c); --> depend on locale. else : 0->9
 ** int ft_isalnum(int c); --> isalpha() or isdigit()
 ** int ft_isascii(int c); --> is ascii
@@ -82,9 +90,6 @@ char	*ft_itoa(int n);
 **void	  ft_striter(char *s, void (*f)(char *));
 **void	  ft_striteri(char *s, void (*f)(unsigned int, char *));
 **char *  ft_strmap(char const *s, char (*f)(char));
-**char *  ft_strmapi(char const *s, char (*f)(unsigned int, char));
-**int	  ft_strequ(char const *s1, char const *s2);
-**int	  ft_strnequ(char const *s1, char const *s2, size_t n);
 **
 */
 

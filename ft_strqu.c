@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strqu.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 13:36:20 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/27 12:49:28 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/27 14:16:31 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/27 14:20:17 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	char *origin;
+	int index;
 
-//	ft_putstr("IN STRNCPY, longueur de la chaine a copier : ");
-//	ft_putnbr(n);ft_putchar('\n');
-//	ft_putstr("IN STRNCPY, chaine a copier : ");
-//	ft_putendl(src);
+	while (s1[index] && s2[index] && s1[index] == s2[index])
+		index++;
+	if (s1[index] == s2[index])
+		index = 1;
+	else
+		index = 0;
 
-	origin = dest;
-	while (n > 0 && *src)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-		n--;
-	}
-	return (origin);
+	return (index);
 }

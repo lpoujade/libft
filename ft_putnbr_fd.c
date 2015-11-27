@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 09:55:45 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 09:58:16 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/27 12:34:38 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n -= n;
+		n = -n;
 	}
 	if (n >= 10)
 	{
