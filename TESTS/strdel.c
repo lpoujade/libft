@@ -16,6 +16,9 @@ int main(void)
 
 	ft_strdel(&str);
 
+	ft_putchar(*str);
+	ft_putchar(*(str+19));
+	ft_putchar('\n');
 	
 	if (!str)
 		return (0);

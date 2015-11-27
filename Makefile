@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2015/11/27 15:29:57 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/11/27 20:30:27 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SRC=ft_itoa.c		\
 	ft_strsplit.c	\
 	ft_strtrim.c	\
 	ft_strmap.c		\
+	ft_strmapi.c	\
 	ft_isupper.c	\
 	ft_toupper.c	\
 	ft_isalpha.c	\
