@@ -33,13 +33,13 @@ char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_strsplit(char const *s, char c);
-void	ft_strdel(char **as);
-void	ft_strclr(char *s);
+void	ft_strdel(char **as); //--------------------------------
+void	ft_strclr(char *s); //----------------------------------
 char	*ft_strchr(char const *s, int c);
 int		ft_strcchr(char const *s, char c);
 int		ft_strclchr(char const *s, char c);
-char	*ft_strsub(char const *s, unsigned int start, size_t len);
-char	*ft_strdup(const char *s1);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);// --
+char	*ft_strdup(const char *s1); // --------------------------------
 char	*ft_strtrim(char const *s);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 int		ft_strequ(char const *s1, char const *s2);
@@ -47,6 +47,10 @@ int		ft_strequ(char const *s1, char const *s2);
 int		ft_isupper(int c);
 int		ft_isalpha(int c);
 int		ft_toupper(int c);
+int		ft_tolower(int c);
+int     ft_isascii(int c);
+int     ft_isdigit(int c);
+int     ft_isalnum(int c);
 
 //char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strmap(char const *s, char (*f)(char));
@@ -71,18 +75,14 @@ char	*ft_itoa(int n);
 ** char *ft_strstr(char const *s1, char const *s2); --> locate 1st occurence of s2 in s1
 ** char *ft_strnstr(char const *s1, char const *s2, size_t n); --> strstr but not more n caract are searched ( n caract from s2 ? )
 ** int ft_strncmp(char const *s1, char const *s2, size_t n); --> compare not more than n caract
+
 ** void *ft_memcpy(void *dest, void const *src, size_t n); --> cp n bytes from src to dest
 ** void *ft_memccpy(void *dest, void const *src, int c, size_t n); --> cp n bytes from src to dest else if c (converted to unsigned char) in src, so point
 ** void *ft_move(void *dest, void const *src, size_t len); --> cp len bytes from src to dest
 ** void *ft_memchr(void const *s, int c, size_t n); --> locates c (unsigned char) in s, return pointer to it
 ** void *ft_memcmp(void const *s1, void const *s2, size_t n); --> compare s1, s2 : len(both)=n
+
 ** int ft_atoi(char const *str); --> convert str.... to int representation (???)
-** int ft_isdigit(int c); --> depend on locale. else : 0->9
-** int ft_isalnum(int c); --> isalpha() or isdigit()
-** int ft_isascii(int c); --> is ascii
-**isprint
-**toupper
-**tolower
 **
 **
 ** pas classique 
