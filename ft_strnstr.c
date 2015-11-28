@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:14:23 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 22:39:14 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/28 15:54:22 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/28 15:58:00 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strnstr(char const *s1, char const *s2, size_t n)
 {
-	unsigned long i;
-	unsigned char *b2;
-	unsigned char c2;
+	int index1;
+	int index2;
+	int pos;
+	char *ret;
 
-	c2 = c;
-	b2 = b;
-	i = 0;
-	while (i <= len)
+	index1 = 0;
+	index2 = 0;
+	pos = -1;
+	while (s1[index1] && n)
 	{
-		b2[i] = c;
-		i++;
+		if (s2[index2] && (s1[index1] == s2[index2]))
+		{
+			if (pos < 0)
+				pos = index1;
+			index2++;
+		}
+		index1++;
+		n--;
 	}
-	return (b);
+	if (pos > 0)
+		ret = (char *)(s1 + pos);
+	else
+		ret = NULL;
+	return (ret);
 }

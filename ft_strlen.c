@@ -6,13 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:19:53 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/26 21:02:28 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/28 21:02:24 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(const char *str)
+size_t		ft_strlen(const char *str)
 {
 	int x;
 

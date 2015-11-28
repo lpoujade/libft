@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 15:28:50 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/27 16:36:59 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/28 16:13:48 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	ft_putendl("IN STRMAP");
 	int index;
 	char *ret;
 
 	ret = ft_strnew(strlen(s));
 	index = 0;
+	ft_putnbr(ft_strlen(s));ft_putchar('\n');
 	while (s[index])
 	{
 		ret[index] = (*f)(s[index]);

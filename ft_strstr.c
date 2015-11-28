@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 23:20:22 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/27 23:24:31 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/28 15:52:02 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,27 @@
 
 char	*ft_strstr(char const *s1, char const *s2)
 {
-	int index;
-	int len_s2;
+	int index1;
+	int index2;
+	int pos;
+	char *ret;
 
-	len_s2 = ft_strlen(s2);
-	index = 0;
-	while (s1[index] || *s2[index])
+	index1 = 0;
+	index2 = 0;
+	pos = -1;
+	while (s1[index1])
 	{
-		if (s1[index] == s2[index])
+		if (s2[index2] && (s1[index1] == s2[index2]))
 		{
-			while (len_s2)
-				index++;
+			if (pos < 0)
+				pos = index1;
+			index2++;
 		}
+		index1++;
 	}
-	return (
+	if (pos > 0)
+		ret = (char *)(s1 + pos);
+	else
+		ret = NULL;
+	return (ret);
+}

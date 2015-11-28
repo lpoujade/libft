@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:14:23 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 22:39:14 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/28 16:18:55 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/28 21:55:28 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	unsigned long i;
-	unsigned char *b2;
-	unsigned char c2;
+	int index;
+	char *i;
 
-	c2 = c;
-	b2 = b;
-	i = 0;
-	while (i <= len)
+	index = 0;
+	while (s[index])
 	{
-		b2[i] = c;
-		i++;
+		i = (s + index);
+		(f)(i);
+		index++;
 	}
-	return (b);
 }

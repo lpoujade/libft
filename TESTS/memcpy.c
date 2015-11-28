@@ -2,18 +2,18 @@
 
 int main(void)
 {
-	void *src;
-	void *dst;
+//	char const src[20] = "test of ft_memcmp";
+//	char dest[20];
+//
+//	ft_putstr("BEFORE CPY : ");
+//	ft_putendl(src);
+//
+//	
+//	ft_putstr("AFTER CPY : ");
+//	ft_putendl(ft_memchr(src, 'm', ft_strlen(src) + 1));
 
-	char *final;
 
-	dst = ft_memalloc(10);
-	src = "one ";
-	final = (char *)ft_memcpy(dst, src, 5);
-	if (!final)
-		ft_putendl("NOTHING");
-	else
-		ft_putendl(final);
-
+	ft_putnbr(ft_memcmp("Do", "on", 0));
 	return (0);
+
 }

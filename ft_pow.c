@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:14:23 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 22:39:14 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/28 18:29:41 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/28 19:21:17 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int		ft_pow(int n, int p)
 {
-	unsigned long i;
-	unsigned char *b2;
-	unsigned char c2;
+	int tmp;
 
-	c2 = c;
-	b2 = b;
-	i = 0;
-	while (i <= len)
+	tmp = n;
+	while (p-1)
 	{
-		b2[i] = c;
-		i++;
+		n = n*tmp;
+		p--;
 	}
-	return (b);
+	return (n);
 }

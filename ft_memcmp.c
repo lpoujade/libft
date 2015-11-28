@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:14:23 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 22:39:14 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/28 14:00:57 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/28 14:13:09 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int		ft_memcmp(void const *s1, void const *s2, size_t n)
 {
-	unsigned long i;
-	unsigned char *b2;
-	unsigned char c2;
+	unsigned int index;
+	int ret;
+	char *sf1;
+	char *sf2;
 
-	c2 = c;
-	b2 = b;
-	i = 0;
-	while (i <= len)
-	{
-		b2[i] = c;
-		i++;
-	}
-	return (b);
+	sf1 = (char *)s1;
+	sf2 = (char *)s2;
+	index = 0;
+	while (index <= n && sf1[index] == sf2[index])
+		index++;
+	if (index == n)
+		ret = 0;
+	else if (sf1[index] > sf2[index])
+		ret = sf1[index] - sf2[index];
+	else
+		ret = sf2[index] - sf1[index];
+	return (ret);
 }

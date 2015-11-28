@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 22:36:49 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/27 23:11:07 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/28 12:44:48 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	*ft_memcpy(void *dst, void const *src, size_t n)
 {
 	char *tmp_d;
-	char *tmp_s;
+	char const *tmp_s;
+	int index;
 
+	index = 0;
 	tmp_d = (char *)dst;
-	tmp_s = (char *)src;
+	tmp_s = (char const *)src;
 	while (n)
 	{
-		tmp_d = tmp_s;
-		tmp_d++;
-		tmp_s++;
+		tmp_d[index] = tmp_s[index];
 		n--;
-		ft_putendl(tmp_d);
+		index++;
 	}
 	return (dst);
 }

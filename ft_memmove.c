@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 23:11:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/27 23:19:23 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/28 12:56:45 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 
 void	*ft_memmove(void *dest, void const *src, size_t len)
 {
-	char *tmp;
-	unsigned int index;
-	char *src_save;
+	void *tmp;
 
-	index = 0;
-	src_save = (char *)src;
-	tmp = (char *)ft_memalloc(len);
-	while(index <= len)
+	tmp = ft_memalloc(len);
+	if (!ft_memcpy(tmp, src, len))
 	{
-		tmp[index] = src_save[index];
-		index++;
+		ft_putendl_fd("In ft_memmove, malloc failed", 2);
+		return (NULL);
 	}
-	index = 0;
+	
 	ft_memcpy(dest, tmp, len);
 	return (dest);
 }

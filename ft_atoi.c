@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:14:23 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 22:39:14 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/28 18:24:04 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/28 19:23:12 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int		ft_atoi(char const *s)
 {
-	unsigned long i;
-	unsigned char *b2;
-	unsigned char c2;
+	int ret;
+	int i;
 
-	c2 = c;
-	b2 = b;
+	ret = 0;
 	i = 0;
-	while (i <= len)
+	while (s[i])
 	{
-		b2[i] = c;
+		ret = ret + (s[i] * ft_pow(10, i));
+		ft_putendl("oh");
 		i++;
 	}
-	return (b);
+	return (ret);
 }
