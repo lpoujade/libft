@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 21:40:42 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/29 15:26:32 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ char	*ft_strdup(const char *s1);
 char	*ft_strtrim(char const *s);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strstr(char const *s1, char const *s2);
+char	*ft_strinv(char *s);
 
 int		ft_isupper(int c);
 int		ft_isalpha(int c);

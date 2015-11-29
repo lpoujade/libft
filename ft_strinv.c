@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_strinv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 18:29:41 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/29 15:20:34 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/11/29 15:21:48 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/29 15:34:22 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_pow(int n, int p)
+char	*ft_strinv(char *s)
 {
-	int tmp;
+	char *tmp;
+	int i;
+	int c;
 
-	if (p)
+	i = ft_strlen(s) - 1;
+	c = 0;
+	tmp = ft_strdup(s);
+	while (i + 1)
 	{
-		tmp = n;
-		while (p-1)
-		{
-			n = n*tmp;
-			p--;
-		}
-		return (n);
+		s[c] = tmp[i];
+		i--;
+		c++;
 	}
-	else
-		return (1);
+	ft_strdel(&tmp);
+	return (s);
 }

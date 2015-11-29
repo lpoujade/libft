@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:36:20 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/27 20:57:04 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/29 14:12:09 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	char *origin;
+	unsigned int index;
 
-	origin = dest;
-	while (n > 0 && *src)
+	index = 0;
+	while (index < n && src[index])
 	{
-		*dest = *src;
-		dest++;
-		src++;
-		n--;
+		dest[index] = src[index];
+		index++;
 	}
-	return (origin);
+	while (index < n)
+	{
+		dest[index] = '\0';
+		index++;
+	}
+	return (dest);
 }

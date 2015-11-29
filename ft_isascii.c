@@ -6,13 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 20:31:12 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/27 20:31:18 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/29 14:25:29 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int     ft_isascii(int c)
 {
-    if (c >= 0 || c <= 127)
+    if (c >= 0 && c <= 127)
         return (1);
     else
         return (0);
