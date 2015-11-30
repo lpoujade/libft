@@ -8,17 +8,102 @@ int main(void)
 	ft_putendl("Compare libc's and libft's functions");
 
 
-	ft_putstr("STRCMP : ");ft_putchar('\n');
-	char *str = "abc\200";
-	char *str2 = "abc\200";
-	ft_putstr("libft : ");ft_putnbr(ft_strcmp(str, str2));ft_putchar('\n');
-	ft_putstr("libc : ");ft_putnbr(strcmp(str, str2));ft_putchar('\n');
+	ft_putstr("STRCHR : ");
+
+	static char s[] = "somes words";
+	char o = 'm';
+	if (strcmp(ft_strchr(s, o), strchr(s, o)))
+	{
+		ft_putchar('\n');
+		ft_putstr("libc  : ");ft_putendl(strchr(s, o));
+		ft_putstr("libft : ");ft_putendl(ft_strchr(s, o));
+	}
+	else
+		ft_putendl("OK");
 
 /*
+	ft_putstr("MEMCHR : ");
+
+	char const *s = "words";ft_memchr(s, 't', 5);
+		ft_putendl("O");
+	if (memcmp(ft_memchr(s, 'o', 5), memchr(s, 't', 5), 5))
+	{
+		ft_putchar('\n');
+		ft_putnbr(memcmp(ft_memchr(s, 't', 5), memchr(s, 't', 5), 5));
+	}
+	else
+		ft_putendl("OK");
+*/
+	/*
+	ft_putstr("MEMCCPY : ");
+
+	char	src[] = "Ceci est un \200test.";
+	char	dest[200];
+	void	*p1, *p2;
+
+	p1 = memccpy(dest, src, '\200', 18);
+	p2 = ft_memccpy(dest, src, '\200', 18);
+
+	if (memcmp(p1, p2, 18))
+	{
+		ft_putchar('\n');
+		ft_putnbr(memcmp(p1, p2, 18));
+		ft_putchar('\n');
+		//ft_putstr("libc  : ");ft_putendl((char *)p1);
+		//ft_putstr("libft : ");ft_putendl((char *)p2);
+		
+	}
+	else
+		ft_putendl("OK");
+*/
+/*
+	char one[] = "eeb";
+	char to[] = "eea";
+	int n = 2;
+
+	ft_putstr("MEMCMP : ");
+
+	if (memcmp(one, to, n) != ft_memcmp(one, to, n))
+	{
+		ft_putchar('\n');
+		ft_putstr("libc : ");
+		ft_putnbr(memcmp(one, to, n));ft_putchar('\n');
+		ft_putstr("libft : ");
+		ft_putnbr(ft_memcmp(one, to, n));ft_putchar('\n');
+	}
+	else
+		ft_putendl("OK");
+*/
+/*
+	ft_putstr("STRSTR : ");
+
+	char *str1 = "";
+	char *str2 = NULL;
+
+
+	if (strcmp(ft_strstr(str1, str2), strstr(str1, str2)) != 0)
+	{
+		ft_putchar('\n');ft_putnbr(strcmp(ft_strstr(str1, str2), strstr(str1, str2)));ft_putchar('\n');
+		ft_putstr("libc : ");ft_putendl(strstr(str1, str2));
+		ft_putstr("libft : ");ft_putendl(ft_strstr(str1, str2));
+	}
+	else
+		ft_putendl("OK");
+
+*/
+	/*
+	ft_putstr("STRCMP : ");ft_putchar('\n');
+	char *str = "\200";
+	char *str2 = "\0";
+	ft_putstr("libft : ");ft_putnbr(ft_strcmp(str, str2));ft_putchar('\n');
+	ft_putstr("libc : ");ft_putnbr(strcmp(str, str2));ft_putchar('\n');
+*/
+/*
 	ft_putstr("ATOI ( ascii to int ) : ");
-	char *nbr = "\f42";
-	ft_putnbr(atoi(nbr));
+	char *nbr = " \n\r  -+42 ergf ";
 	ft_putchar('\n');
+	ft_putstr("libft : ");ft_putnbr(ft_atoi(nbr));ft_putchar('\n');
+	ft_putstr("libc : ");ft_putnbr(atoi(nbr));ft_putchar('\n');
 */
 /*
 

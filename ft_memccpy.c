@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 12:16:09 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 13:29:58 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/30 16:01:18 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 void	*ft_memccpy(void *dest, void const *src, int c, size_t len)
 {
-	c = (unsigned char)c;
 	void *ret;
-	char *tmp_d;
-	char const *tmp_s;
+	unsigned char *tmp_d;
+	unsigned char const *tmp_s;
 	int index;
+	unsigned char cuc;
 
+	cuc = (unsigned char)c;
 	index = 0;
-	tmp_d = (char *)dest;
-	tmp_s = (char const *)src;
-	while (len && tmp_s[index] != c)
+	tmp_d = (unsigned char *)dest;
+	tmp_s = (unsigned char const *)src;
+	while (len && tmp_s[index] != cuc)
 	{
 		tmp_d[index] = tmp_s[index];
 		len--;
 		index++;
 	}
-	if (tmp_s[index] == c)
-		ret = (void *)(tmp_s + (index + 1));
+	if (tmp_s[index] == cuc)
+	{
+		tmp_d[index] = cuc;
+		ret = (void *)(tmp_d + (index + 1));
+	}
 	else
 		ret = NULL;
 

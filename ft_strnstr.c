@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 15:54:22 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 15:58:00 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/30 19:21:21 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 char	*ft_strnstr(char const *s1, char const *s2, size_t n)
 {
-	int index1;
-	int index2;
+	int i1;
+	int i2;
 	int pos;
 	char *ret;
 
-	index1 = 0;
-	index2 = 0;
+	i1 = 0;
 	pos = -1;
-	while (s1[index1] && n)
+	while (s1[i1] && n)
 	{
-		if (s2[index2] && (s1[index1] == s2[index2]))
+		i2 = 0;
+		if (s2[i2] && (s1[i1] == s2[i2]))
 		{
 			if (pos < 0)
-				pos = index1;
-			index2++;
+				pos = i1;
+			i2++;
 		}
-		index1++;
+		i1++;
 		n--;
 	}
 	if (pos > 0)

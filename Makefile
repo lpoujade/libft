@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2015/11/29 15:26:07 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/11/30 10:15:50 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRC=ft_itoa.c		\
 	ft_isdigit.c	\
 	ft_isprint.c	\
 	ft_isalnum.c	\
+	ft_isspace.c	\
 	ft_bzero.c		\
 	ft_memset.c		\
 	ft_memalloc.c	\

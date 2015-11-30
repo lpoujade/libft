@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/29 15:26:32 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/30 10:15:34 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ int		ft_isupper(int c);
 int		ft_isalpha(int c);
 int		ft_toupper(int c);
 int		ft_isalnum(int c);
+int		ft_isprint(int c);
+int		ft_isdigit(int c);
+int		ft_isascii(int c);
+int		ft_isspace(int c);
 
 char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
@@ -77,7 +81,4 @@ int		ft_strequ(char const *s1, char const *s2);
 char	*ft_strnstr(char const *s1, char const *s2, size_t n);
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-int		ft_isprint(int c);
-int		ft_isdigit(int c);
-int		ft_isascii(int c);
 #endif

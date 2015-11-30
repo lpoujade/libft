@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 14:00:57 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 14:13:09 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/30 18:18:23 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,17 @@
 int		ft_memcmp(void const *s1, void const *s2, size_t n)
 {
 	unsigned int index;
-	int ret;
-	char *sf1;
-	char *sf2;
+	unsigned char *sf1;
+	unsigned char *sf2;
 
-	sf1 = (char *)s1;
-	sf2 = (char *)s2;
+	sf1 = (unsigned char *)s1;
+	sf2 = (unsigned char *)s2;
 	index = 0;
-	while (index <= n && sf1[index] == sf2[index])
+	while (n && sf1[index] == sf2[index])
+	{
+		n--;
 		index++;
-	if (index == n)
-		ret = 0;
-	else if (sf1[index] > sf2[index])
-		ret = sf1[index] - sf2[index];
-	else
-		ret = sf2[index] - sf1[index];
-	return (ret);
+	}
+
+	return (sf1[index] - sf2[index]);
 }
