@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/30 10:15:34 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/30 22:58:17 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_strcchr(char const *s, char c);
 int		ft_strclchr(char const *s, char c);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s1);
+char	*ft_strndup(const char *s1, size_t n);
 char	*ft_strtrim(char const *s);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strstr(char const *s1, char const *s2);

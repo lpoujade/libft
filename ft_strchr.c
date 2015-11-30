@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 12:04:15 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/30 19:40:38 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/11/30 20:53:14 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 char	*ft_strchr(char const *s, int c)
 {
-	size_t i;
+	char *str;
 
-	i = 0;
-	while (s[i] != (char)c && s[i - 1])
-		i++;
-	if (i == ft_strlen(s))
-		return (NULL);
-	else
-		return ((char *)(s + i + 1));
+	str = (char *)s;
+	while(*str != c)
+	{
+		if (!(*str) && c != '\0')
+			return (NULL);
+		str++;
+	}
+	return (str);
 }
