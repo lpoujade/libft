@@ -7,9 +7,10 @@ int main(void)
 {
 	ft_putendl("Compare libc's and libft's functions");
 
-
+/*
 	ft_putstr("STRCHR : ");
 
+<<<<<<< HEAD
 	static char s_strchr[] = "Je suis un poisson.";
 	char o_strchr = 'p';
 	if (strcmp(ft_strchr(s_strchr, o_strchr), strchr(s_strchr, o_strchr)))
@@ -17,10 +18,23 @@ int main(void)
 		ft_putendl("NOT OK");
 		ft_putstr("libc  : ");ft_putendl(strchr(s_strchr, o_strchr));
 		ft_putstr("libft : ");ft_putendl(ft_strchr(s_strchr, o_strchr));
+=======
+	static char s[] = "Je suis un poisson.";
+	char o = 'p';
+	if (strcmp(ft_strchr(s, o), strchr(s, o)))
+	{
+		ft_putendl("NOT OK");
+		ft_putstr("libc  : ");ft_putendl(strchr(s, o));
+		ft_putstr("libft : ");ft_putendl(ft_strchr(s, o));
+>>>>>>> 0e1f7d2b64d768151b3af686887f4e1b5a57ed9e
 	}
 	else
 		ft_putendl("OK");
+*/
+/*
+	ft_putstr("STRRCHR : ");
 
+<<<<<<< HEAD
 
 	ft_putstr("STRRCHR : ");
 
@@ -36,6 +50,20 @@ int main(void)
 		ft_putendl("OK");
 
 
+=======
+	static char s[] = "Je suis un poisson.";
+	char o = 'x';
+	if (strcmp(ft_strrchr(s, o), strrchr(s, o)))
+	{
+		ft_putendl("NOT OK");
+		ft_putstr("libc  : ");ft_putendl(strrchr(s, o));
+		ft_putstr("libft : ");ft_putendl(ft_strrchr(s, o));
+	}
+	else
+		ft_putendl("OK");
+*/
+/*
+>>>>>>> 0e1f7d2b64d768151b3af686887f4e1b5a57ed9e
 	ft_putstr("MEMCHR : ");
 
 	char const *s_memchr = "words";
@@ -71,6 +99,7 @@ int main(void)
 	}
 	else
 		ft_putendl("OK");
+<<<<<<< HEAD
 
 
 	ft_putstr("MEMCMP : ");
@@ -80,6 +109,17 @@ int main(void)
 	int n = 0;
 
 	if (memcmp(one_memcmp, to_memcmp, n) != ft_memcmp(one_memcmp, to_memcmp, n))
+=======
+*/
+/*
+	ft_putstr("MEMCMP : ");
+
+	char one[] = "ab\0ab\0";
+	char to[] = "ab\0ab\0";
+	int n = 0;
+
+	if (memcmp(one, to, n) != ft_memcmp(one, to, n))
+>>>>>>> 0e1f7d2b64d768151b3af686887f4e1b5a57ed9e
 	{
 		ft_putendl("NOT OK");
 		ft_putstr("libc : ");
@@ -93,8 +133,13 @@ int main(void)
 
 	ft_putstr("STRSTR : ");
 
+<<<<<<< HEAD
 	char *str1_strstr = "some";
 	char *str2_strstr = "";
+=======
+	char *str1 = "some";
+	char *str2 = "";
+>>>>>>> 0e1f7d2b64d768151b3af686887f4e1b5a57ed9e
 
 
 	if (strcmp(ft_strstr(str1_strstr, str2_strstr), strstr(str1_strstr, str2_strstr)) != 0)
@@ -125,7 +170,27 @@ int main(void)
 	else
 		ft_putendl("OK");
 */
+<<<<<<< HEAD
 
+=======
+	ft_putstr("STRNSTR : ");
+
+	char *str1 = "Foo Bar Baz";
+	char *str2 = "Bar";
+	int n = 8;
+
+
+//	if (strcmp(strnstr(str1, str2, n), strnstr(str1, str2, n)) != 0)
+//	{
+//		ft_putendl("NOT OK");
+	//	ft_putnbr(strcmp(ft_strnstr(str1, str2, n), strnstr(str1, str2, n)));ft_putchar('\n');
+		ft_putstr("libc : ");ft_putendl(strnstr(str1, str2, n));
+		ft_putstr("libft : ");ft_putendl(ft_strnstr(str1, str2, n));
+//	}
+//	else
+//		ft_putendl("OK");
+	/*
+>>>>>>> 0e1f7d2b64d768151b3af686887f4e1b5a57ed9e
 	ft_putstr("STRCMP : ");ft_putchar('\n');
 	char *str_strcmp = "\200";
 	char *str2_strcmp = "\0";

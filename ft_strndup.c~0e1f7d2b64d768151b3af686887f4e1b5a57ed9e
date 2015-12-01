@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 14:00:57 by lpoujade          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2015/12/01 18:59:50 by lpoujade         ###   ########.fr       */
-=======
-/*   Updated: 2015/11/30 21:56:48 by lpoujade         ###   ########.fr       */
->>>>>>> 0e1f7d2b64d768151b3af686887f4e1b5a57ed9e
+/*   Created: 2015/11/30 22:54:00 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/11/30 23:26:10 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(void const *s1, void const *s2, size_t n)
+char	*ft_strndup(char const *s, size_t n)
 {
-	unsigned char *cs1;
-	unsigned char *cs2;
-	if (n == 0)
-		return (0);
-	cs1 = (unsigned char *)s1;
-	cs2 = (unsigned char *)s2;
-	while (*cs1 == *cs2)
+	char *s_d;
+	if (n < ft_strlen(s))
 	{
-		n--;
-		if (!n)
-			return (0);
-		cs1++;
-		cs2++;
+		s_d = ft_strnew(ft_strlen(s) - n);
+		return (strncpy(s_d, s, n-1));
 	}
-	return (*cs1 - *cs2);
+	else
+		return ((char*)s);
 }
