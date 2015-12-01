@@ -10,13 +10,13 @@ int main(void)
 
 	ft_putstr("STRCHR : ");
 
-	static char s[] = "Je suis un poisson.";
-	char o = 'p';
-	if (strcmp(ft_strchr(s, o), strchr(s, o)))
+	static char s_strchr[] = "Je suis un poisson.";
+	char o_strchr = 'p';
+	if (strcmp(ft_strchr(s_strchr, o_strchr), strchr(s_strchr, o_strchr)))
 	{
 		ft_putendl("NOT OK");
-		ft_putstr("libc  : ");ft_putendl(strchr(s, o));
-		ft_putstr("libft : ");ft_putendl(ft_strchr(s, o));
+		ft_putstr("libc  : ");ft_putendl(strchr(s_strchr, o_strchr));
+		ft_putstr("libft : ");ft_putendl(ft_strchr(s_strchr, o_strchr));
 	}
 	else
 		ft_putendl("OK");
@@ -25,12 +25,12 @@ int main(void)
 	ft_putstr("STRRCHR : ");
 
 	static char s[] = "Je suis un poisson.";
-	char o = 'x';
-	if (strcmp(ft_strrchr(s, o), strrchr(s, o)))
+	char o_strrchr = 'o';
+	if (strcmp(ft_strrchr(s, o_strrchr), strrchr(s, o_strrchr)))
 	{
 		ft_putendl("NOT OK");
-		ft_putstr("libc  : ");ft_putendl(strrchr(s, o));
-		ft_putstr("libft : ");ft_putendl(ft_strrchr(s, o));
+		ft_putstr("libc  : ");ft_putendl(strrchr(s, o_strrchr));
+		ft_putstr("libft : ");ft_putendl(ft_strrchr(s, o_strrchr));
 	}
 	else
 		ft_putendl("OK");
@@ -38,12 +38,14 @@ int main(void)
 
 	ft_putstr("MEMCHR : ");
 
-	char const *s = "words";ft_memchr(s, 't', 5);
-		ft_putendl("O");
-	if (memcmp(ft_memchr(s, 'o', 5), memchr(s, 't', 5), 5))
+	char const *s_memchr = "words";
+	char c_memchr = 'o';
+	int len_memchr = 5;
+
+	if (memcmp(ft_memchr(s_memchr, c_memchr, len_memchr), memchr(s_memchr, c_memchr, len_memchr), 5))
 	{
 		ft_putchar('\n');
-		ft_putnbr(memcmp(ft_memchr(s, 't', 5), memchr(s, 't', 5), 5));
+		ft_putnbr(memcmp(ft_memchr(s_memchr, c_memchr, len_memchr), memchr(s_memchr, c_memchr, len_memchr), 5));
 	}
 	else
 		ft_putendl("OK");
@@ -51,12 +53,12 @@ int main(void)
 
 	ft_putstr("MEMCCPY : ");
 
-	char	src[] = "Ceci est un \200test.";
+	char	src_memccpy[] = "Ceci est un \200test.";
 	char	dest[200];
 	void	*p1, *p2;
 
-	p1 = memccpy(dest, src, '\200', 18);
-	p2 = ft_memccpy(dest, src, '\200', 18);
+	p1 = memccpy(dest, src_memccpy, '\200', 18);
+	p2 = ft_memccpy(dest, src_memccpy, '\200', 18);
 
 	if (memcmp(p1, p2, 18))
 	{
@@ -73,17 +75,17 @@ int main(void)
 
 	ft_putstr("MEMCMP : ");
 
-	char one[] = "ab\0ab\0";
-	char to[] = "ab\0ab\0";
+	char one_memcmp[] = "ab\0ab\0";
+	char to_memcmp[] = "ab\0ab\0";
 	int n = 0;
 
-	if (memcmp(one, to, n) != ft_memcmp(one, to, n))
+	if (memcmp(one_memcmp, to_memcmp, n) != ft_memcmp(one_memcmp, to_memcmp, n))
 	{
 		ft_putendl("NOT OK");
 		ft_putstr("libc : ");
-		ft_putnbr(memcmp(one, to, n));ft_putchar('\n');
+		ft_putnbr(memcmp(one_memcmp, to_memcmp, n));ft_putchar('\n');
 		ft_putstr("libft : ");
-		ft_putnbr(ft_memcmp(one, to, n));ft_putchar('\n');
+		ft_putnbr(ft_memcmp(one_memcmp, to_memcmp, n));ft_putchar('\n');
 	}
 	else
 		ft_putendl("OK");
@@ -91,44 +93,44 @@ int main(void)
 
 	ft_putstr("STRSTR : ");
 
-	char *str1 = "some";
-	char *str2 = "";
+	char *str1_strstr = "some";
+	char *str2_strstr = "";
 
 
-	if (strcmp(ft_strstr(str1, str2), strstr(str1, str2)) != 0)
+	if (strcmp(ft_strstr(str1_strstr, str2_strstr), strstr(str1_strstr, str2_strstr)) != 0)
 	{
-		ft_putchar('\n');ft_putnbr(strcmp(ft_strstr(str1, str2), strstr(str1, str2)));ft_putchar('\n');
-		ft_putstr("libc : ");ft_putendl(strstr(str1, str2));
-		ft_putstr("libft : ");ft_putendl(ft_strstr(str1, str2));
+		ft_putchar('\n');ft_putnbr(strcmp(ft_strstr(str1_strstr, str2_strstr), strstr(str1_strstr, str2_strstr)));ft_putchar('\n');
+		ft_putstr("libc : ");ft_putendl(strstr(str1_strstr, str2_strstr));
+		ft_putstr("libft : ");ft_putendl(ft_strstr(str1_strstr, str2_strstr));
 	}
 	else
 		ft_putendl("OK");
 
 
-
+/*
 	ft_putstr("STRNSTR : ");
 
-	char str1[10]; bzero(str1, 10);strcpy(str1, "un deux 9");
-	char *str2 = "deux 9";
-	int n = 5;
+	char str1_strnstr[10]; bzero(str1_strnstr, 10);strcpy(str1_strnstr, "un deux 9");
+	char *str2_strnstr = "deux 9";
+	int n_strnstr = 5;
 
 
-	if (strcmp(strnstr(str1, str2, n), ft_strnstr(str1, str2, n)) != 0)
+	if (strcmp(strnstr(str1_strnstr, str2_strnstr, n_strnstr), ft_strnstr(str1_strnstr, str2_strnstr, n_strnstr)) != 0)
 	{
 		ft_putendl("NOT OK");
-		ft_putnbr(strcmp(ft_strnstr(str1, str2, n), strnstr(str1, str2, n)));ft_putchar('\n');
-		ft_putstr("libc  : ");ft_putendl(strnstr(str1, str2, n));
-		ft_putstr("libft : ");ft_putendl(ft_strnstr(str1, str2, n));
+		ft_putnbr(strcmp(ft_strnstr(str1_strnstr, str2_strnstr, n_strnstr), strnstr(str1_strnstr, str2_strnstr, n_strnstr)));ft_putchar('\n');
+		ft_putstr("libc  : ");ft_putendl(strnstr(str1_strnstr, str2_strnstr, n_strnstr));
+		ft_putstr("libft : ");ft_putendl(ft_strnstr(str1_strnstr, str2_strnstr, n_strnstr));
 	}
 	else
 		ft_putendl("OK");
-
+*/
 
 	ft_putstr("STRCMP : ");ft_putchar('\n');
-	char *str = "\200";
-	char *str2 = "\0";
-	ft_putstr("libft : ");ft_putnbr(ft_strcmp(str, str2));ft_putchar('\n');
-	ft_putstr("libc : ");ft_putnbr(strcmp(str, str2));ft_putchar('\n');
+	char *str_strcmp = "\200";
+	char *str2_strcmp = "\0";
+	ft_putstr("libft : ");ft_putnbr(ft_strcmp(str_strcmp, str2_strcmp));ft_putchar('\n');
+	ft_putstr("libc : ");ft_putnbr(strcmp(str_strcmp, str2_strcmp));ft_putchar('\n');
 
 
 	ft_putstr("ATOI ( ascii to int ) : ");
@@ -141,12 +143,12 @@ int main(void)
 
 	ft_putstr("STRNCPY : ");
 
-	char *src = "hey ho";
+	char *src_strncpy = "hey ho";
 	int const len = 154;
 	char dest_std[len];
 	char dest_ft[len];
 
-	if (memcmp(ft_strncpy(dest_ft, src, len), strncpy(dest_std, src, len), len))
+	if (memcmp(ft_strncpy(dest_ft, src_strncpy, len), strncpy(dest_std, src_strncpy, len), len))
 	{
 		ft_putendl("ERROR strncpy");
 		ft_putendl(dest_ft);
