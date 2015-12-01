@@ -107,9 +107,9 @@ int main(void)
 */
 	ft_putstr("STRNSTR : ");
 
-	char *str1 = "Foo Bar Baz";
-	char *str2 = "Bar";
-	int n = 8;
+	char str1[10]; bzero(str1, 10);strcpy(str1, "un deux 9");
+	char *str2 = "deux";
+	int n = 5;
 
 
 //	if (strcmp(strnstr(str1, str2, n), strnstr(str1, str2, n)) != 0)
