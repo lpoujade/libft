@@ -6,11 +6,10 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 14:30:17 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 21:35:46 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/01 19:06:08 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 void	ft_putchar(char c)

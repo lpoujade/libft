@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:31:50 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/26 13:48:47 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/01 19:00:29 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 
 	ret = ft_strnew(len + 1);
 	ft_strncat(ret, (s + start), len);
-	ft_strcat((ret + strlen(ret)), "\0");
+	ft_strcat((ret + ft_strlen(ret)), "\0");
 
 	return (ret);
 }
