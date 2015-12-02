@@ -189,6 +189,7 @@ int main(void)
 //	else
 //		ft_putendl("OK");
 //
+	ft_putchar('\n');
 	ft_putendl("FT ONLY FUNCTIONS");
 	ft_putstr("ITOA :");
 	t_itoa();
