@@ -172,6 +172,14 @@ int main(void)
 	else
 		ft_putendl("OK");
 
+	ft_putstr("ATOI\t: ");
+	if ((res = t_atoi()))
+	{
+		ft_putstr("FAILED, test ");
+		ft_putnbr(res);ft_putchar('\n');
+	}
+	else
+		ft_putendl("OK");
 //	ft_putstr("IS?\t: ");
 //	if ((res = t_is()))
 //	{
@@ -180,14 +188,6 @@ int main(void)
 //	}
 //	else
 //		ft_putendl("OK");
-
-/*
-	ft_putstr("ATOI ( ascii to int ) : ");
-	char *nbr = " \n\r  -+42 ergf ";
-	ft_putchar('\n');
-	ft_putstr("libft : ");ft_putnbr(ft_atoi(nbr));ft_putchar('\n');
-	ft_putstr("libc : ");ft_putnbr(atoi(nbr));ft_putchar('\n');
-*/
 
 	return (0);
 }

@@ -24,6 +24,7 @@ int		t_memcpy(void);
 int		t_memccpy(void);
 int		t_memcmp(void);
 int		t_memmove(void);
+int		t_atoi(void);
 
 # define TESTER_H 
 #endif
