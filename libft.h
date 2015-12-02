@@ -6,18 +6,16 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2015/12/01 19:05:24 by lpoujade         ###   ########.fr       */
-=======
-/*   Updated: 2015/11/30 22:58:17 by lpoujade         ###   ########.fr       */
->>>>>>> 0e1f7d2b64d768151b3af686887f4e1b5a57ed9e
+/*   Updated: 2015/12/02 08:01:51 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define	NULL	((void*)0)
+# ifndef NULL
+#  define	NULL	((void*)0)
+# endif
 
 typedef unsigned long size_t;
 
