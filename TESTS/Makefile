@@ -24,7 +24,8 @@ SRC=main.c				\
 	libc/t_memccpy.c	\
 	libc/t_memcmp.c		\
 	libc/t_memmove.c	\
-	libc/t_atoi.c
+	libc/t_atoi.c		\
+	ft/t_itoa.c
 	#libc/t_is.c
 
 OBJ=$(SRC:.c=.o)
