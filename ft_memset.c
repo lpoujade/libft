@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 10:14:23 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/01 18:59:59 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:46:58 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned long index;
-	char *b2;
-	unsigned char c2;
+	unsigned long	index;
+	char			*b2;
+	unsigned char	c2;
 
 	if (len)
 	{

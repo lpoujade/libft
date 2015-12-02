@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 15:49:24 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/01 18:50:36 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:46:09 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 char	*ft_strtrim(char const *s)
 {
-	char *ret;
-	int len;
-	int cd;
-	int cf;
+	char	*ret;
+	int		len;
+	int		cd;
+	int		cf;
 
 	cd = 0;
 	cf = 0;
 	len = (ft_strlen(s) - 1);
-
 	while (s[cd] == ' ' || s[cd] == '\n' || s[cd] == '\t')
 		cd++;
-
 	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
 	{
 		len--;

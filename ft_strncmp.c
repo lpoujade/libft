@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 14:27:14 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/01 19:00:10 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:45:26 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		ft_strncmp(char const *s1, char const *s2, size_t n)
 {
-	unsigned int i;
-	int ret;
-	int v1;
-	int v2;
+	unsigned int	i;
+	int				ret;
+	int				v1;
+	int				v2;
 
 	v1 = 0;
 	v2 = 0;

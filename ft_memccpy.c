@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 12:16:09 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/01 18:59:44 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:44:04 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*ft_memccpy(void *dest, void const *src, int c, size_t len)
 {
-	void *ret;
-	unsigned char *tmp_d;
-	unsigned char const *tmp_s;
-	int index;
-	unsigned char cuc;
+	int					index;
+	void				*ret;
+	unsigned char		cuc;
+	unsigned char		*tmp_d;
+	unsigned const char *tmp_s;
 
 	cuc = (unsigned char)c;
 	index = 0;
@@ -37,6 +37,5 @@ void	*ft_memccpy(void *dest, void const *src, int c, size_t len)
 	}
 	else
 		ret = NULL;
-
 	return (ret);
 }

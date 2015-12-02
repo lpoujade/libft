@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 23:11:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/01 18:59:56 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:16:47 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	*ft_memmove(void *dest, void const *src, size_t len)
 		ft_putendl_fd("In ft_memmove, malloc failed", 2);
 		return (NULL);
 	}
-	
 	ft_memcpy(dest, tmp, len);
 	return (dest);
 }

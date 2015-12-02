@@ -1,24 +1,27 @@
 /* ************************************************************************** */
-/*																			  */
-/*														  :::	   ::::::::   */
-/*	 ft_itoa.c											:+:		 :+:	:+:   */
-/*													  +:+ +:+		  +:+	  */
-/*	 By: lpoujade <lpoujade@student.42.fr>			+#+  +:+	   +#+		  */
-/*												  +#+#+#+#+#+	+#+			  */
-/*	 Created: 2015/11/24 18:49:07 by lpoujade		   #+#	  #+#			  */
-/*	 Updated: 2015/11/24 21:34:54 by lpoujade		  ###	########.fr		  */
-/*																			  */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/02 11:31:11 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/12/02 11:53:09 by lpoujade         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_itoa(int n)
 {
-	int digits = 0;
-	int tmp_n = -n;
-	int sign = 0;
-	char *ret;
+	int		digits;
+	int		tmp_n;
+	int		sign;
+	char	*ret;
 
+	digits = 0;
+	sign = 0;
+	tmp_n = n;
 	if (n < 0)
 	{
 		n = -n;

@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 09:35:08 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/29 13:31:10 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:28:11 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 void	ft_memdel(void **ap)
 {
-		free(*ap);
-		*ap = NULL;
+	free(*ap);
+	*ap = NULL;
 }

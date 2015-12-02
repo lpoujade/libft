@@ -6,16 +6,16 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 20:31:36 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 22:00:49 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:13:30 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_isprint(int c)
+int		ft_isprint(int c)
 {
-    if (ft_isascii(c))
-        if (c >= 32)
-            return (1);
+	if (ft_isascii(c))
+		if (c >= 32)
+			return (1);
 	return (0);
 }

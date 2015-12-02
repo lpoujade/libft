@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 18:29:41 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/29 15:20:34 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:28:44 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		ft_pow(int n, int p)
 	if (p)
 	{
 		tmp = n;
-		while (p-1)
+		while (p - 1)
 		{
-			n = n*tmp;
+			n = n * tmp;
 			p--;
 		}
 		return (n);

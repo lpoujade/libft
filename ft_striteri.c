@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 20:53:31 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/28 22:00:03 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:44:55 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int index;
-	char *i;
+	int		index;
+	char	*i;
 
 	index = 0;
 	while (s[index])

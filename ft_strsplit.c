@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 11:28:05 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/30 19:05:23 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:47:16 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	**ft_strsplit(char const *s, char c)
 {
-	char **ret;
-	char **ret_act;
-	char *tmp;
-	char const *s2;
-	char *sn_dest;
+	char		**ret;
+	char		**ret_act;
+	char		*tmp;
+	char const	*s2;
+	char		*sn_dest;
 
 	ret = NULL;
 	ret_act = ret;

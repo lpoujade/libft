@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 14:00:57 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 08:02:09 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:27:28 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		ft_memcmp(void const *s1, void const *s2, size_t n)
 {
 	unsigned char *cs1;
 	unsigned char *cs2;
+
 	if (n == 0)
 		return (0);
 	cs1 = (unsigned char *)s1;

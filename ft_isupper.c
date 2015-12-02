@@ -6,14 +6,14 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 14:46:47 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/27 14:50:27 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/02 11:14:04 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isupper(int c)
 {
 	int ret;
-	
+
 	ret = 0;
 	if (c >= 'A' && c <= 'Z')
 		ret = 1;
