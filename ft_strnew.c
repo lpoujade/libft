@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 18:08:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 11:45:36 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/03 18:34:07 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,8 @@ char	*ft_strnew(size_t size)
 	unsigned long	c;
 
 	c = 0;
-	new = (char *)ft_memalloc(size + 1);
-	while (c <= size)
-	{
-		new[c] = '\0';
-		c++;
-	}
-	new[c] = '\0';
+	if (!(new = (char *)ft_memalloc(size + 1)))
+		return (new);
+	ft_memset(new, '\0', size + 1);
 	return (new);
 }

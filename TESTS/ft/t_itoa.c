@@ -13,4 +13,10 @@ void	t_itoa(void)
 
 	ft_putchar('\t');
 	ft_putendl(ft_itoa(32768));
+
+	ft_putchar('\t');
+	ft_putendl(ft_itoa(-2147483648));
+
+	ft_putchar('\t');
+	ft_putendl(ft_itoa(-2147483649));
 }

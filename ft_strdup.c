@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 16:14:45 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 17:09:13 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/03 18:35:31 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*ft_strdup(char const *s1)
 {
 	char *s2;
 
-	s2 = ft_strnew(sizeof(s1));
+	if (!(s2 = ft_strnew(ft_strlen(s1))))
+		return (s2);
 	return (ft_strcpy(s2, s1));
 }

@@ -188,15 +188,9 @@ int main(void)
 	}
 	else
 		ft_putendl("OK");
-//	ft_putstr("IS?\t: ");
-//	if ((res = t_is()))
-//	{
-//		ft_putstr("FAILED, test ");
-//		ft_putnbr(res);ft_putchar('\n');
-//	}
-//	else
-//		ft_putendl("OK");
-//
+
+
+
 	ft_putchar('\n');
 	ft_putendl("---- FT ONLY FUNCTIONS ----");
 	ft_putchar('\n');

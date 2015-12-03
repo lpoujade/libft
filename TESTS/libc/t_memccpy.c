@@ -20,6 +20,7 @@ int		t_memccpy(void)
 		ft_putchar_fd('\n', 2);
 		ft_putstr_fd("libft\t: ", 2);ft_putstr_fd(f_d, 2);
 		ft_putchar_fd('\n', 2);
+		ft_putstr_fd("memcmp said : ", 2); ft_putnbr_fd(memcmp(c_d, f_d, 20), 2);
 		ret = 10;
 	}
 	if (ft_memccpy(f_d, src, 'o', 20))
