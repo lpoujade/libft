@@ -6,6 +6,14 @@ int main(void)
 	ft_putchar('\n');
 	int res = 0;
 
+	ft_putstr("ISx\t: ");
+	if ((res = t_isit()))
+	{
+		ft_putstr("FAILED, test ");
+		ft_putnbr(res);ft_putchar('\n');
+	}
+	else
+		ft_putendl("OK");
 
 	ft_putstr("MEMCHR\t: ");
 	if ((res = t_memchr()))
@@ -190,7 +198,9 @@ int main(void)
 //		ft_putendl("OK");
 //
 	ft_putchar('\n');
-	ft_putendl("FT ONLY FUNCTIONS");
+	ft_putendl("---- FT ONLY FUNCTIONS ----");
+	ft_putchar('\n');
+
 	ft_putstr("ITOA :");
 	t_itoa();
 

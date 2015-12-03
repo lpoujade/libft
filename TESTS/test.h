@@ -25,6 +25,7 @@ int		t_memccpy(void);
 int		t_memcmp(void);
 int		t_memmove(void);
 int		t_atoi(void);
+int		t_isit(void);
 
 void	t_itoa(void);
 

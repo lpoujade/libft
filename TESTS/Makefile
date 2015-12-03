@@ -25,6 +25,7 @@ SRC=main.c				\
 	libc/t_memcmp.c		\
 	libc/t_memmove.c	\
 	libc/t_atoi.c		\
+	libc/t_isit.c		\
 	ft/t_itoa.c
 	#libc/t_is.c
 

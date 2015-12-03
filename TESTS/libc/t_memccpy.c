@@ -2,6 +2,7 @@
 
 int		t_memccpy(void)
 {
+	int ret = 0;
 	void *src;
 	src = malloc(20);
 	memset(src, 'u', 20);
@@ -13,10 +14,17 @@ int		t_memccpy(void)
 	f_d = malloc(20);
 
 	if (memcmp(ft_memccpy(f_d, src, 't', 20), memccpy(c_d, src, 't', 20), 20))
-		return (1);
+	{
+		ft_putendl_fd("FT_MEMCCPY ERROR ON TEST 1", 2);
+		ft_putstr_fd("libc\t: ", 2);ft_putstr_fd(c_d, 2);
+		ft_putchar_fd('\n', 2);
+		ft_putstr_fd("libft\t: ", 2);ft_putstr_fd(f_d, 2);
+		ft_putchar_fd('\n', 2);
+		ret = 10;
+	}
 	if (ft_memccpy(f_d, src, 'o', 20))
-		return (2);
+		ret = ret + 2;
 
 	free(f_d); free(c_d);
-	return (0);
+	return (ret);
 }

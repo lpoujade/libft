@@ -2,12 +2,13 @@
 
 int		t_strnstr(void)
 {
+	int ret = 0;
 	if (ft_strnstr("must return this", "", 23) != strnstr("must return this", "", 23))
-			return (1);
+			ret = 100;
 	if (ft_strnstr("must return void", "void", 4))
-			return (2);
+			ret = ret + 20;
 	if (strcmp(ft_strnstr("that's good", "good", 12), strnstr("that's good", "good", 12)))
-		return (3);
+		ret = ret + 3;
 
 	return (0);
 }
