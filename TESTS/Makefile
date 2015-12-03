@@ -1,6 +1,6 @@
 
 NAME=test
-LIB=libft.a
+LIB=../libft.a
 CC=gcc
 CFLAGS= -Wextra -Wall -Werror
 INCLUDESDIR=.

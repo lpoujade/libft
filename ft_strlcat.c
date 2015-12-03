@@ -6,28 +6,38 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 19:39:25 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/03 16:55:50 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/03 22:14:21 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dest, char const *src, size_t len)
+size_t		ft_strlcat(char *dest, char const *src, size_t size)
 {
-	size_t l_dest;
-	size_t count;
+	char	*tmp_d;
+	int		i;
+	size_t	max;
+	size_t	o_size;
 
-	if (len < ft_strlen(dest) + ft_strlen(src))
-			return ((ft_strlen(dest) + ft_strlen(src)) - (len - 1));
-
-	l_dest = ft_strlen(dest);
-	count = 0;
-	while (count < len)
+	o_size = size;
+	max = ft_strlen(dest);
+	tmp_d = dest;
+	while (*tmp_d && size)
 	{
-		if (!src[count])
-			return (ft_strlen(src) + l_dest);
-		dest[l_dest + count] = src[count];
-		count++;
+		tmp_d++;
+		size--;
 	}
-	return (ft_strlen(src) + l_dest);
+	if (!size)
+		return (o_size + ft_strlen(src));
+	i = 0;
+	while (src[i] && size - 1)
+	{
+		*tmp_d = src[i];
+		tmp_d++;
+		i++;
+		size--;
+	}
+	if (size && !src[i])
+		*tmp_d = '\0';
+	return (max + ft_strlen(src));
 }

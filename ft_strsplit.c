@@ -6,11 +6,29 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 11:28:05 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 11:47:16 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/03 23:10:23 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int		how_strings(char const *s, char c)
+{
+	char	*tmp;
+	int		strs;
+
+	tmp = (char *)s;
+	strs = 0;
+	while(*tmp)
+	{
+		tmp++;
+		while (*(tmp - 1) != c)
+			tmp++;
+		strs++;
+	}
+	return (strs);
+}
+	
 
 char	**ft_strsplit(char const *s, char c)
 {
@@ -20,7 +38,8 @@ char	**ft_strsplit(char const *s, char c)
 	char const	*s2;
 	char		*sn_dest;
 
-	ret = NULL;
+	if (!(ret = (char **)ft_memalloc(how_strings(s, c))))
+		return (ret);
 	ret_act = ret;
 	s2 = s;
 	while (*s2)

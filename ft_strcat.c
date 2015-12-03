@@ -6,15 +6,25 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 17:57:20 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/03 18:44:22 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/03 20:03:07 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 char	*ft_strcat(char *s1, char const *s2)
 {
-	ft_strcpy((s1 + ft_strlen(s1)), s2);
-	s1[ft_strlen(s1) + 1] = '\0';
+	char	*st1;
+	int		i;
+
+	i = 0;
+	st1 = s1;
+	while (*st1)
+		st1++;
+	while (s2[i])
+	{
+		*st1 = s2[i];
+		st1++;
+		i++;
+	}
+	*st1 = '\0';
 	return (s1);
 }

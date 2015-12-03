@@ -18,5 +18,5 @@ void	t_itoa(void)
 	ft_putendl(ft_itoa(-2147483648));
 
 	ft_putchar('\t');
-	ft_putendl(ft_itoa(-2147483649));
+	ft_putendl(ft_itoa(-2147483647));
 }
