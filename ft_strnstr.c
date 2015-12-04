@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 15:54:22 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/04 08:33:31 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/04 09:59:42 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(char const *s1, char const *s2, size_t n)
 	char	*s;
 
 	s = (char *)s1;
-	if (!*s2 || !s2 || s1 == s2)
+	if (!*s2 || !s2)
 		return ((char *)s1);
 	while (*s && n)
 	{

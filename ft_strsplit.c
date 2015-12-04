@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 11:28:05 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/03 23:10:23 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/04 18:32:14 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ int		how_strings(char const *s, char c)
 	strs = 0;
 	while(*tmp)
 	{
-		tmp++;
-		while (*(tmp - 1) != c)
-			tmp++;
+		while (*(tmp++) != c)
 		strs++;
 	}
 	return (strs);
@@ -46,7 +44,8 @@ char	**ft_strsplit(char const *s, char c)
 	{
 		if ((*s2 == c) && (*(s2 + 1) != c) && (*(s2 + 1) != '\0'))
 		{
-			tmp = ft_strnew(ft_strclchr((s2 + 1), c));
+			if (!(tmp = ft_strnew(ft_strclchr((s2 + 1), c))))
+				return (NULL);
 			ret_act = &tmp;
 			sn_dest = *ret_act;
 			ft_strncpy(sn_dest, (s2 + 1), ft_strclchr((s2 + 1), c));

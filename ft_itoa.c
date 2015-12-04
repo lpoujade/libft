@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 21:50:15 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 21:50:28 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/04 18:51:53 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ char	*ft_itoa(int n)
 		n = -n;
 		sign = 1;
 	}
-	ret = ft_strnew(digits + sign);
+	if (!(ret = ft_strnew(digits + sign)))
+		return (ret);
 	if (sign)
 		ret[0] = '-';
 	else if (n > 0)
