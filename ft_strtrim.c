@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 15:49:24 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/04 18:29:57 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/07 18:42:39 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ char	*ft_strtrim(char const *s)
 	}
 	if ((cf + cd) != 0)
 	{
-		ret = ft_strnew(ft_strlen(s) - (cd + cf));
-		if (ret)
-			ft_strncpy(ret, (s + cd), (ft_strlen(s) - (cd + cf)));
+		if (!(ret = ft_strnew(ft_strlen(s) - (cd + cf))))
+			return (NULL);
+		ft_strncpy(ret, (s + cd), (ft_strlen(s) - (cd + cf)));
 	}
 	else
 		ret = ft_strdup(s);

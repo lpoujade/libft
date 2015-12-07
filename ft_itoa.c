@@ -6,13 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 21:50:15 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/04 18:51:53 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/07 18:31:40 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		get_digits(int num)
+int		get_ndigits(int num)
 {
 	int c;
 
@@ -34,12 +34,9 @@ char	*ft_itoa(int n)
 	char	*ret;
 
 	sign = 0;
-	digits = get_digits(n);
+	digits = get_ndigits(n);
 	if (n < 0)
-	{
-		n = -n;
 		sign = 1;
-	}
 	if (!(ret = ft_strnew(digits + sign)))
 		return (ret);
 	if (sign)
@@ -50,7 +47,10 @@ char	*ft_itoa(int n)
 		ret[0] = '0';
 	while (n)
 	{
-		ret[digits] = '0' + (n % 10);
+		if (n > 0)
+			ret[digits] = '0' + (n % 10);
+		else
+			ret[digits] = '0' + -(n % 10);
 		n = n / 10;
 		digits--;
 	}
