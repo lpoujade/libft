@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 11:28:05 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/04 18:32:14 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/08 15:00:06 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@ int		how_strings(char const *s, char c)
 
 	tmp = (char *)s;
 	strs = 0;
-	while(*tmp)
-	{
+	while (*tmp)
 		while (*(tmp++) != c)
-		strs++;
-	}
+			strs++;
 	return (strs);
 }
-	
 
 char	**ft_strsplit(char const *s, char c)
 {

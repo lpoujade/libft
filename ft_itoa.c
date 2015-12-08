@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 21:50:15 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/07 18:31:40 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/08 09:37:47 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ char	*ft_itoa(int n)
 	int		sign;
 	char	*ret;
 
-	sign = 0;
+	sign = (n < 0) ? 1 : 0;
 	digits = get_ndigits(n);
-	if (n < 0)
-		sign = 1;
 	if (!(ret = ft_strnew(digits + sign)))
 		return (ret);
 	if (sign)

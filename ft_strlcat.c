@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 19:39:25 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/03 22:14:21 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/08 09:43:45 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,11 @@ size_t		ft_strlcat(char *dest, char const *src, size_t size)
 	if (!size)
 		return (o_size + ft_strlen(src));
 	i = 0;
-	while (src[i] && size - 1)
+	while (src[i] && --size)
 	{
 		*tmp_d = src[i];
 		tmp_d++;
 		i++;
-		size--;
 	}
 	if (size && !src[i])
 		*tmp_d = '\0';
