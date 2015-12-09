@@ -6,47 +6,55 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 11:28:05 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/08 18:59:47 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/09 16:58:35 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		how_strings(char const *s, char c)
+static int		how_strings(char const *s, char c)
 {
-	char	*tmp;
-	int		strs;
+	int		co;
+	int		i;
 
-	tmp = (char *)s;
-	strs = 0;
-	while (*tmp)
-		while (*(tmp++) != c)
-			strs++;
-	return (strs);
+	i = 0;
+	co = 0;
+	while (s[i++])
+		if (s[i] == c && s[i + 1] != c && s[i + 1])
+			co++;
+	return (co + 1);
 }
 
-char	**ft_strsplit(char const *s, char c)
+static int		how_long(char const *s, char c)
+{
+	int		i;
+
+	i = 0;
+	while (s[i] != c && s[i])
+		i++;
+	return (i);
+}
+
+char			**ft_strsplit(char const *s, char c)
 {
 	char		**ret;
-	char		**ret_act;
-	char		*tmp;
-	char const	*s2;
+	int			i;
+	int			i_ptr = 0;
 
 	if (!(ret = (char **)ft_memalloc(how_strings(s, c))))
-		return (ret);
-	ret_act = ret;
-	s2 = s;
-	while (*s2)
+		return (NULL);
+	ft_putstr("malloc de ");ft_putnbr(how_strings(s, c));ft_putchar('\n');
+	i = 0;
+	while (s[i])
 	{
-		if ((*s2 == c) && (*(s2 + 1) != c) && (*(s2 + 1) != '\0'))
+		if ((i == 0 || s[i - 1] == c) && s[i] != c && s[i])
 		{
-			if (!(tmp = ft_strnew(ft_strclchr((s2 + 1), c))))
+			if (!(ret[i_ptr] = ft_strnew(how_long((s + i), c))))
 				return (NULL);
-			ret_act = &tmp;
-			ft_strncpy(*ret_act, (s2 + 1), ft_strclchr((s2 + 1), c));
-			ret_act++;
+			ft_strncpy(ret[i_ptr], (s + i), how_long((s + i), c));
+			i_ptr++;
 		}
-		s2++;
+		i++;
 	}
 	return (ret);
 }
