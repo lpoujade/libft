@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 12:20:44 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/10 12:56:23 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/10 13:11:48 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ char	**ft_strsplit(char const *s, char c)
 	strs = how_strings(s, c);
 	if (!s || !(ret = (char **)ft_memalloc(strs)))
 		return (NULL);
-	ft_putnbr(strs);
-	ft_putchar('\n');
 	i = 0;
 	i_ptr = 0;
 	while (s[i])
@@ -45,7 +43,7 @@ char	**ft_strsplit(char const *s, char c)
 		len = 0;
 		while (s[i] == c)
 			i++;
-		while (s[i + len] != c)
+		while (s[i + len] != c && s[i + len])
 			len++;
 		if (len)
 		{
