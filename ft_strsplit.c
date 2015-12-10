@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 11:28:05 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/10 10:39:20 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/12/10 12:20:44 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/12/10 12:56:23 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,42 +25,35 @@ static int		how_strings(char const *s, char c)
 	return (co + 1);
 }
 
-static int		how_long(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
 	int		i;
+	int		len;
+	char	**ret;
+	int		i_ptr;
+	int		strs;
 
+	strs = how_strings(s, c);
+	if (!s || !(ret = (char **)ft_memalloc(strs)))
+		return (NULL);
+	ft_putnbr(strs);
+	ft_putchar('\n');
 	i = 0;
-	while (s[i] != c && s[i])
-		i++;
-	return (i);
-}
-
-char			**ft_strsplit(char const *s, char c)
-{
-	char		**ret;
-	int			i;
-	int			i_ptr;
-
-	if (s && *s)
+	i_ptr = 0;
+	while (s[i])
 	{
-		if (!(ret = (char **)ft_memalloc(how_strings(s, c) + 1)))
-			return (NULL);
-		i = 0;
-		i_ptr = 0;
-		while (s[i])
-		{
-			if ((i == 0 || s[i - 1] == c) && s[i] != c && s[i + 1])
-			{
-				if (!(ret[i_ptr] = ft_strnew(how_long((s + i), c))))
-					return (NULL);
-				ft_strncpy(ret[i_ptr], (s + i), how_long((s + i), c));
-				i_ptr++;
-			}
+		len = 0;
+		while (s[i] == c)
 			i++;
+		while (s[i + len] != c)
+			len++;
+		if (len)
+		{
+			ret[i_ptr] = ft_strsub(s, i, len);
+			i = i + len;
+			i_ptr++;
 		}
-		*ret[how_strings(s, c) + 1] = 0;
 	}
-	else
-		ret = NULL;
+	ret[i_ptr] = NULL;
 	return (ret);
 }
