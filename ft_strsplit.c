@@ -6,14 +6,12 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 12:20:44 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/11 14:52:34 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/11 15:45:11 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-
-void	ft_print_memory(const void *addr, size_t size);
 
 static int		how_strings(char const *s, char c)
 {
@@ -34,21 +32,19 @@ static int		how_strings(char const *s, char c)
 	return (co);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**ret;
 	int		i;
 	int		len;
 	int		i_ptr;
-	int		strs;
 
-	strs = how_strings(s, c);
-	if (!s || !(ret = (char **)malloc(strs + 1)))
+	ret = (char **)ft_memalloc((sizeof(char *) * how_strings(s, c)) + 1);
+	if (!s || !ret)
 		return (NULL);
-	ft_bzero(ret, strs + 1);
 	i = 0;
 	i_ptr = 0;
-	while (strs)
+	while (s[i])
 	{
 		len = 0;
 		while (s[i] == c && s[i])
@@ -56,19 +52,10 @@ char	**ft_strsplit(char const *s, char c)
 		while (s[i + len] != c && s[i + len])
 			len++;
 		if (len)
-		{
-			if (!(ret[i_ptr] = ft_strnew(len)))
-			{
-				free(ret);
+			if (!(ret[i_ptr++] = ft_strsub(s, i, len)))
 				return (NULL);
-			}
-			ft_strncpy(ret[i_ptr], (s + i), len);
-			i_ptr++;
-			i = i + len;
-		}
-		strs--;
+		i = i + len;
 	}
-	//ft_print_memory(ret[0], ft_strlen(ret[0]));
 	ret[i_ptr] = NULL;
 	return (ret);
 }

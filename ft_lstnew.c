@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:53:22 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/10 18:10:55 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/11 15:45:28 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 		new->content_size = content_size;
 	}
 	new->next = NULL;
-
 	return (new);
 }
