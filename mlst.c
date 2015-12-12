@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/12 14:00:10 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/12 15:06:17 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/12 15:25:42 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		main(void)
 	new = alph;
 	while (new)
 	{
-		ft_putnbr((int)new->content);ft_putchar('\n');
+		tmp = 
 		new->content = &tmp;
 		new = new->next;
 	}
