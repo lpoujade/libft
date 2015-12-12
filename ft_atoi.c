@@ -6,13 +6,24 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 11:10:45 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 11:10:48 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/12 11:34:54 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char const *s)
+static int		ft_isspace(int c)
+{
+	int ret;
+
+	ret = 0;
+	if (c == '\t' || c == '\n' || c == ' ' || c == '\v' || c == '\f' \
+			|| c == '\r')
+		ret = 1;
+	return (ret);
+}
+
+int			ft_atoi(char const *s)
 {
 	int ret;
 	int i;

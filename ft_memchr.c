@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 13:24:18 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 11:44:17 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/12 11:49:12 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	*ft_memchr(void const *s, int c, size_t len)
 {
 	unsigned int	index;
 	void			*ret;
-	unsigned char	cuc;
+	unsigned char	cu;
 	unsigned char	*si;
 
-	cuc = (unsigned char)c;
+	cu = (unsigned char)c;
 	si = (unsigned char *)s;
 	index = 0;
-	while (index < len && si[index] != cuc)
+	while (index < len && si[index] != cu)
 		index++;
 	if (index == len)
 		ret = NULL;

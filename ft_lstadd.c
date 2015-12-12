@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 18:17:58 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/10 10:55:31 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/11 22:26:18 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	(*alst)->next = new;
+	new->next = *alst;
+	*alst = new;
 }
