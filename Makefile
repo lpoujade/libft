@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2015/12/10 19:22:43 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/12/12 03:01:17 by liumsade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,10 +79,10 @@ SRC=ft_itoa.c		\
 	ft_memmove.c	\
 	ft_memchr.c		\
 	ft_memcmp.c		\
-	ft_lstnew.c		#\
+	ft_lstnew.c		\
+	ft_lstdel.c		#\
 	ft_lstadd.c		\
 	ft_lstiter.c	\
-	ft_lstdel.c		\
 	ft_lstdelone.c	\
 	ft_lstmap.c
 
