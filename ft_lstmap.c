@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ../../projects/libft/ft_lstmap.c                   :+:      :+:    :+:   */
+/*   ft_lstmap.ccts/libft/ft_lstmap.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 10:45:26 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/12 12:30:00 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/13 11:31:29 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list	*ntmp;
 
 	tmp = lst;
-	new = (t_list *)malloc(sizeof(new));
+	if (!(new = (t_list *)malloc(sizeof(new))))
+		return (NULL);
 	ntmp = new;
-	while (tmp->next)
+	while (tmp)
 	{
 		ntmp = (f)(tmp);
 		tmp = tmp->next;
