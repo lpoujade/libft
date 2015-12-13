@@ -6,13 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 09:55:45 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/12 12:02:37 by toto             ###   ########.fr       */
+/*   Updated: 2015/12/13 10:14:54 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	put(int n, int fd)
+static void		put(int n, int fd)
 {
 	if (n / 10)
 	{
@@ -25,7 +25,7 @@ void	put(int n, int fd)
 		ft_putchar_fd('0' + -n, fd);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_fd(int n, int fd)
 {
 	if (n < 0)
 		ft_putchar_fd('-', fd);
