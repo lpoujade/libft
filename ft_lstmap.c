@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.ccts/libft/ft_lstmap.c                   :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 10:45:26 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/13 11:31:29 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/14 17:47:19 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*tmp;
 	t_list	*new;
-	t_list	*ntmp;
+	t_list	*tmp;
+	t_list	*d_new;
 
+	new = ft_lstnew(NULL, 0);
+	d_new = new;
 	tmp = lst;
-	if (!(new = (t_list *)malloc(sizeof(new))))
-		return (NULL);
-	ntmp = new;
 	while (tmp)
 	{
-		ntmp = (f)(tmp);
+		ft_memcpy(new, (f)(tmp), sizeof(tmp));
+		if (tmp->next)
+		{
+			new->next = ft_lstnew(NULL, 0);
+			new = new->next;
+		}
 		tmp = tmp->next;
-		ntmp = ntmp->next;
 	}
-	return (new);
+	new->next = NULL;
+	return (d_new);
 }
