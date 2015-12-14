@@ -6,11 +6,9 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:21:24 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/25 17:38:33 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:59:09 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strcpy(char *dest, const char *src)
 {

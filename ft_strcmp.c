@@ -6,11 +6,9 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 18:05:19 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 11:30:19 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:59:02 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_strcmp(char *s1, char *s2)
 {

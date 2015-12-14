@@ -6,11 +6,9 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 11:33:26 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/26 14:18:34 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:58:39 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_strcchr(char const *s, char c)
 {

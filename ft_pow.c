@@ -6,11 +6,9 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 18:29:41 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 11:28:44 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:57:45 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_pow(int n, int p)
 {

@@ -6,11 +6,9 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 18:04:52 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/25 18:04:55 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:58:54 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void	ft_strclr(char *s)
 {

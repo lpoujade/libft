@@ -6,11 +6,10 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 10:45:26 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/14 18:41:40 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:55:38 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))

@@ -6,11 +6,10 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 12:20:44 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/11 15:45:11 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/14 19:01:13 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 static int		how_strings(char const *s, char c)
