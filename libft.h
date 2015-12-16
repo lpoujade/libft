@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/16 20:35:49 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/16 21:24:14 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #  define NULL ((void*)0)
 # endif
 
-typedef unsigned int size_t;
+typedef unsigned long size_t;
 
 typedef struct		s_list
 {
