@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2015/12/12 15:22:48 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/12/17 13:32:09 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ SRC=ft_itoa.c		\
 	ft_bzero.c		\
 	ft_memset.c		\
 	ft_memalloc.c	\
+	ft_realloc.c	\
 	ft_memdel.c		\
 	ft_memcpy.c		\
 	ft_memccpy.c	\

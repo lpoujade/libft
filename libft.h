@@ -6,18 +6,14 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/16 21:24:14 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/17 13:04:11 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# ifndef NULL
-#  define NULL ((void*)0)
-# endif
-
-typedef unsigned long size_t;
+# include <string.h>
 
 typedef struct		s_list
 {
@@ -68,6 +64,7 @@ char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_bzero(void *s, size_t n);
 void				*ft_memalloc(size_t size);
+void				*ft_realloc(void **src, size_t src_size, size_t final_size);
 void				ft_memdel(void **ap);
 void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memcpy(void *dest, void const *src, size_t n);
