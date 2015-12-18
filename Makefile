@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2015/12/17 13:32:09 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/12/18 14:09:04 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,6 @@ CC=gcc
 CFLAGS=-Wall -Werror -Wextra
 SRCDIR=.
 INCLUDESDIR=.
-
-# TESTING
-TESTSDIR=$(SRCDIR)
-TESTER=$(TESTSDIR)/tester.c
-TOUTPUT=test.out
 
 SRC=ft_itoa.c		\
 	ft_atoi.c		\
@@ -96,9 +91,6 @@ $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-test: $(NAME)
-	$(CC) $(CFLAGS) $(TESTER) $(NAME) -o $(TOUTPUT)
-
 clean:
 	-rm $(OBJ)
 
@@ -106,3 +98,5 @@ fclean: clean
 	-rm $(NAME) $(TOUTPUT)
 
 re: fclean all
+
+.PHONY: clean fclean re
