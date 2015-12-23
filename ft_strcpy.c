@@ -6,20 +6,23 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:21:24 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/14 18:59:09 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/20 18:10:03 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strcpy(char *dest, char const *src)
 {
 	char *origin;
+	char *tmp;
 
 	origin = dest;
-	while (*src)
+	tmp = (char *)src;
+	while (*tmp)
 	{
-		*dest = *src;
+		*dest = *tmp;
 		dest++;
-		src++;
+		tmp++;
 	}
+	*dest = *tmp;
 	return (origin);
 }

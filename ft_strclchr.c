@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 14:13:22 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 11:44:27 by lpoujade         ###   ########.fr       */
+/*   Updated: 2015/12/21 15:52:07 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int		ft_strclchr(char const *s, char c)
 	int		len;
 	char	*str;
 
-	str = ft_strdup(s);
+	str = (char *)s;
 	len = 0;
-	while (*str != c)
+	while (*str != c && *str)
 	{
 		str++;
 		len++;
