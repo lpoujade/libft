@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2015/12/18 14:09:04 by lpoujade         ###   ########.fr        #
+#    Updated: 2015/12/27 14:08:32 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME=libft.a
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra
 SRCDIR=.
+OBJDIR=obj
 INCLUDESDIR=.
 
 SRC=ft_itoa.c		\
@@ -36,6 +37,7 @@ SRC=ft_itoa.c		\
 	ft_strlcat.c	\
 	ft_strsub.c		\
 	ft_strdup.c		\
+	ft_strndup.c	\
 	ft_strdel.c		\
 	ft_strclr.c		\
 	ft_strcmp.c		\
@@ -81,9 +83,10 @@ SRC=ft_itoa.c		\
 	ft_lstdelone.c	\
 	ft_lstmap.c
 
-SRC:=$(addprefix $(SRCDIR)/,$(SRC))
 
 OBJ=$(SRC:.c=.o)
+
+SRC:=$(addprefix $(SRCDIR)/,$(SRC))
 
 all: $(NAME)
 

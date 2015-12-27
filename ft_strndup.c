@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 18:08:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/27 14:06:58 by lpoujade         ###   ########.fr       */
+/*   Created: 2015/12/27 14:03:02 by lpoujade          #+#    #+#             */
+/*   Updated: 2015/12/27 14:09:03 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strndup(const char *src, size_t n)
 {
-	char			*new;
+	char	*ret;
+	size_t	i;
 
-	if ((new = (char *)ft_memalloc(size + 1)))
-		ft_memset(new, '\0', size + 1);
-	return (new);
+	ret = ft_strnew(ft_strlen(src));
+	i = 0;
+	while (i++ <= n && src[i])
+		ret[i] = src[i];
+	ret[i] = 0;
+	return (ret);
 }
