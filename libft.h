@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/27 14:08:54 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/01/07 13:16:06 by liumsade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int					ft_memcmp(void const *s1, void const *s2, size_t n);
 char				*ft_itoa(int n);
 int					ft_atoi(char const *s);
 int					ft_pow(int n, int p);
+int					ft_tabmax(int *tab, int siz);
 int					ft_tolower(int c);
 int					ft_strequ(char const *s1, char const *s2);
 char				*ft_strnstr(char const *s1, char const *s2, size_t n);

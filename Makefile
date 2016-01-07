@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2015/12/27 14:08:32 by lpoujade         ###   ########.fr        #
+#    Updated: 2016/01/07 13:16:32 by liumsade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ INCLUDESDIR=.
 SRC=ft_itoa.c		\
 	ft_atoi.c		\
 	ft_pow.c		\
+	ft_tabmax.c		\
 	ft_putchar.c	\
 	ft_putchar_fd.c	\
 	ft_putstr.c		\
