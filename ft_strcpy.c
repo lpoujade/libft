@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:21:24 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/20 18:10:03 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/01/22 13:34:19 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_strcpy(char *dest, char const *src)
 	tmp = (char *)src;
 	while (*tmp)
 	{
-		*dest = *tmp;
-		dest++;
+		*origin = *tmp;
+		origin++;
 		tmp++;
 	}
-	*dest = *tmp;
-	return (origin);
+	*origin = *tmp;
+	return (dest);
 }
