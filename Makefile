@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2016/01/22 12:30:18 by lpoujade         ###   ########.fr        #
+#    Updated: 2016/01/22 13:50:27 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,6 @@ SRC=ft_itoa.c		\
 	ft_strlcat.c	\
 	ft_strsub.c		\
 	ft_strdup.c		\
-	ft_strndup.c	\
 	ft_strdel.c		\
 	ft_strclr.c		\
 	ft_strcmp.c		\
