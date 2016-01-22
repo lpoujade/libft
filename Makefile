@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2016/01/07 13:16:32 by liumsade         ###   ########.fr        #
+#    Updated: 2016/01/22 12:30:18 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME=libft.a
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra
 SRCDIR=.
-OBJDIR=obj
 INCLUDESDIR=.
 
 SRC=ft_itoa.c		\
