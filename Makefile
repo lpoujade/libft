@@ -6,15 +6,14 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 22:03:15 by lpoujade          #+#    #+#              #
-#    Updated: 2016/01/22 13:50:27 by lpoujade         ###   ########.fr        #
+#    Updated: 2016/02/01 19:10:54 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libft.a
-CC=gcc
-CFLAGS=-Wall -Werror -Wextra
-SRCDIR=.
-INCLUDESDIR=.
+CC=clang
+CFLAGS=-Wall -Werror -Wextra -c
+INCLUDESDIR=./includes
 
 SRC=ft_itoa.c		\
 	ft_atoi.c		\
@@ -82,22 +81,19 @@ SRC=ft_itoa.c		\
 	ft_lstdelone.c	\
 	ft_lstmap.c
 
-
 OBJ=$(SRC:.c=.o)
-
-SRC:=$(addprefix $(SRCDIR)/,$(SRC))
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NAME):
+	@$(CC) $(CFLAGS) -I$(INCLUDESDIR) $(SRC)
+	ar rsc $(NAME) $(OBJ)
 
 clean:
 	-rm $(OBJ)
 
 fclean: clean
-	-rm $(NAME) $(TOUTPUT)
+	-rm $(NAME)
 
 re: fclean all
 
