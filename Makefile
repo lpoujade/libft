@@ -29,11 +29,11 @@ all: $(NAME) $(LIB)
 
 $(NAME): $(OBJS)
 	@$(AR) $(ARFLAGS) $@ $^
-	@echo "linking to\033[32m" $@ "\033[0m("`stat -f "%z" $@` "bytes)"
+	@echo -e "linking to\033[32m" $@ "\033[0m("`stat -c "%s" $@` "bytes)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-	@echo "compiling\033[36m" $@ "\033[0m("`stat -f "%z" $@` "bytes)"
+	@echo -e "compiling\033[36m" $@ "\033[0m("`stat -c "%s" $@` "bytes)"
 
 clean:
 	-rm $(OBJS)
