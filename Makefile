@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/11 13:41:06 by lpoujade          #+#    #+#              #
-#    Updated: 2016/02/13 14:51:57 by lpoujade         ###   ########.fr        #
+#    Updated: 2016/02/15 15:59:46 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,11 @@ all: $(NAME) $(LIB)
 
 $(NAME): $(OBJS)
 	@$(AR) $(ARFLAGS) $@ $^
-	@echo "linking to\033[32m" $@ "\033[0m("`stat -f "%z" $@` "bytes)"
+	@echo "linking to\033[32m" $@ "\033[0m"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-	@echo "compiling\033[36m" $@ "\033[0m("`stat -f "%z" $@` "bytes)"
+	@echo "compiling\033[36m" $@ "\033[0m"
 
 clean:
 	-rm $(OBJS)
