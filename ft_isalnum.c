@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 11:12:09 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/04 21:15:47 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/02/15 22:43:10 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 int		ft_isalnum(int c)
 {
-	if (ft_isdigit(c) || ft_isalpha(c))
-		return (1);
-	else
-		return (0);
+	return ((ft_isdigit(c) || ft_isalpha(c)));
 }
