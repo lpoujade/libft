@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/03/22 15:21:25 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/03/22 16:06:26 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,6 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*));
 void				ft_lstappend(t_list *alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void				ft_lstdelone(t_list **alst, void (*del)(void *));
+void				ft_lstdel(t_list **alst, void (*del)(void *));
 #endif

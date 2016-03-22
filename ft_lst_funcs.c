@@ -6,13 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:50:35 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/03/22 15:21:46 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/03/22 21:36:16 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	fts_lstadd(t_list **alst, t_list *new)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
 	new->next = *alst;
 	if ((*alst)->prev)
@@ -21,11 +21,16 @@ void	fts_lstadd(t_list **alst, t_list *new)
 	*alst = new;
 }
 
-void	fts_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*))
+void	ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*))
 {
 	t_list		*tmp;
 	int			comp;
 
+	if (!*fflist)
+	{
+		*fflist = new;
+		return ;
+	}
 	tmp = (*fflist);
 	while ((comp = (f)(new, tmp) > 0 && tmp->next))
 		tmp = tmp->next;
@@ -49,7 +54,7 @@ void	fts_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*))
 	}
 }
 
-void	fts_lstappend(t_list *alst, t_list *new)
+void	ft_lstappend(t_list *alst, t_list *new)
 {
 	t_list	*tmp;
 
@@ -60,7 +65,7 @@ void	fts_lstappend(t_list *alst, t_list *new)
 	new->prev = tmp;
 }
 
-void	fts_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
 	t_list *tmp;
 
@@ -75,31 +80,30 @@ void	fts_lstiter(t_list *lst, void (*f)(t_list *elem))
 	}
 }
 
-//t_list		*fts_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
-//{
-//	t_list	*new;
-//	t_list	*tmp;
-//	t_list	*d_new;
-//
-//	d_new = NULL;
-//	if (lst && f)
-//	{
-//		new = fts_lstnew(NULL, 0);
-//		d_new = new;
-//		tmp = lst;
-//		while (tmp)
-//		{
-//			ft_memcpy(new, (*f)(tmp), sizeof(t_list));
-//			if (tmp->next)
-//				new->next = fts_lstnew(NULL, 0);
-//			new = new->next;
-//			tmp = tmp->next;
-//		}
-//	}
-//	return (d_new);
-//}
+void	ft_lstdel(t_list **alst, void (*del)(void *))
+{
+	t_list *tmp;
+	t_list *nxt;
 
-//t_list		*fts_lstnew(void const *content, size_t content_size)
+	tmp = *alst;
+	while (tmp)
+	{
+		nxt = tmp->next;
+		(del)(tmp);
+		ft_memdel((void**)&tmp);
+		tmp = nxt;
+	}
+	*alst = NULL;
+}
+
+void	ft_lstdelone(t_list **alst, void (*del)(void *))
+{
+	(del)((*alst));
+	free(*alst);
+	*alst = NULL;
+}
+
+//t_list		*ft_lstnew(void const *content, size_t content_size)
 //{
 //	t_list	*new;
 //
@@ -124,24 +128,27 @@ void	fts_lstiter(t_list *lst, void (*f)(t_list *elem))
 //	return (new);
 //}
 
-//void	fts_lstdel(t_list **alst, void (*del)(void *))
+//t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 //{
-//	t_list *tmp;
-//	t_list *nxt;
+//	t_list	*new;
+//	t_list	*tmp;
+//	t_list	*d_new;
 //
-//	tmp = *alst;
-//	while (tmp)
+//	d_new = NULL;
+//	if (lst && f)
 //	{
-//		nxt = tmp->next;
-//		fts_lstdelone(&tmp, (del));
-//		tmp = nxt;
+//		new = ft_lstnew(NULL, 0);
+//		d_new = new;
+//		tmp = lst;
+//		while (tmp)
+//		{
+//			ft_memcpy(new, (*f)(tmp), sizeof(t_list));
+//			if (tmp->next)
+//				new->next = ft_lstnew(NULL, 0);
+//			new = new->next;
+//			tmp = tmp->next;
+//		}
 //	}
-//	*alst = NULL;
+//	return (d_new);
 //}
-//
-//void	fts_lstdelone(t_list **alst, void (*del)(void *))
-//{
-//	(del)((*alst));
-//	free(*alst);
-//	*alst = NULL;
-//}
+
