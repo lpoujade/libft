@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:50:35 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/03/23 02:20:40 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/03/23 20:27:37 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,35 @@ void	ft_lstadd(t_list **alst, t_list *new)
 	else
 		*alst = new;
 	(*alst)->prev = new;
+}
+
+void	ft_lstinsert_list(t_list *fflist, t_list *ffnew, int (*f)(t_list*, t_list*))
+{
+	t_list		*tmp;
+	t_list		*end_new;
+
+	if (!fflist)
+	{
+		fflist = ffnew;
+		return ;
+	}
+	tmp = fflist;
+	end_new = ffnew;
+	while (((f)(ffnew, tmp)) > 0 && tmp->next)
+		tmp = tmp->next;
+	if (tmp->next)
+	{
+		ffnew->prev = tmp;
+		while (end_new->next)
+			end_new = end_new->next;
+		end_new->next = tmp->next;
+		tmp->next = ffnew;
+	}
+	else
+	{
+		tmp->next = end_new;
+		end_new->prev = tmp;
+	}
 }
 
 void	ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*))
