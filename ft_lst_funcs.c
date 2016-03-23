@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:50:35 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/03/22 21:36:16 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/03/23 02:20:40 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	new->next = *alst;
+	new->prev = (*alst)->prev;
+	new->next = (*alst);
 	if ((*alst)->prev)
 		(*alst)->prev->next = new;
+	else
+		*alst = new;
 	(*alst)->prev = new;
-	*alst = new;
 }
 
 void	ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*))
 {
 	t_list		*tmp;
-	int			comp;
 
 	if (!*fflist)
 	{
@@ -32,20 +33,19 @@ void	ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*))
 		return ;
 	}
 	tmp = (*fflist);
-	while ((comp = (f)(new, tmp) > 0 && tmp->next))
+	while (((f)(new, tmp)) > 0 && tmp->next)
 		tmp = tmp->next;
-	if (comp > 0)
+	if (!tmp->next)
 	{
 		if (tmp->next)
 			tmp->next->prev = (t_list*)new;
-		new->next = (t_list*)tmp->next;
-		tmp->next = (t_list*)new;
-		new->prev = (t_list*)tmp;
+		tmp->next = new;
+		new->prev = tmp;
 	}
 	else
 	{
-		new->next = tmp;
 		new->prev = tmp->prev;
+		new->next = tmp;
 		if (tmp->prev)
 			tmp->prev->next = new;
 		else
