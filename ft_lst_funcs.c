@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:50:35 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/03/24 15:55:41 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/03/24 22:30:19 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,38 +23,42 @@ void	ft_lstadd(t_list **alst, t_list *new)
 	(*alst)->prev = new;
 }
 
-void	ft_lstinsert_list(t_list *fflist, t_list *ffnew, int (*f)(t_list*, t_list*))
+int		ft_lstinsert_list(t_list *fflist, t_list *ffnew, int (*f)(t_list*, t_list*))
 {
 	t_list		*tmp;
 	t_list		*end_new;
+	int			ret;
 
 	if (!fflist)
 	{
 		fflist = ffnew;
-		return ;
+		return (0);
 	}
+	ret = 0;
 	tmp = fflist;
 	end_new = ffnew;
+	while (end_new->next && ++ret)
+		end_new = end_new->next;
 	while (((f)(ffnew, tmp)) > 0 && tmp->next)
 		tmp = tmp->next;
 	if (tmp->next)
 	{
 		ffnew->prev = tmp;
-		while (end_new->next)
-			end_new = end_new->next;
 		end_new->next = tmp->next;
 		tmp->next = ffnew;
 	}
 	else
 	{
-		tmp->next = end_new;
-		end_new->prev = tmp;
+		tmp->next = ffnew;
+		ffnew->prev = tmp;
 	}
+	return (ret);
 }
 
 void	ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*, t_list*))
 {
 	t_list		*tmp;
+	int			comp;
 
 	if (!*fflist)
 	{
@@ -62,9 +66,9 @@ void	ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*, t_list*))
 		return ;
 	}
 	tmp = (*fflist);
-	while (((f)(new, tmp)) > 0 && tmp->next)
+	while (((comp = (f)(new, tmp))) > 0 && tmp->next)
 		tmp = tmp->next;
-	if (!tmp->next)
+	if (comp > 0)
 	{
 		if (tmp->next)
 			tmp->next->prev = (t_list*)new;
