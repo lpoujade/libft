@@ -55,16 +55,13 @@ int		ft_lstinsert_list(t_list *fflist, t_list *ffnew, int (*f)(t_list*, t_list*)
 	return (ret);
 }
 
-void	ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*, t_list*))
+t_list	*ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*, t_list*))
 {
 	t_list		*tmp;
 	int			comp;
 
 	if (!*fflist)
-	{
-		*fflist = new;
-		return ;
-	}
+		return ((*fflist = new));
 	tmp = (*fflist);
 	while (((comp = (f)(new, tmp))) > 0 && tmp->next)
 		tmp = tmp->next;
@@ -85,6 +82,7 @@ void	ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*, t_list*))
 			*fflist = new;
 		tmp->prev = new;
 	}
+	return (new);
 }
 
 void	ft_lstappend(t_list *alst, t_list *new)

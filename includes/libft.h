@@ -83,10 +83,10 @@ char				*ft_strnstr(char const *s1, char const *s2, size_t n);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				ft_lstadd(t_list **alst, t_list *new);
-void				ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*));
+t_list				*ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*));
 void				ft_lstappend(t_list *alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstdelone(t_list **alst, void (*del)(void *));
 void				ft_lstdel(t_list **alst, void (*del)(void *));
-void				ft_lstinsert_list(t_list *fflist, t_list *ffnew, int (*f)(t_list*, t_list*));
+int					ft_lstinsert_list(t_list *fflist, t_list *ffnew, int (*f)(t_list*, t_list*));
 #endif
