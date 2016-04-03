@@ -6,12 +6,12 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/11 13:41:06 by lpoujade          #+#    #+#              #
-#    Updated: 2016/04/03 14:29:16 by lpoujade         ###   ########.fr        #
+#    Updated: 2016/04/03 14:38:17 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libft.a
-SRCDIR=.
+SRCDIR=./src
 OBJDIR=./.obj
 
 CC=clang
