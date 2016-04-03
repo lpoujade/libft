@@ -6,13 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 15:49:17 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/04/03 15:53:02 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/04/03 16:04:06 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	digits(int a)
+int	ft_getndigits(int a)
 {
 	int c;
 
