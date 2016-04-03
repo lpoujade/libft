@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/03/23 04:20:32 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/04/03 14:29:02 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include <string.h>
 # include <stdlib.h>
 
-typedef struct		s_list
+typedef struct			s_list
 {
-	struct s_list	*next;
-	struct s_list	*prev;
-}					t_list;
+	struct s_list		*next;
+	struct s_list		*prev;
+}						t_list;
 
 void				ft_swap(void *a, void *b);
 void				ft_putchar(char c);
@@ -82,10 +82,11 @@ int					ft_strequ(char const *s1, char const *s2);
 char				*ft_strnstr(char const *s1, char const *s2, size_t n);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-t_list				*ft_lstnew(void const *content, size_t content_size);
-void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
+t_list				*ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*));
+void				ft_lstappend(t_list *alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				ft_lstdelone(t_list **alst, void (*del)(void *));
+void				ft_lstdel(t_list **alst, void (*del)(void *));
+int					ft_lstinsert_list(t_list *fflist, t_list *ffnew, int (*f)(t_list*, t_list*));
 #endif
