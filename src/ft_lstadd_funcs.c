@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:50:35 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/04/03 14:25:26 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/04/06 15:26:23 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_lstinsert_list(t_list *fflist, t_list *ffnew,
 	end_new = ffnew;
 	while (end_new->next && ++ret)
 		end_new = end_new->next;
-	while (((f)(ffnew, tmp)) > 0 && tmp->next)
+	while (((f)(tmp, ffnew)) > 0 && tmp->next)
 		tmp = tmp->next;
 	if (tmp->next)
 	{
