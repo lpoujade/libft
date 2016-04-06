@@ -6,13 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 15:49:17 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/04/03 15:57:30 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/04/06 15:28:38 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ndigits(int a)
+int	ft_getndigits(int a)
 {
 	int c;
 
