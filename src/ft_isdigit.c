@@ -6,14 +6,11 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 20:31:24 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 11:13:09 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/04/13 20:56:37 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	return ((c >= '0' && c <= '9'));
 }
