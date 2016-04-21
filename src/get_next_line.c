@@ -68,6 +68,7 @@ static t_file	*f_add(int fd, t_file *link)
 	return (ret);
 }
 
+/*
 static void		free_node(t_file *file)
 {
 	if (file->buff)
@@ -77,6 +78,7 @@ static void		free_node(t_file *file)
 	else
 		ft_memdel((void **)&file);
 }
+*/
 
 int				get_next_line(int const fd, char **line)
 {
@@ -101,8 +103,10 @@ int				get_next_line(int const fd, char **line)
 		ret = (ft_strncpy(*line, f->buff, ft_strclchr(f->buff, '\n'))) ? 1 : -1;
 	else if (s_fd || *f->buff)
 		ret = -1;
+	/*
 	if (ret <= 0 && f)
 		free_node(f);
+		*/
 	(buff_delfline(&f->buff)) == -1 ? ret = -1 : (void)0;
 	return ((ret == 1 && !f->buff) ? 0 : ret);
 }
