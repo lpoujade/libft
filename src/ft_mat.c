@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-inline int	ft_pow(int n, int p)
+inline int			ft_pow(int n, int p)
 {
 	int tmp;
 
@@ -28,7 +28,7 @@ inline int	ft_pow(int n, int p)
 		return (1);
 }
 
-inline int ft_abs(signed int n)
+inline unsigned int ft_abs(signed int n)
 {
 	return (n < 0 ? n : n * -1);
 }

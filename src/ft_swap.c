@@ -18,3 +18,12 @@ void		ft_swap(void *a, void *b)
 	a = b;
 	b = t;
 }
+
+void		ft_iswap(int *a, int *b)
+{
+	int t;
+
+	t = *a;
+	*a = *b;
+	*b = t;
+}

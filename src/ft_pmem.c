@@ -17,12 +17,12 @@ static inline int	isascii(char c)
 	return ((c >= '!' && c <= '~'));
 }
 
-static inline void	puthex(unsigned char num)
+void				ft_puthex(unsigned char num)
 {
 	if (num >= 16)
 	{
-		puthex(num / 16);
-		puthex(num % 16);
+		ft_puthex(num / 16);
+		ft_puthex(num % 16);
 	}
 	if (num < 10)
 		ft_putchar(num + '0');
@@ -72,7 +72,7 @@ void				ft_pmem(const void *addr, size_t t)
 	{
 		if (!*p || *p < 0x10)
 			ft_putchar('0');
-		puthex(*p);
+		ft_puthex(*p);
 		p++;
 		i++;
 		if (!(i % 2))
