@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   src/ft_mat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liums <lpoujade@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 18:29:41 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/14 18:57:45 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/04/25 22:48:34 by liums             #+#    #+#             */
+/*   Updated: 2016/04/25 22:48:34 by liums            ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_pow(int n, int p)
+inline int	ft_pow(int n, int p)
 {
 	int tmp;
 
@@ -26,4 +26,9 @@ int		ft_pow(int n, int p)
 	}
 	else
 		return (1);
+}
+
+inline int ft_abs(signed int n)
+{
+	return (n < 0 ? n : n * -1);
 }

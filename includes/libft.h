@@ -89,6 +89,7 @@ int					ft_memcmp(void const *s1, void const *s2, size_t n);
 char				*ft_itoa(int n);
 int					ft_atoi(char const *s);
 int					ft_pow(int n, int p);
+int					ft_abs(signed int n);
 int					ft_tabmax(int *tab, int siz);
 int					ft_tolower(int c);
 int					ft_strequ(char const *s1, char const *s2);
