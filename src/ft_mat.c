@@ -6,11 +6,11 @@
 /*   By: liums <lpoujade@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 22:48:34 by liums             #+#    #+#             */
-/*   Updated: 2016/04/25 22:48:34 by liums            ###   ######## fr       */
+/*   Updated: 2016/04/26 21:17:14 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-inline int			ft_pow(int n, int p)
+int			ft_pow(int n, int p)
 {
 	int tmp;
 
@@ -28,7 +28,7 @@ inline int			ft_pow(int n, int p)
 		return (1);
 }
 
-inline unsigned int ft_abs(signed int n)
+unsigned int ft_abs(signed int n)
 {
 	return (n < 0 ? n : n * -1);
 }
