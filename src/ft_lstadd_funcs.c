@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:50:35 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/04/06 20:08:11 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/04/28 12:47:13 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ t_list	*ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*, t_list*))
 	{
 		new->prev = tmp->prev;
 		new->next = tmp;
-		tmp->prev ? tmp->prev->next = new : (*fflist = new);
+		tmp->prev ? tmp->prev->next = new :
+			(*fflist = new);
 		tmp->prev = new;
 	}
 	return (new);
