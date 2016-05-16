@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:50:35 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/04/28 12:47:13 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/05/16 10:50:39 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void	ft_lstappend(t_list *alst, t_list *new)
 {
 	t_list	*tmp;
 
+	if (!new || !alst)
+		return ;
 	tmp = alst;
 	while (tmp->next)
 		tmp = tmp->next;
