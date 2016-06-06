@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/04/13 20:58:21 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/06/06 17:17:54 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@
 
 # define BUFF_SIZE 128
 
-typedef struct			s_list
+typedef struct		s_list
 {
-	struct s_list		*next;
-	struct s_list		*prev;
-}						t_list;
+	struct s_list	*next;
+	struct s_list	*prev;
+}					t_list;
 
-typedef	struct			s_file
+typedef	struct		s_file
 {
-	int					fd;
-	char				*buff;
-	struct s_file		*nxt;
-}						t_file;
+	int				fd;
+	char			*buff;
+	struct s_file	*nxt;
+}					t_file;
 
 void				ft_pmem(const void *addr, size_t t);
 int					get_next_line(int const fd, char **line);
@@ -99,10 +99,12 @@ char				*ft_strnstr(char const *s1, char const *s2, size_t n);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				ft_lstadd(t_list **alst, t_list *new);
-t_list				*ft_lstinsert(t_list **fflist, t_list *new, int (*f)(t_list*,t_list*));
+t_list				*ft_lstinsert(t_list **fflist, t_list *new, \
+		int (*f)(t_list*, t_list*));
 void				ft_lstappend(t_list *alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstdelone(t_list **alst, void (*del)(void *));
 void				ft_lstdel(t_list **alst, void (*del)(void *));
-int					ft_lstinsert_list(t_list *fflist, t_list *ffnew, int (*f)(t_list*, t_list*));
+int					ft_lstinsert_list(t_list *fflist, t_list *ffnew, \
+		int (*f)(t_list*, t_list*));
 #endif

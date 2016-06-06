@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/19 11:39:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/04/08 16:03:02 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/06/06 17:12:45 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,15 @@ static t_file	*f_add(int fd, t_file *link)
 }
 
 /*
-static void		free_node(t_file *file)
-{
-	if (file->buff)
-		ft_strdel(&file->buff);
-	if (file->nxt)
-		file = file->nxt;
-	else
-		ft_memdel((void **)&file);
-}
+**static void		free_node(t_file *file)
+**{
+**	if (file->buff)
+**		ft_strdel(&file->buff);
+**	if (file->nxt)
+**		file = file->nxt;
+**	else
+**		ft_memdel((void **)&file);
+**}
 */
 
 int				get_next_line(int const fd, char **line)
@@ -103,10 +103,6 @@ int				get_next_line(int const fd, char **line)
 		ret = (ft_strncpy(*line, f->buff, ft_strclchr(f->buff, '\n'))) ? 1 : -1;
 	else if (s_fd || *f->buff)
 		ret = -1;
-	/*
-	if (ret <= 0 && f)
-		free_node(f);
-		*/
 	(buff_delfline(&f->buff)) == -1 ? ret = -1 : (void)0;
 	return ((ret == 1 && !f->buff) ? 0 : ret);
 }
