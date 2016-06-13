@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/06/06 17:17:54 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/06/13 20:05:11 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ size_t				ft_strlcat(char *dest, char const *src, size_t size);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplit(char const *s, char *c);
 void				ft_strdel(char **as);
 void				ft_strclr(char *s);
 char				*ft_strchr(char const *s, int c);
