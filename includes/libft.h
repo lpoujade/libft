@@ -58,6 +58,8 @@ char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				**ft_strsplit(char const *s, char *c);
 void				ft_strdel(char **as);
+int					ft_strtdel(char ***str);
+char				**ft_strtnew(size_t size);
 void				ft_strclr(char *s);
 char				*ft_strchr(char const *s, int c);
 char				*ft_strrchr(char const *s, int c);
