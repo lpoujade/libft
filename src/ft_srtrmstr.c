@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strrmstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 16:14:45 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/09/20 14:27:18 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/09/20 13:55:56 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/09/20 14:07:03 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char const *s1)
-{
-	char *s2;
-
-	if (!(s2 = ft_strnew(ft_strlen(s1))))
-		return (s2);
-	return (ft_strcpy(s2, s1));
-}
-
-char	*ft_strndup(char const *str, int len)
+char	*ft_strrmstr(char *str, char *torm)
 {
 	char	*ret;
+	char	*subs;
 	int		c;
 
 	c = 0;
-	if (!(ret = malloc(sizeof(char) * len)))
+	subs = ft_strstr(str, torm);
+	if (!(ret = ft_strnew(ft_srtlen(str) - ft_strlen(torm))))
 		return (NULL);
-	while (str[c] && c < len)
+	while (str[c])
 	{
-		ret[c] = str[c];
-		c++;
+		if ((str + c) != subs)
+			ret[c] = str[c];
+		else
+			c += ft_srtlen(torm);
 	}
+	free(str);
 	return (ret);
 }
