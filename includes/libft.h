@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/09/20 14:27:10 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/10/01 12:37:30 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char				*ft_itoa(int n);
 int					ft_atoi(char const *s);
 int					ft_pow(int n, int p);
 unsigned int		ft_abs(signed int n);
-int					ft_tabmax(int *tab, int siz);
+int					ft_tabmax(int *t, int siz);
 int					ft_tolower(int c);
 int					ft_strequ(char const *s1, char const *s2);
 char				*ft_strnstr(char const *s1, char const *s2, size_t n);
