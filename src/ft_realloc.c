@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 12:51:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/23 20:00:15 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/10/20 19:12:19 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void		*ft_realloc(void **src, size_t src_size, size_t final_size)
 			ft_memdel((void **)src);
 		}
 	}
+	*src = ret;
 	return (ret);
 }
