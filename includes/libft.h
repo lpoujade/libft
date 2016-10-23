@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/10/21 15:26:43 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/10/22 17:47:12 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void				ft_iswap(int *a, int *b);
 int					ft_getndigits(int a);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
-void				ft_putstr(char const *s);
-void				ft_putstr_fd(char const *s, int fd);
-void				ft_putendl(char const *s);
-void				ft_putendl_fd(char const *s, int fd);
+size_t				ft_putstr(char const *s);
+size_t				ft_putstr_fd(char const *s, int fd);
+size_t				ft_putendl(char const *s);
+size_t				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_puthex(unsigned char num);

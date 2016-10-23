@@ -6,13 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 09:59:15 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/11/24 21:36:03 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/10/22 17:45:54 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+size_t		ft_putendl(char const *s)
 {
-	ft_putendl_fd(s, 1);
+	return (ft_putendl_fd(s, 1));
 }
