@@ -14,7 +14,7 @@ NAME=libft.a
 SRCDIR=./src
 OBJDIR=./.obj
 
-CC=clang
+CC=gcc
 CFLAGS=-Wall -Werror -Wextra -g
 CPPFLAGS=-Iincludes/
 ARFLAGS=scr

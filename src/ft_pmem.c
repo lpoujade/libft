@@ -12,11 +12,6 @@
 
 #include "libft.h"
 
-static inline int	isascii(char c)
-{
-	return ((c >= '!' && c <= '~'));
-}
-
 void				ft_puthex(unsigned char num)
 {
 	if (num >= 16)
@@ -49,7 +44,7 @@ char				*print_line_ascii(char *addr, int b)
 	}
 	while (b > 0 && addr)
 	{
-		ft_putchar(isascii(*addr) ? *addr : '.');
+		ft_putchar(ft_isascii(*addr) ? *addr : '.');
 		addr++;
 		b--;
 	}
