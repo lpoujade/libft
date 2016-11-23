@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/21 12:31:32 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/10/21 15:26:33 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/23 16:00:42 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,16 @@ int		ft_strinsert(char *target, int pos, char *new)
 	}
 	ft_strcat(target, ret);
 	free(ret);
+	return (0);
+}
+
+int		ft_strrmchar(char *str, int c)
+{
+	while (str[c] && str[c + 1])
+	{
+		str[c] = str[c + 1];
+		c++;
+	}
+	str[c] = 0;
 	return (0);
 }
