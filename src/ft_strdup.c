@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 16:14:45 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/09/21 17:38:15 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/23 15:49:46 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ char	*ft_strdup(char const *s1)
 	return (ft_strcpy(s2, s1));
 }
 
-char	*ft_strndup(char const *str, int len)
+char	*ft_strndup(char const *str, size_t len)
 {
 	char	*ret;
-	int		c;
+	size_t	c;
 
 	c = 0;
 	if (!(ret = malloc(sizeof(char) * len)))
