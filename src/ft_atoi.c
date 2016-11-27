@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   src/ft_atoi.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/02 11:10:45 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/13 10:15:18 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 15:19:34 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 15:19:34 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,29 @@
 
 static int		ft_isspace(int c)
 {
-	int ret;
-
-	ret = 0;
-	if (c == '\t' || c == '\n' || c == ' ' || c == '\v' || c == '\f' \
-			|| c == '\r')
-		ret = 1;
-	return (ret);
+	return (c == '\t' || c == '\n' || c == ' ' || c == '\v' || c == '\f' \
+			|| c == '\r');
 }
 
-int				ft_atoi(char const *s)
+int		ft_atoi(const char *s)
 {
-	int ret;
-	int i;
+	int	ret;
 	int neg;
 
-	i = 0;
 	ret = 0;
-	neg = 1;
-	while (ft_isspace(s[i]))
-		i++;
-	if (s[i] == '-' && ft_isdigit(s[i + 1]))
+	neg = 0;
+	while (ft_isspace(*s))
+		s++;
+	if (*s == '-' || *s == '+')
 	{
-		i++;
-		neg = -1;
+		neg = (*s == '-' ? -1 : +1);
+		s++;
 	}
-	else if ((s[i] == '+') && ft_isdigit(s[i + 1]))
-		i++;
-	while (ft_isdigit(s[i]))
+	while (*s && *s >= '0' && *s <= '9')
 	{
-		ret = ret * 10;
-		ret = ret + (s[i] - '0');
-		i++;
+		ret *= 10;
+		ret += (*s - '0');
+		s++;
 	}
 	return (ret * neg);
 }

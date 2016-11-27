@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   src/ft_memset.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:14:23 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 11:46:58 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 12:36:19 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 12:36:19 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *src, int c, size_t n)
 {
-	unsigned long	index;
-	char			*b2;
-	unsigned char	c2;
+	unsigned char *s;
+	size_t	i;
 
-	if (len)
+	i = 0;
+	s = src;
+	while (i < n)
 	{
-		c2 = (unsigned char)c;
-		b2 = (char *)b;
-		index = 0;
-		while (index < len)
-		{
-			b2[index] = c2;
-			index++;
-		}
+		s[i] = (unsigned char)c;
+		i++;
 	}
-	return (b);
+	return (src);
 }

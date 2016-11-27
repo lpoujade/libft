@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   src/ft_strcmp.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 18:05:19 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/14 18:59:02 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 15:18:28 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 15:18:28 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+#include "libft.h"
+
+int		ft_strcmp(char const *s1, char const *s2)
 {
-	int i;
+	unsigned const char *s;
+	unsigned const char *d;
+	size_t	i;
 
 	i = 0;
-	while ((unsigned char)s1[i] == (unsigned char)s2[i] && s1[i] && s2[i])
+	s = (unsigned const char *)s1;
+	d = (unsigned const char *)s2;
+	while (s[i] && d[i] && s[i] == d[i])
+	{
+		if (!s[i] || !d[i])
+			return ((int)((s[i] ? s[i] : d[i])));
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	return ((int) (s[i] > d[i] ? s[i] - d[i] : d[i] - s[i]));
 }

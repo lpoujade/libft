@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   src/ft_strsub.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 13:31:50 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/04 18:28:34 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 16:02:49 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 16:02:49 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strsub(const char *s, unsigned int start, size_t len)
 {
-	char *ret;
+	char	*ret;
+	size_t	i;
 
-	ret = ft_strnew(len);
-	if (ret)
+	if (!(ret = malloc(len)))
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		ft_strncat(ret, (s + start), len);
-		ft_strcat((ret + ft_strlen(ret)), "\0");
+		ret[i] = s[i + start];
+		i++;
 	}
 	return (ret);
 }

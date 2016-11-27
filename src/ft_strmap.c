@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   src/ft_strmap.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 15:28:50 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/04 18:50:46 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 15:54:02 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 15:54:02 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int		index;
+	size_t	i;
 	char	*ret;
 
-	if (!(ret = ft_strnew(ft_strlen(s))))
-		return (ret);
-	index = 0;
-	while (s[index])
+	ret = malloc(ft_strlen(s));
+	i = 0;
+	while (s[i])
 	{
-		ret[index] = (*f)(s[index]);
-		index++;
+		ret[i] = (f)(s[i]);
+		i++;
 	}
-	ret[index] = '\0';
+	ret[i] = 0;
 	return (ret);
 }

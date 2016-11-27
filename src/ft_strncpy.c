@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   src/ft_strncpy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 13:36:20 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/01 19:00:13 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 13:01:00 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 13:01:00 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	unsigned int index;
+	size_t	i;
 
-	index = 0;
-	while (index < n && src[index])
+	i = 0;
+	while (i < n && src[i])
 	{
-		dest[index] = src[index];
-		index++;
+		dest[i] = src[i];
+		i++;
 	}
-	while (index < n)
-	{
-		dest[index] = '\0';
-		index++;
-	}
+	while (i < n)
+		dest[i++] = 0;
 	return (dest);
 }

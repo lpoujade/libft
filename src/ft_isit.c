@@ -1,18 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   src/ft_isit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 09:59:15 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/10/22 17:45:54 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 15:27:18 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 15:27:18 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_putendl(char const *s)
+
+int	ft_isalpha(int c)
 {
-	return (ft_putendl_fd(s, 1));
+	return (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')));
+}
+
+int	ft_isalnum(int c)
+{
+	return (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) || 
+			(c >= '0' && c <= '9'));
+}
+
+int	ft_isdigit(int c)
+{
+	return ((c >= '0' && c <= '9'));
+}
+
+int	ft_isascii(int c)
+{
+	return ((c >= 0 && c <= 127));
+}
+
+int	ft_isprint(int c)
+{
+	return ((c >= ' ' && c <= '~'));
 }

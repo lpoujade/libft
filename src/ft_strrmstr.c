@@ -22,7 +22,7 @@ char	*ft_strrmstr(char *str, char *torm)
 	c = 0;
 	sec = 0;
 	len = ft_strlen(str) - ft_strlen(torm);
-	if (!(subs = ft_strstr(str, torm)))
+	if (!(subs = (char*)ft_strstr(str, torm)))
 		return (str);
 	while (str[c])
 	{

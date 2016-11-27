@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   src/ft_to.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/02 11:34:20 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/02 11:34:44 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 15:37:19 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 15:37:19 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_tolower(int c)
+int	ft_toupper(int c)
 {
-	if (ft_isalpha(c) && ft_isupper(c))
-		c = c + 32;
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
+}
+
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
 	return (c);
 }

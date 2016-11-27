@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   src/ft_strrchr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 14:43:33 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/03/17 23:14:13 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 13:15:05 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 13:15:05 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(char const *s, int c)
+const char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
+	size_t	len;
 
-	i = ft_strlen(s);
-	while (s[i] != c && i)
-		i--;
-	return (i ? (char*)s + i : NULL);
+	len = ft_strlen(s);
+	while (len && s[len] != c)
+		len--;
+	return (len ? s + len : NULL);
 }

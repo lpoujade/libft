@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   src/ft_strnew.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 18:08:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/02/15 22:32:37 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 15:44:38 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 15:44:38 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 char	*ft_strnew(size_t size)
 {
-	char			*new;
+	char	*p;
 
-	if ((new = (char *)malloc(size + 1)))
-		ft_memset(new, '\0', size + 1);
-	return (new);
+	p = malloc(size + 1);
+	if (p)
+		ft_bzero(p, size + 1);
+	return (p);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   src/ft_strnequ.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 11:40:43 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/03 18:20:56 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 16:01:55 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 16:01:55 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	if (ft_strncmp(s1, s2, n))
-		n = 0;
-	else
-		n = 1;
-	return (n);
+	size_t i;
+
+	i = 0;
+	while (i < n && s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] == s2[i] ? 1 : 0);
 }

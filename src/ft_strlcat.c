@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   src/ft_strlcat.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 19:39:25 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/08 09:43:45 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 13:06:27 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 13:06:27 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dest, char const *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	char	*tmp_d;
-	int		i;
-	size_t	max;
-	size_t	o_size;
+	size_t	i;
+	size_t	j;
 
-	o_size = size;
-	max = ft_strlen(dest);
-	tmp_d = dest;
-	while (*tmp_d && size)
-	{
-		tmp_d++;
-		size--;
-	}
-	if (!size)
-		return (o_size + ft_strlen(src));
 	i = 0;
-	while (src[i] && --size)
+	j = 0;
+	while (dest[i])
+		i++;
+	while (src[j] && i + j < size)
 	{
-		*tmp_d = src[i];
-		tmp_d++;
+		dest[i + j] = src[i];
 		i++;
 	}
-	if (size && !src[i])
-		*tmp_d = '\0';
-	return (max + ft_strlen(src));
+	return (i + j);
 }

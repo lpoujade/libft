@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   src/ft_memmove.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 23:11:59 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/18 14:46:15 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 12:41:56 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 12:41:56 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, void const *src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*t_src;
-	unsigned char	*t_dst;
-	size_t			i;
+	unsigned const char	*s;
+	unsigned char	*d;
+	unsigned char	*tmp;
+	size_t	i;
 
 	i = 0;
-	t_src = (unsigned char *)src;
-	t_dst = (unsigned char *)dst;
-	if (t_src < t_dst)
-		while (len--)
-			t_dst[len] = t_src[len];
-	else
-		while (i < len)
-		{
-			t_dst[i] = t_src[i];
-			i++;
-		}
-	return (dst);
+	s = src;
+	d = dest;
+	if (!(tmp = malloc(sizeof(unsigned char) * n)))
+		return (NULL);
+	while (i < n)
+	{
+		tmp[i] = s[i];
+		i++;
+	}
+	i = 0;
+	while (i < n)
+	{
+		d[i] = tmp[i];
+		i++;
+	}
+	free(tmp);
+	return (dest);
 }

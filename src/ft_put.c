@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   src/ft_strtrim.c                                   :+:      :+:    :+:   */
+/*   src/ft_put.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 16:08:32 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/27 16:08:32 by lpoujade         ###   ######## fr       */
+/*   Created: 2016/11/27 16:24:45 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 16:24:45 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	bl(char c)
+ssize_t	ft_putstr(const char *s)
 {
-	return (c == ' ' || c == '\t' || c == '\n');
+	return (write(STDOUT_FILENO, s, ft_strlen(s)));
 }
 
-char	*ft_strtrim(const char *s)
+ssize_t	ft_putstr_fd(const char *s, int fd)
 {
-	char	*ret;
-	size_t	len;
-	size_t	i;
+	return (write(fd, s, ft_strlen(s)));
+}
 
-	i = 0;
-	while (bl(*s))
-		s++;
-	len = ft_strlen(s) - 1;
-	while (bl(s[len]))
-		len--;
-	ret = malloc(len);
-	while (i < len && s[i])
-	{
-		ret[i] = s[i];
-		i++;
-	}
-	ret[i] = 0;
-	return (ret);
+ssize_t	ft_putendl(const char *s)
+{
+	ssize_t	r;
+	r = write(STDOUT_FILENO, s, ft_strlen(s));
+	r += ft_putchar('\n');
+	return (r);
+}
+
+ssize_t	ft_putendl_fd(const char *s, int fd)
+{
+	ssize_t	r;
+
+	r = write(fd, s, ft_strlen(s));
+	r += ft_putchar_fd('\n', fd);
+	return (r);
 }

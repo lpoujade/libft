@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   src/ft_memccpy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 12:16:09 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/12 11:48:54 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 12:40:14 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 12:40:14 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, void const *src, int c, size_t len)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	int					index;
-	void				*ret;
-	unsigned char		cu;
-	unsigned char		*tmp_d;
-	unsigned const char *tmp_s;
+	unsigned const char *t_s;
+	unsigned char *t_d;
+	size_t i;
 
-	cu = (unsigned char)c;
-	index = 0;
-	tmp_d = (unsigned char *)dest;
-	tmp_s = (unsigned char const *)src;
-	while (len && tmp_s[index] != cu)
+	i = 0;
+	t_s = src;
+	t_d = dest;
+	while (i < n)
 	{
-		tmp_d[index] = tmp_s[index];
-		len--;
-		index++;
+		if (t_s[i] == c)
+			break ;
+		t_d[i] = t_s[i];
+		i++;
 	}
-	if (tmp_s[index] == cu)
-	{
-		tmp_d[index] = cu;
-		ret = (void *)(tmp_d + (index + 1));
-	}
-	else
-		ret = NULL;
-	return (ret);
+	return (dest);
 }
