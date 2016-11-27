@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   src/ft_putchar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 14:30:17 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/01 19:06:08 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 16:24:06 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 16:24:06 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+ssize_t	ft_putchar(char c)
 {
-	ft_putchar_fd(c, 1);
+	return (write(STDOUT_FILENO, &c, 1));
+}
+
+ssize_t	ft_putchar_fd(char c, int fd)
+{
+	return (write(fd, &c, 1));
 }

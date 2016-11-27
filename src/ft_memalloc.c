@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   src/ft_memalloc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 21:59:31 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/12 11:47:54 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 15:42:58 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 15:42:58 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	*ft_memalloc(size_t size)
 {
@@ -19,6 +18,6 @@ void	*ft_memalloc(size_t size)
 
 	p = malloc(size);
 	if (p)
-		ft_memset(p, 0, size);
+		ft_bzero(p, size);
 	return (p);
 }

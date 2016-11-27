@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   src/ft_strdup.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 16:14:45 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/09/21 17:38:15 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 12:54:21 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 12:54:21 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char const *s1)
-{
-	char *s2;
-
-	if (!(s2 = ft_strnew(ft_strlen(s1))))
-		return (s2);
-	return (ft_strcpy(s2, s1));
-}
-
-char	*ft_strndup(char const *str, int len)
+char	*ft_strdup(const char *s)
 {
 	char	*ret;
-	int		c;
+	size_t	i;
 
-	c = 0;
-	if (!(ret = malloc(sizeof(char) * len)))
+	i = ft_strlen(s);
+	if (!(ret = malloc(i)))
 		return (NULL);
-	while (str[c] && c < len)
+	while (i + 1)
 	{
-		ret[c] = str[c];
-		c++;
+		ret[i] = s[i];
+		i--;
 	}
 	return (ret);
 }

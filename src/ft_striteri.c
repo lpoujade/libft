@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   src/ft_striteri.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 20:53:31 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/14 18:59:45 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 15:48:43 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 15:48:43 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int		index;
-	char	*c;
+	unsigned int	i;
 
-	index = 0;
-	while (s[index])
+	i = 0;
+	while (s[i])
 	{
-		c = (s + index);
-		(f)(index, c);
-		index++;
+		(f)(i, s + i);
+		i++;
 	}
 }

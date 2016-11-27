@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   src/ft_strncat.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 13:34:06 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/01/22 13:23:00 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 13:04:43 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 13:04:43 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
-	int	s_s1;
+	size_t	i;
 
-	s_s1 = ft_strlen(s1);
-	ft_strncpy((s1 + ft_strlen(s1)), s2, n);
-	s1[s_s1 + n] = 0;
-	return (s1);
+	i = 0;
+	while (*dest)
+		dest++;
+	while (i < n && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = 0;
+	return (dest);
 }

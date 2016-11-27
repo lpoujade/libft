@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   src/ft_itoa.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/02 21:50:15 by lpoujade          #+#    #+#             */
-/*   Updated: 2015/12/12 11:44:02 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 16:34:50 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 16:34:50 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		get_ndigits(int num)
+static int	get_ndigits(int num)
 {
 	int c;
 
@@ -27,7 +27,7 @@ static int		get_ndigits(int num)
 	return (c);
 }
 
-char			*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		digits;
 	int		sign;
@@ -35,7 +35,7 @@ char			*ft_itoa(int n)
 
 	sign = (n < 0) ? 1 : 0;
 	digits = get_ndigits(n);
-	if (!(ret = ft_strnew(digits + sign)))
+	if (!(ret = ft_strnew((size_t)(digits + sign))))
 		return (ret);
 	if (sign)
 		ret[0] = '-';

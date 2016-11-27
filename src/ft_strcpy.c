@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   src/ft_strcpy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 21:21:24 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/01/22 13:34:19 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 12:57:55 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 12:57:55 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char const *src)
-{
-	char *origin;
-	char *tmp;
+#include "libft.h"
 
-	origin = dest;
-	tmp = (char *)src;
-	while (*tmp)
+char	*ft_strcpy(char *dest, const char *src)
+{
+	size_t	len;
+	size_t	i;
+
+	i = 0;
+	len = ft_strlen(src);
+	while (src[i] && i < len)
 	{
-		*origin = *tmp;
-		origin++;
-		tmp++;
+		dest[i] = src[i];
+		i++;
 	}
-	*origin = *tmp;
+	dest[i] = 0;
 	return (dest);
 }

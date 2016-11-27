@@ -1,60 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   src/ft_strsplit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 12:20:44 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/06/13 20:04:18 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 16:14:46 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 16:14:46 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static inline int	how_strings(char const *s, char *c)
+static size_t	count_w(const char *s, char c)
 {
-	int	i;
-	int	co;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
-	co = 0;
+	count = 0;
 	while (s[i])
 	{
-		while (ft_strchr(c, s[i++]))
-			if (!s[i])
-				return (co);
-		while (ft_strchr(c, s[i]) && s[i])
+		if (s[i] == c)
+		{
+			count++;
+			while (s[i] == c)
+				i++;
+		}
+		else
 			i++;
-		co++;
 	}
-	return (co);
+	return (count);
 }
 
-char				**ft_strsplit(char const *s, char *c)
+char	**ft_strsplit(const char *s, char c)
 {
+	size_t	count;
+	size_t	len;
+	size_t	n_w;
+	size_t	i;
 	char	**ret;
-	int		i;
-	int		len;
-	int		i_ptr;
-
+	
+	len = 0;
+	n_w = 0;
 	i = 0;
-	i_ptr = 0;
-	ret = malloc((sizeof(char *) * how_strings(s, c)) + 1);
-	if (!s || !ret)
+	count = count_w(s, c);
+	if (!(ret = malloc(sizeof(char *) * count)))
 		return (NULL);
 	while (s[i])
 	{
-		len = 0;
-		while (s[i] && ft_strchr(c, s[i]))
-			i++;
-		while (s[i + len] && !ft_strchr(c, s[i + len]))
+		if (s[i] == c)
+		{
+			count++;
+			while (s[i] == c)
+				i++;
+		}
+		while (s[i] != c)
 			len++;
-		if (len)
-			if (!(ret[i_ptr++] = ft_strsub(s, i, len)))
-				return (NULL);
-		i = i + len;
+		ret[n_w] = ft_strsub(s,  (unsigned int)i, len);
+		n_w++;
 	}
-	ret[i_ptr] = NULL;
+	ret[n_w] = NULL;
 	return (ret);
 }

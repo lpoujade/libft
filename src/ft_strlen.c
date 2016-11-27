@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   src/ft_strlen.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 21:19:53 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/03/11 19:19:33 by lpoujade         ###   ########.fr       */
+/*   Created: 2016/11/27 12:27:34 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/11/27 12:27:34 by lpoujade         ###   ######## fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	int x;
+	char const *mark;
 
-	x = 0;
-	while (str && str[x])
-		x++;
-	return (x);
+	mark = s;
+	while (*mark)
+		mark++;
+	return ((size_t)(mark - s));
 }
