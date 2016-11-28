@@ -15,11 +15,11 @@
 int		ft_strclchr(char const *s, char c)
 {
 	int		len;
-	char	*str;
+	const char	*str;
 
 	if (!s)
 		return (0);
-	str = (char *)s;
+	str = s;
 	len = 0;
 	while (*str != c && *str)
 	{

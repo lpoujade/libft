@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int				ft_pow(int n, int p)
 {
 	int tmp;
@@ -28,7 +30,7 @@ int				ft_pow(int n, int p)
 		return (1);
 }
 
-unsigned int	ft_abs(signed int n)
+signed int	ft_abs(signed int n)
 {
 	return (n < 0 ? n * -1 : n);
 }

@@ -15,7 +15,7 @@
 char	*ft_strinv(char *s)
 {
 	char	*tmp;
-	int		i;
+	size_t	i;
 	int		c;
 
 	i = ft_strlen(s) - 1;

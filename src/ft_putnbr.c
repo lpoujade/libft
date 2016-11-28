@@ -20,9 +20,9 @@ static void		put(int n, int fd)
 		put(n % 10, fd);
 	}
 	else if (n > 0)
-		ft_putchar_fd('0' + n, fd);
+		ft_putchar_fd('0' + (char)n, fd);
 	else
-		ft_putchar_fd('0' + -n, fd);
+		ft_putchar_fd('0' + -(char)n, fd);
 }
 
 void			ft_putnbr_fd(int n, int fd)

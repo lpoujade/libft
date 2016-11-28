@@ -16,6 +16,8 @@ size_t	ft_strlen(const char *s)
 {
 	char const *mark;
 
+	if (!s)
+		return (0);
 	mark = s;
 	while (*mark)
 		mark++;

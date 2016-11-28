@@ -17,7 +17,7 @@ static int	bl(char c)
 	return (c == ' ' || c == '\t' || c == '\n');
 }
 
-char	*ft_strtrim(const char *s)
+char	*ft_ftstrtrim(const char *s)
 {
 	char	*ret;
 	size_t	len;
@@ -36,5 +36,40 @@ char	*ft_strtrim(const char *s)
 		i++;
 	}
 	ret[i] = 0;
+	return (ret);
+}
+
+/**
+ ** @name    Trim a string
+ ** @brief   Remove trailings and leadings set of characters
+ ** @ingroup libft
+ **
+ ** ft_strtrim(char *str, char *char_set) returns a string without each 
+ ** character in the char_set string if between the beginning or the end
+ ** and the first other character (which don't appear in char_set)
+ **
+ ** @param [in] s const char *str        String to trim
+ ** @param [in] set const char *char_set   Characters to use for trim
+ **
+ ** @retval char *  Pointer to new string trimmed
+ **
+ ** Example Usage:
+ ** @code
+ **    ft_strtrim("' fyah '", "' ")
+ ** @endcode
+ ** Will return pointer to "fyah"
+*/
+
+char	*ft_strtrim(const char *s, const char *set)
+{
+	char	*ret;
+	size_t	len;
+
+	while (*s && ft_strchr(set, *s))
+		s++;
+	len = ft_strlen(s);
+	while (len && ft_strchr(set, s[len]))
+		len--;
+	ret = ft_strsub(s, 0, len + 1);
 	return (ret);
 }

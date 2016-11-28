@@ -15,7 +15,7 @@
 int		ft_strinsert(char *target, int pos, char *new)
 {
 	char	*ret;
-	size_t	c;
+	int	c;
 
 	if (!target || !new || pos < 0)
 		return (1);

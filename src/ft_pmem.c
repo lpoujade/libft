@@ -20,12 +20,12 @@ void				ft_puthex(unsigned char num)
 		ft_puthex(num % 16);
 	}
 	if (num < 10)
-		ft_putchar(num + '0');
+		ft_putchar((char)(num + '0'));
 	else if (num < 16)
-		ft_putchar(num + 87);
+		ft_putchar((char)(num + 87));
 }
 
-char				*print_line_ascii(char *addr, int b)
+static const char			*print_line_ascii(const char *addr, int b)
 {
 	int c;
 
@@ -55,14 +55,14 @@ char				*print_line_ascii(char *addr, int b)
 void				ft_pmem(const void *addr, size_t t)
 {
 	size_t			i;
-	unsigned char	*p;
-	char			*c;
+	unsigned const char *p;
+	const char			*c;
 
 	i = 0;
 	if (!addr)
 		return ;
-	p = (unsigned char *)addr;
-	c = (char*)p;
+	p = (unsigned const char *)addr;
+	c = (const char*)p;
 	while (i < t)
 	{
 		if (!*p || *p < 0x10)
@@ -73,6 +73,6 @@ void				ft_pmem(const void *addr, size_t t)
 		if (!(i % 2))
 			ft_putchar(' ');
 		if (!(i % 16) || i >= t)
-			c = print_line_ascii(c, i < t ? 16 : i);
+			c = print_line_ascii(c, i < t ? 16 : (int)i);
 	}
 }

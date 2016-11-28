@@ -14,15 +14,15 @@
 
 char	*ft_strrmstr(char *str, char *torm)
 {
-	char	*subs;
-	int		c;
-	int		sec;
-	int		len;
+	const char	*subs;
+	size_t	c;
+	size_t	sec;
+	size_t	len;
 
 	c = 0;
 	sec = 0;
 	len = ft_strlen(str) - ft_strlen(torm);
-	if (!(subs = (char*)ft_strstr(str, torm)))
+	if (!(subs = ft_strstr(str, torm)))
 		return (str);
 	while (str[c])
 	{

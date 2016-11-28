@@ -27,9 +27,9 @@ typedef struct		s_list
 
 typedef	struct		s_file
 {
-	int				fd;
 	char			*buff;
 	struct s_file	*nxt;
+	long int		fd;
 }					t_file;
 
 void				ft_pmem(const void *addr, size_t t);
@@ -40,15 +40,17 @@ int					ft_getndigits(int a);
 void				ft_puthex(unsigned char num);
 int					ft_strtdel(char ***str);
 char				**ft_strtnew(size_t size);
+const char	*ft_strchr(const char *s, int c);
 int					ft_strcchr(char const *s, char c);
 int					ft_strclchr(char const *s, char c);
+int		ft_strrmchar(char *str, int c);
 char				*ft_strrmstr(char *str, char *torm);
 char				*ft_strndup(char const *str, int len);
 char				*ft_strinv(char *s);
 int					ft_strinsert(char *target, int pos, char *new);
 void				*ft_realloc(void **src, size_t src_size, size_t final_size);
 int					ft_pow(int n, int p);
-unsigned int		ft_abs(signed int n);
+signed int	ft_abs(signed int n);
 int					ft_tabmax(int *t, int siz);
 void				ft_lstadd(t_list **alst, t_list *new);
 t_list				*ft_lstinsert(t_list **fflist, t_list *new, \
@@ -100,7 +102,8 @@ int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strsub(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
-char	*ft_strtrim(const char *s);
+char	*ft_ftstrtrim(const char *s);
+char	*ft_strtrim(const char *s, const char *set);
 char	**ft_strsplit(const char *s, char c);
 ssize_t	ft_putendl_fd(const char *s, int fd);
 ssize_t	ft_putendl(const char *s);
@@ -109,4 +112,6 @@ ssize_t	ft_putstr(const char *s);
 ssize_t	ft_putchar(char c);
 ssize_t	ft_putchar_fd(char c, int fd);
 char		*ft_itoa(int n);
+void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr(int n);
 #endif
