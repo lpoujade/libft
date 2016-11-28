@@ -50,23 +50,21 @@ char	**ft_strsplit(const char *s, char *c)
 	n_w = 0;
 	i = 0;
 	count = count_w(s, c);
-	if (!(ret = malloc(sizeof(char *) * count)))
+	if (!(ret = malloc(sizeof(char *) * count + 1)))
 		return (NULL);
-	while (s[i])
+	while (s[i] && n_w < count)
 	{
 		if (ft_strchr(c, s[i]))
+			i++;
+		else
 		{
-			count++;
-			while (s[i] && ft_strchr(c, s[i]))
-				i++;
 			while (s[i + len] && !ft_strchr(c, s[i + len]))
 				len++;
-			if (len)
-				ret[n_w++] = ft_strsub(s,  (unsigned int)i, len);
+			if (len >= 1)
+				ret[n_w++] = ft_strsub(s, (unsigned int)i, len);
+			i += len;
 			len = 0;
 		}
-		else
-			i++;
 	}
 	ret[n_w] = NULL;
 	return (ret);
