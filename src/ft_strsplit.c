@@ -12,28 +12,26 @@
 
 #include "libft.h"
 
-static size_t	count_w(const char *s, char c)
+static inline size_t	count_w(char const *s, char *c)
 {
-	size_t	i;
-	size_t	count;
+	int	i;
+	size_t	co;
 
 	i = 0;
-	count = 0;
+	co = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
-		{
-			count++;
-			while (s[i] == c)
-				i++;
-		}
-		else
+		while (ft_strchr(c, s[i++]))
+			if (!s[i])
+				return (co);
+		while (ft_strchr(c, s[i]) && s[i])
 			i++;
+		co++;
 	}
-	return (count);
+	return (co);
 }
 
-char	**ft_strsplit(const char *s, char c)
+char	**ft_strsplit(const char *s, char *c)
 {
 	size_t	count;
 	size_t	len;
@@ -49,13 +47,13 @@ char	**ft_strsplit(const char *s, char c)
 		return (NULL);
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (ft_strchr(c, s[i]))
 		{
 			count++;
-			while (s[i] == c)
+			while (s[1] && ft_strchr(c, s[i]))
 				i++;
 		}
-		while (s[i] != c)
+		while (s[i + len] && ft_strchr(c, s[i + len]))
 			len++;
 		ret[n_w] = ft_strsub(s,  (unsigned int)i, len);
 		n_w++;

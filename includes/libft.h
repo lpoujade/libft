@@ -104,7 +104,7 @@ char	*ft_strsub(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_ftstrtrim(const char *s);
 char	*ft_strtrim(const char *s, const char *set);
-char	**ft_strsplit(const char *s, char c);
+char	**ft_strsplit(const char *s, char *c);
 ssize_t	ft_putendl_fd(const char *s, int fd);
 ssize_t	ft_putendl(const char *s);
 ssize_t	ft_putstr_fd(const char *s, int fd);
