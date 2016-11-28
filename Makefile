@@ -27,6 +27,10 @@ OBJS=$(addprefix $(OBJDIR)/,$(OBJ))
 
 all: $(NAME)
 
+test_t: src/test.c $(NAME) src/logf.c ft_printf.a
+	$(CC) $(CPPFLAGS) $(CFLAGS) -lpthread $< ft_printf.a src/logf.c $(NAME) -o $@
+	@echo -e "compiling\033[32m" $@ "\033[0m"
+
 $(NAME): $(OBJS)
 	@$(AR) $(ARFLAGS) $@ $^
 	@echo -e "linking to\033[32m" $@ "\033[0m"
