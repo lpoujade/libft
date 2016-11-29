@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 15:19:34 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/27 15:19:34 by lpoujade         ###   ######## fr       */
+/*   Updated: 2016/11/29 19:13:58 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_atoi(const char *s)
 	int neg;
 
 	ret = 0;
-	neg = 0;
+	neg = 1;
 	while (ft_isspace(*s))
 		s++;
 	if (*s == '-' || *s == '+')

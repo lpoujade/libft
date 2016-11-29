@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/11 13:41:06 by lpoujade          #+#    #+#              #
-#    Updated: 2016/10/23 19:07:24 by lpoujade         ###   ########.fr        #
+#    Updated: 2016/11/29 12:49:35 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCDIR=./src
 OBJDIR=./.obj
 
 CC=clang
-CFLAGS=-Wall -Werror -Wextra -g -Weverything -Wno-documentation-unknown-command
+CFLAGS=-Wall -Werror -Wextra -g #-Weverything -Wno-documentation-unknown-command
 CPPFLAGS=-Iincludes/
 ARFLAGS=scr
 

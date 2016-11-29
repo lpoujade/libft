@@ -6,13 +6,11 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/19 11:39:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/06/06 17:12:45 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/29 12:49:29 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#pragma clang diagnostic ignored "-Weverything"
 
 static int		buff_delfline(char **buff)
 {
