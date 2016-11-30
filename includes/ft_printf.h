@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 11:45:58 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 17:51:45 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/30 19:01:23 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include <stdarg.h>
 # include "libft.h"
 
-# define	F_ALTMODE	0x01
+# define	F_ALTMODE		0x01
 # define	F_RIGHTALIGN	0x02
+# define	F_HEXMAJ		0x02
 
 # define	L_L		1
 # define	L_LL	2
@@ -68,6 +69,8 @@ int	p_str(va_list ap);
 void	ft_puts(signed long long t);
 void	ft_putu(unsigned long long t);
 
+void	ft_puthex(unsigned long long num, int casse);
+
 /* ~parsing format/options/… */
 int				a_format(const char **format, va_list ap);
 unsigned int	parse_opt(const char *c);
@@ -77,6 +80,7 @@ t_mod			geto(void);
 void			putxchar(char c, unsigned int n);
 unsigned int	gndigits(long long int a);
 int				isupcase(char c);
+int percent_symbol(va_list ap);
 
 /* ~ output formatting */
 void	pad_pre(t_mod o, size_t len);

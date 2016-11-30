@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 11:43:31 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 15:09:14 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/30 18:56:16 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 /*
 **	f['o'] = &p_octal;
-**	f['x'] = &p_hexadecimal;
-**	f['X'] = &p_hexadecimal;
 */
 
 static void	register_printers(int (*f[127])(va_list))
 {
+	f['%'] = &percent_symbol;
 	f['d'] = &p_sdec;
 	f['D'] = &p_sdec;
 	f['i'] = &p_sdec;
@@ -31,29 +30,15 @@ static void	register_printers(int (*f[127])(va_list))
 	f['S'] = NULL;
 	f['p'] = NULL;
 	f['O'] = NULL;
+	f['x'] = &p_uhex;
+	f['X'] = &p_uhex;
 }
-
-/*
-static void	register_printers(int (*f[127])(va_list))
-{
-	f['d'] = &p_sint;
-	f['D'] = &p_slong;
-	f['i'] = &p_sint;
-	f['u'] = &p_uint;
-	f['U'] = &p_ulong;
-	f['c'] = &p_schar;
-	f['C'] = NULL;
-	f['s'] = &p_str;
-	f['S'] = NULL;
-	f['p'] = NULL;
-	f['O'] = NULL;
-}
-*/
 
 int			a_format(const char **format, va_list ap)
 {
 	static int		(*formatt[127])(va_list ap) = {NULL};
 
+	(*format)++;
 	if (!formatt['d'])
 		register_printers(formatt);
 	(*format) += parse_opt(*format);
@@ -71,7 +56,7 @@ int			ft_printf(const char *format, ...)
 	va_start(ap, format);
 	while (*format)
 	{
-		if (*format == '%' && *(++format) != '%')
+		if (*format == '%')
 			c += a_format(&format, ap);
 		else
 			c += ft_putchar(*format);

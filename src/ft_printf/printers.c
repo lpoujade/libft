@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 17:03:02 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 14:42:51 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/30 19:03:04 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	p_str(va_list ap)
 	str = va_arg(ap, char *);
 	len = (unsigned int)ft_strlen(str);
 	pad_pre(o, len);
-	r = (int)ft_putstr(str);
+	r = write(STDOUT_FILENO, str, o.precision >= 0 ? o.precision : len);
 	pad_post(o, len);
 	return (o.flen ? (int)o.flen : r);
 }

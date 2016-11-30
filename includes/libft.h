@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 17:51:43 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/30 18:35:41 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int					get_next_line(int const fd, char **line);
 void				ft_swap(void *a, void *b);
 void				ft_iswap(int *a, int *b);
 int					ft_getndigits(int a);
-void				ft_puthex(unsigned char num);
+//void				ft_puthex(unsigned char num);
 int					ft_strtdel(char ***str);
 char				**ft_strtnew(size_t size);
 const char	*ft_strchr(const char *s, int c);

@@ -6,16 +6,16 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 18:40:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 16:23:07 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/30 19:07:20 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int p_sdec(va_list ap)
+int			p_sdec(va_list ap)
 {
-	t_mod	o;
-	long long t;
+	t_mod		o;
+	long long	t;
 
 	t = 0;
 	o = geto();
@@ -33,10 +33,10 @@ int p_sdec(va_list ap)
 	return (0);
 }
 
-int p_udec(va_list ap)
+int			p_udec(va_list ap)
 {
-	t_mod	o;
-	unsigned long long int t;
+	t_mod					o;
+	unsigned long long int	t;
 
 	t = 0;
 	o = geto();
@@ -54,40 +54,48 @@ int p_udec(va_list ap)
 	return (0);
 }
 
-/*
-int	p_sint(va_list ap)
+static void	putit(unsigned long long t, t_mod o)
 {
-	int i;
+	size_t len;
 
-	i = va_arg(ap, int);
-	ft_puts(i);
+	len = gndigits(t);
+	pad_pre(o, len);
+	while ((int)len++ < o.precision)
+		ft_putchar('0');
+	ft_puthex(t, o.flags & F_HEXMAJ ? 0 : 1);
+	pad_post(o, len);
+}
+
+int			p_uhex(va_list ap)
+{
+	t_mod					o;
+	unsigned long long int	t;
+
+	t = 0;
+	o = geto();
+	if (!o.lmod[0])
+		t = va_arg(ap, unsigned int);
+	else if (o.lmod[0] == 'h' && !o.lmod[1])
+		t = (unsigned short)va_arg(ap, unsigned int);
+	else if (o.lmod[0] == 'h' && o.lmod[1] == 'h')
+		t = (unsigned char)va_arg(ap, unsigned int);
+	else if (o.lmod[0] == 'l' && !o.lmod[1])
+		t = va_arg(ap, unsigned long int);
+	else if (o.lmod[0] == 'l' && o.lmod[1] == 'l')
+		t = va_arg(ap, unsigned long long int);
+	putit(t, o);
 	return (0);
 }
 
-int	p_uint(va_list ap)
+void		ft_puthex(unsigned long long num, int casse)
 {
-	unsigned int i;
-
-	i = va_arg(ap, unsigned int);
-	ft_putu(i);
-	return (0);
+	if (num >= 16)
+	{
+		ft_puthex(num / 16, casse);
+		ft_puthex(num % 16, casse);
+	}
+	if (num < 10)
+		ft_putchar((char)(num + '0'));
+	else if (num < 16)
+		ft_putchar((char)(num + (casse ? 87 : '7')));
 }
-
-int	p_slong(va_list ap)
-{
-	long int i;
-
-	i = va_arg(ap, long int);
-	ft_puts(i);
-	return (0);
-}
-
-int	p_ulong(va_list ap)
-{
-	unsigned long	lu;
-
-	lu = va_arg(ap, unsigned long);
-	ft_putu(lu);
-	return (0);
-}
-*/

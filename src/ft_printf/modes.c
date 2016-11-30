@@ -6,27 +6,11 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 18:41:39 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 17:50:11 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/30 19:07:05 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-static void printo(t_mod o)
-{
-	if (o.lmod[0])
-	{
-		ft_putstr("lenght modifiers: "); ft_putchar(o.lmod[0]);
-		ft_putchar(o.lmod[1]); ft_putchar('\n');
-	}
-	if (o.plus_sign)
-	{
-		ft_putstr("plus_sign: "); ft_putchar(o.plus_sign);
-		ft_putchar('\n');
-	}
-}
-*/
 
 static t_mod			save_opt(t_mod newopt, int b)
 {
@@ -55,7 +39,7 @@ static void				setemptyopt(t_mod *o)
 {
 	o->flen = 0;
 	o->flags = 0;
-	o->precision = 0;
+	o->precision = -1;
 	o->plus_sign = 0;
 	o->pad_char = ' ';
 	o->lmod[0] = 0;
@@ -70,10 +54,10 @@ static unsigned int		getflags(t_mod *opt, const char *c)
 	while (1)
 	{
 		if (c[i] == '#')
-			opt->flags &= 1;
+			opt->flags |= F_ALTMODE;
 		else if (c[i] == '-')
 		{
-			opt->flags = 2;
+			opt->flags |= F_RIGHTALIGN;
 			opt->pad_char = ' ';
 		}
 		else if (c[i] == '+')
@@ -109,7 +93,7 @@ unsigned int			parse_opt(const char *c)
 	i = getflags(&opt, c);
 	while (is_opt(c[i]))
 	{
-		if (ft_isdigit(c[i]) && !opt.flen)
+		if (ft_isdigit(c[i]) && !opt.flen && opt.precision == -1)
 			opt.flen = (unsigned int)ft_atoi(c + i);
 		else if (c[i] == '.')
 			opt.precision = (ft_isdigit(c[i + 1]) ? ft_atoi(c + i + 1) : 0);
@@ -117,8 +101,10 @@ unsigned int			parse_opt(const char *c)
 			i += get_lmod(&opt, c + i);
 		i++;
 	}
-	if (isupcase(c[i]))
+	if (c[i] != 'X' && isupcase(c[i]))
 		opt.lmod[0] = 'l';
+	else if (c[i] == 'X')
+		opt.flags |= F_HEXMAJ;
 	save_opt(opt, 1);
 	return (i);
 }

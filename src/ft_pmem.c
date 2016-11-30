@@ -6,13 +6,13 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 10:02:18 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/04/13 20:58:47 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/30 18:36:00 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				ft_puthex(unsigned char num)
+static void			ft_puthex(unsigned char num)
 {
 	if (num >= 16)
 	{

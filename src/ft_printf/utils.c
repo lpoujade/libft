@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 19:25:22 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 16:24:35 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/30 19:04:30 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ unsigned int	gndigits(long long int a)
 	return (c);
 }
 
-void	pad_pre(t_mod o, size_t len)
+void			pad_pre(t_mod o, size_t len)
 {
-	long int n;
+	int n;
 
-	n = o.flen - (long)len;
+	n = (int)o.flen - len;
 	if (n > 0 && !(o.flags & F_RIGHTALIGN))
 		while (n--)
 			ft_putchar(o.pad_char);
 }
 
-void	pad_post(t_mod o, size_t len)
+void			pad_post(t_mod o, size_t len)
 {
 	long int n;
 
@@ -53,7 +53,20 @@ void	pad_post(t_mod o, size_t len)
 			ft_putchar(o.pad_char);
 }
 
-int isupcase(char c)
+int				isupcase(char c)
 {
 	return (c >= 'A' && c <= 'Z');
+}
+
+int				percent_symbol(va_list ap)
+{
+	int		r;
+	t_mod	o;
+
+	(void)ap;
+	o = geto();
+	pad_pre(o, 1);
+	r = (int)ft_putchar('%');
+	pad_post(o, 1);
+	return (r);
 }

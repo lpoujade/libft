@@ -6,11 +6,11 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/11 13:41:06 by lpoujade          #+#    #+#              #
-#    Updated: 2016/11/30 17:49:41 by lpoujade         ###   ########.fr        #
+#    Updated: 2016/11/30 18:11:51 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
+NAME=libftprintf.a
 SRCDIR=./src
 OBJDIR=./.obj
 

@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 14:33:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 14:14:45 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/11/30 18:05:49 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,12 @@ void			ft_puts(signed long long t)
 	len = gndigits(t) + (t < 0 || o.plus_sign ? 1 : 0);
 	pad_pre(o, len);
 	if (t < 0 || o.plus_sign)
+	{
 		ft_putchar_fd(t < 0 ? '-' : o.plus_sign, 1);
+		len--;
+	}
+	while ((int)len++ < o.precision)
+		ft_putchar('0');
 	puts(t, 1);
 	pad_post(o, len);
 }
@@ -60,6 +65,8 @@ void			ft_putu(unsigned long long t)
 	o = geto();
 	len = gndigits((signed long long)t);
 	pad_pre(o, len);
+	while ((int)len++ < o.precision)
+		ft_putchar('0');
 	putu(t, 1);
 	pad_post(o, len);
 }
