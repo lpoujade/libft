@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:05:01 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/27 16:05:01 by lpoujade         ###   ######## fr       */
+/*   Updated: 2016/11/30 14:33:48 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	while (i <= len && s1[i])
 	{
 		ret[i] = s1[i];
+		i++;
 	}
-	while (i <= len && s2[i])
+	while (i <= len && *s2)
 	{
-		ret[i] = s2[i];
+		ret[i] = *s2;
+		i++;
+		s2++;
 	}
 	ret[i] = 0;
 	return (ret);
