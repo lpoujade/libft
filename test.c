@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <locale.h>
 #include "libft.h"
 
 int main(void)
 {
-	printf("o: %X\n", 4294967296);
-	ft_printf("m: %X\n%x\n%lX\n", 4294967296, 42, 42);
+	setlocale(LC_ALL, "");
+	printf("%lc\n", L'ï');
+	ft_printf("Lchar: %lc\nchar: %c\n", L'ï', 'a');
 }

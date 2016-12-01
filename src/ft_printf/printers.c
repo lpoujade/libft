@@ -6,35 +6,27 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 17:03:02 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 19:03:04 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/01 13:17:05 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	p_schar(va_list ap)
-{
-	int		r;
-	char	d;
-	t_mod	o;
-
-	o = geto();
-	pad_pre(o, 1);
-	d = (char)va_arg(ap, int);
-	r = (int)ft_putchar(d);
-	pad_post(o, 1);
-	return (o.flen ? (int)o.flen : r);
-}
-
 int	p_uchar(va_list ap)
 {
 	int		r;
-	char	d;
+	wchar_t	d;
 	t_mod	o;
 
+	d = 0;
 	o = geto();
 	pad_pre(o, 1);
-	d = (char)va_arg(ap, unsigned int);
+	if (!o.lmod[0])
+		d = (char)va_arg(ap, unsigned int);
+	else if (o.lmod[0] == 'l' && !o.lmod[1])
+	{
+		d = (wchar_t)va_arg(ap, wint_t);
+	}
 	r = (int)ft_putchar(d);
 	pad_post(o, 1);
 	return (o.flen ? (int)o.flen : r);

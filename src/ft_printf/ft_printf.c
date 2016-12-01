@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 11:43:31 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 18:56:16 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/01 12:00:43 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void	register_printers(int (*f[127])(va_list))
 	f['i'] = &p_sdec;
 	f['u'] = &p_udec;
 	f['U'] = &p_udec;
-	f['c'] = &p_schar;
-	f['C'] = NULL;
+	f['c'] = &p_uchar;
+	f['C'] = &p_uchar;
 	f['s'] = &p_str;
 	f['S'] = NULL;
 	f['p'] = NULL;

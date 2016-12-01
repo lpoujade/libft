@@ -6,18 +6,18 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 14:33:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 18:05:49 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/01 12:23:01 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		puts(signed long long n, int fd)
+static void		nputs(signed long long n, int fd)
 {
 	if (n / 10)
 	{
-		puts(n / 10, fd);
-		puts(n % 10, fd);
+		nputs(n / 10, fd);
+		nputs(n % 10, fd);
 	}
 	else if (n > 0)
 		ft_putchar_fd('0' + (char)n, fd);
@@ -40,7 +40,7 @@ void			ft_puts(signed long long t)
 	}
 	while ((int)len++ < o.precision)
 		ft_putchar('0');
-	puts(t, 1);
+	nputs(t, 1);
 	pad_post(o, len);
 }
 

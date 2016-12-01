@@ -6,13 +6,17 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 11:45:58 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 19:01:23 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/01 13:17:14 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include <stdint.h>
+# include <sys/types.h>
+# include <inttypes.h>
+# include <wchar.h>
 # include <stdarg.h>
 # include "libft.h"
 
@@ -56,7 +60,6 @@ int p_shex(va_list ap);
 int p_uhex(va_list ap);
 
 /* printers : get/print a type */
-int	p_schar(va_list ap);
 int	p_uchar(va_list ap);
 /*
 int	p_sint(va_list ap);

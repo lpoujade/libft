@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 18:35:41 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/01 12:44:50 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ ssize_t	ft_putendl_fd(const char *s, int fd);
 ssize_t	ft_putendl(const char *s);
 ssize_t	ft_putstr_fd(const char *s, int fd);
 ssize_t	ft_putstr(const char *s);
-ssize_t	ft_putchar(char c);
+ssize_t	ft_putchar(wchar_t c);
 ssize_t	ft_putchar_fd(char c, int fd);
 char		*ft_itoa(int n);
 void			ft_putnbr_fd(int n, int fd);

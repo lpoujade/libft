@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/11 13:41:06 by lpoujade          #+#    #+#              #
-#    Updated: 2016/11/30 18:11:51 by lpoujade         ###   ########.fr        #
+#    Updated: 2016/12/01 12:50:19 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ OBJS=$(addprefix $(OBJDIR)/,$(OBJ))
 
 all: $(NAME)
 
-test_t: src/test.c $(NAME) src/logf.c ft_printf.a
-	$(CC) $(CPPFLAGS) $(CFLAGS) -lpthread $< ft_printf.a src/logf.c $(NAME) -o $@
+test_t: test.c $(NAME) $(NAME)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $< $(NAME) -o $@
 	@echo -e "compiling\033[32m" $@ "\033[0m"
 
 $(NAME): $(OBJS)
