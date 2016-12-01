@@ -6,29 +6,36 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:24:06 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/01 13:41:37 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/01 18:22:01 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+#include <stdio.h>
+
+# define U1_MASK 0x80
+# define u2_mask
+# define u3_mask
 
 static ssize_t pwchar(wchar_t c, int n_b)
 {
-	int i = 0;
+	unsigned int i = 0;
+	unsigned int it = 0;
 	char	t[4];
 
-	if (n_b < 11)
+	if (n_b < 11 && n_b <= 16)
 	{
-		t[0] = (char)(c & 0b10000000);
-		t[1] = (char)((c >> 8) & 0b11000000) ;
+		it = (char) ((c >> 6) | 0xc0) | 
+		t[0] = (char) ((c >> 6) | 0xc0);
+		t[1] = (char) ((c & 0x3f) | 0x80);
 		i = 2;
 	}
 	else if (n_b < 16)
 		i = 0;
 	else
 		i = 0;
-	return (write(STDOUT_FILENO, &c, i));
+	return (write(STDOUT_FILENO, t, i));
 }
 
 ssize_t	ft_putchar(wchar_t c)

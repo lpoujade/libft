@@ -5,6 +5,6 @@
 int main(void)
 {
 	setlocale(LC_ALL, "");
-	printf("%lc\n", L'ï');
-	ft_printf("Lchar: %lc\nchar: %c\n", L'ï', 'a');
+	printf("lc:%lc\n", L'α');
+	ft_printf("Lchar:%lc\nchar:%c\n", L'α', 'a');
 }
