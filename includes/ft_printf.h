@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 11:45:58 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/01 13:17:14 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/03 12:24:32 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@
 # define	F_ALTMODE		0x01
 # define	F_RIGHTALIGN	0x02
 # define	F_HEXMAJ		0x04
-
-# define	L_L		1
-# define	L_LL	2
-# define	L_H		4
-# define	L_HH	8
 
 typedef struct	s_mod
 {

@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 18:41:39 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 19:07:05 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/03 12:30:57 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,10 @@ unsigned int			parse_opt(const char *c)
 	else if (c[i] == 'X')
 		opt.flags |= F_HEXMAJ;
 	else if (c[i] == 'p')
+	{
+		opt.lmod[0] = 'l';
 		opt.flags |= F_ALTMODE;
+	}
 	save_opt(opt, 1);
 	return (i);
 }

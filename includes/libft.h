@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/01 12:44:50 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/03 12:20:53 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ typedef	struct		s_file
 {
 	char			*buff;
 	struct s_file	*nxt;
-	long int		fd;
+	int				fd;
+	int				_pad;
 }					t_file;
 
 int	ft_printf(const char *format, ...)__attribute__((format (printf, 1, 2)));

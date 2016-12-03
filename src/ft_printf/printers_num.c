@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 18:40:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 19:07:20 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/03 13:26:37 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int			p_sdec(va_list ap)
 		t = va_arg(ap, long int);
 	else if (o.lmod[0] == 'l' && o.lmod[1] == 'l')
 		t = va_arg(ap, long long int);
+	else if (o.lmod[0] == 'j')
+		t = va_arg(ap, intmax_t);
+	else if (o.lmod[0] == 'z')
+		t = va_arg(ap, ssize_t);
 	return (ft_puts(t));
 }
 
@@ -49,6 +53,10 @@ int			p_udec(va_list ap)
 		t = va_arg(ap, unsigned long int);
 	else if (o.lmod[0] == 'l' && o.lmod[1] == 'l')
 		t = va_arg(ap, unsigned long long int);
+	else if (o.lmod[0] == 'j')
+		t = va_arg(ap, uintmax_t);
+	else if (o.lmod[0] == 'z')
+		t = va_arg(ap, size_t);
 	return (ft_putu(t));
 }
 
@@ -57,18 +65,21 @@ static int	putit(unsigned long long t, t_mod o)
 	int		w;
 	size_t	len;
 
-	//ft_pmem(&o, sizeof(o.flags));
 	w = 0;
-	len = gndigits_hex((long)t);
-	w += pad_pre(o, len);
+	len = gndigits_hex((long)t) + (o.flags & F_ALTMODE ? 2 : 0);
+	if (!(o.pad_char == '0'))
+		w += pad_pre(o, len);
 	if (o.flags & F_ALTMODE)
 		w += ft_putstr("0x");
+	if (o.pad_char == '0')
+		w += pad_pre(o, len);
 	while ((int)len < o.precision)
 	{
 		w += ft_putchar('0');
 		len++;
 	}
 	ft_puthex(t, (o.flags & F_HEXMAJ ? 0 : 1), &w);
+	o.pad_char = ' ';
 	w += pad_post(o, len);
 	return (w);
 }
@@ -92,6 +103,10 @@ int			p_uhex(va_list ap)
 		t = va_arg(ap, unsigned long int);
 	else if (o.lmod[0] == 'l' && o.lmod[1] == 'l')
 		t = va_arg(ap, unsigned long long int);
+	else if (o.lmod[0] == 'j')
+		t = va_arg(ap, uintmax_t);
+	else if (o.lmod[0] == 'z')
+		t = va_arg(ap, size_t);
 	writed += putit(t, o);
 	return (writed);
 }
