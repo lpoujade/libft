@@ -43,7 +43,7 @@ int	p_str(va_list ap)
 	str = va_arg(ap, char *);
 	len = (unsigned int)ft_strlen(str);
 	pad_pre(o, len);
-	r = write(STDOUT_FILENO, str, o.precision >= 0 ? o.precision : len);
+	r = (int)write(STDOUT_FILENO, str, o.precision >= 0 ? (unsigned int)o.precision : len);
 	pad_post(o, len);
 	return (o.flen ? (int)o.flen : r);
 }

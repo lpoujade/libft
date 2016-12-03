@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+#pragma clang diagnostic ignored "-Weverything"
+
 static int		buff_delfline(char **buff)
 {
 	char	*new;

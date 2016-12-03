@@ -22,7 +22,7 @@
 
 # define	F_ALTMODE		0x01
 # define	F_RIGHTALIGN	0x02
-# define	F_HEXMAJ		0x02
+# define	F_HEXMAJ		0x04
 
 # define	L_L		1
 # define	L_LL	2
@@ -69,10 +69,10 @@ int p_ulong(va_list ap);
 */
 int	p_str(va_list ap);
 
-void	ft_puts(signed long long t);
-void	ft_putu(unsigned long long t);
+int		ft_puts(signed long long t);
+int		ft_putu(unsigned long long t);
 
-void	ft_puthex(unsigned long long num, int casse);
+void		ft_puthex(unsigned long long num, int casse, int *w);
 
 /* ~parsing format/options/… */
 int				a_format(const char **format, va_list ap);
@@ -82,11 +82,12 @@ t_mod			geto(void);
 /* utils */
 void			putxchar(char c, unsigned int n);
 unsigned int	gndigits(long long int a);
+unsigned int	gndigits_hex(long long int a);
 int				isupcase(char c);
-int percent_symbol(va_list ap);
+int				percent_symbol(va_list ap);
 
 /* ~ output formatting */
-void	pad_pre(t_mod o, size_t len);
-void	pad_post(t_mod o, size_t len);
+int	pad_pre(t_mod o, size_t len);
+int	pad_post(t_mod o, size_t len);
 
 #endif

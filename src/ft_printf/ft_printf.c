@@ -27,8 +27,8 @@ static void	register_printers(int (*f[127])(va_list))
 	f['c'] = &p_uchar;
 	f['C'] = &p_uchar;
 	f['s'] = &p_str;
-	f['S'] = NULL;
-	f['p'] = NULL;
+	f['S'] = &p_str;
+	f['p'] = &p_uhex;
 	f['O'] = NULL;
 	f['x'] = &p_uhex;
 	f['X'] = &p_uhex;
@@ -43,7 +43,7 @@ int			a_format(const char **format, va_list ap)
 		register_printers(formatt);
 	(*format) += parse_opt(*format);
 	if (!formatt[(unsigned char)**format])
-		return (1);
+		return (0);
 	return ((formatt[(unsigned char)**format])(ap));
 }
 

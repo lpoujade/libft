@@ -105,6 +105,8 @@ unsigned int			parse_opt(const char *c)
 		opt.lmod[0] = 'l';
 	else if (c[i] == 'X')
 		opt.flags |= F_HEXMAJ;
+	else if (c[i] == 'p')
+		opt.flags |= F_ALTMODE;
 	save_opt(opt, 1);
 	return (i);
 }

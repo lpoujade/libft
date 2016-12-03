@@ -33,24 +33,45 @@ unsigned int	gndigits(long long int a)
 	return (c);
 }
 
-void			pad_pre(t_mod o, size_t len)
+unsigned int	gndigits_hex(long long int a)
 {
-	int n;
+	unsigned int c;
 
-	n = (int)o.flen - len;
-	if (n > 0 && !(o.flags & F_RIGHTALIGN))
-		while (n--)
-			ft_putchar(o.pad_char);
+	c = 0;
+	if (!a)
+		return (1);
+	while (a)
+	{
+		a /= 15;
+		c++;
+	}
+	return (c);
 }
 
-void			pad_post(t_mod o, size_t len)
+int				pad_pre(t_mod o, size_t len)
 {
-	long int n;
+	int writed;
+	int n;
 
-	n = o.flen - (long)len;
+	writed = 0;
+	n = (int)o.flen - (int)len;
+	if (n > 0 && !(o.flags & F_RIGHTALIGN))
+		while (n--)
+			writed += ft_putchar(o.pad_char);
+	return (writed);
+}
+
+int				pad_post(t_mod o, size_t len)
+{
+	int writed;
+	int n;
+
+	writed = 0;
+	n = (int)o.flen - (int)len;
 	if (n > 0 && o.flags & F_RIGHTALIGN)
 		while (n--)
-			ft_putchar(o.pad_char);
+			writed += ft_putchar(o.pad_char);
+	return (writed);
 }
 
 int				isupcase(char c)

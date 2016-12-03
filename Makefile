@@ -15,7 +15,7 @@ SRCDIR=./src
 OBJDIR=./.obj
 
 CC=clang
-CFLAGS=-Wall -Werror -Wextra -g #-Weverything -Wno-documentation-unknown-command
+CFLAGS=-Wall -Werror -Wextra -g -Weverything -Wno-documentation-unknown-command
 CPPFLAGS=-Iincludes/
 ARFLAGS=scr
 

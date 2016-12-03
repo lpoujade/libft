@@ -12,61 +12,72 @@
 
 #include "ft_printf.h"
 
-static void		nputs(signed long long n, int fd)
+static void		nputs(signed long long n, int fd, int *w)
 {
 	if (n / 10)
 	{
-		nputs(n / 10, fd);
-		nputs(n % 10, fd);
+		nputs(n / 10, fd, w);
+		nputs(n % 10, fd, w);
 	}
 	else if (n > 0)
-		ft_putchar_fd('0' + (char)n, fd);
+		*w += ft_putchar_fd('0' + (char)n, fd);
 	else
-		ft_putchar_fd('0' + -(char)n, fd);
+		*w += ft_putchar_fd('0' + -(char)n, fd);
 }
 
-void			ft_puts(signed long long t)
+int				ft_puts(signed long long t)
 {
+	int				writed;
 	unsigned int	len;
 	t_mod			o;
 
 	o = geto();
-	len = gndigits(t) + (t < 0 || o.plus_sign ? 1 : 0);
-	pad_pre(o, len);
+	len = gndigits(t) + ((t < 0 || o.plus_sign) ? 1 : 0);
+	writed = pad_pre(o, len);
 	if (t < 0 || o.plus_sign)
 	{
-		ft_putchar_fd(t < 0 ? '-' : o.plus_sign, 1);
+		writed += ft_putchar_fd(t < 0 ? '-' : o.plus_sign, 1);
 		len--;
 	}
-	while ((int)len++ < o.precision)
-		ft_putchar('0');
-	nputs(t, 1);
-	pad_post(o, len);
+	while ((int)len < o.precision)
+	{
+		writed += ft_putchar('0');
+		len++;
+	}
+	nputs(t, 1, &writed);
+	writed += pad_post(o, len);
+	return (writed);
 }
 
-static void		putu(unsigned long long n, int fd)
+static void		putu(unsigned long long n, int fd, int *w)
 {
 	if (n / 10)
 	{
-		putu(n / 10, fd);
-		putu(n % 10, fd);
+		putu(n / 10, fd, w);
+		putu(n % 10, fd, w);
 	}
 	else if (n > 0)
-		ft_putchar_fd('0' + (char)n, fd);
+		*w += ft_putchar_fd('0' + (char)n, fd);
 	else
-		ft_putchar_fd('0' + -(char)n, fd);
+		*w += ft_putchar_fd('0' + -(char)n, fd);
 }
 
-void			ft_putu(unsigned long long t)
+int				ft_putu(unsigned long long t)
 {
+	int				writed;
 	unsigned int	len;
 	t_mod			o;
 
+	writed = 0;
 	o = geto();
 	len = gndigits((signed long long)t);
-	pad_pre(o, len);
-	while ((int)len++ < o.precision)
-		ft_putchar('0');
-	putu(t, 1);
-	pad_post(o, len);
+	writed += pad_pre(o, len);
+	while ((int)len < o.precision)
+	{
+		writed += ft_putchar('0');
+		len++;
+	}
+	putu(t, 1, &writed);
+	writed += pad_post(o, len);
+	return (writed);
 }
