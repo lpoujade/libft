@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 11:45:58 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/03 12:24:32 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/05 12:26:21 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,7 @@
 # define	F_HEXMAJ		0x04
 # define	F_OCTAL			0x08
 
-# ifdef __APPLE__
-#  define NULL_PTR "0x0"
-# elif __linux__
-#  define NULL_PTR "(null)"
-# endif
+# define NULL_PTR "(null)"
 
 typedef struct	s_mod
 {

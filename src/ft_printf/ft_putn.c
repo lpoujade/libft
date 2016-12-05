@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 14:33:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/01 12:23:01 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/05 16:15:04 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,26 +99,38 @@ int				ft_puts(signed long long t)
 int				ft_puts(signed long long t)
 {
 	unsigned int	len;
-	unsigned int	writed;
+	int	writed;
 	t_mod			o;
 
 	writed = 0;
 	o = geto();
 	len = 0;
 	if (t)
-		len = gndigits(t) + (t < 0 || o.plus_sign ? -1 : 0);
-	o.pad_char = ' ';
-	writed += pad_pre(o, len - (o.precision != -1 ? (unsigned int)o.precision : 0));
+		len = gndigits(t) - (t < 0 || o.plus_sign ? 1 : 0);
+	if (o.pad_char == ' ')
+		writed += pad_pre(o, (o.precision != -1 && len < (unsigned int)o.precision ? (unsigned int)o.precision : len));
 	if (t < 0 || o.plus_sign)
-		writed += ft_putchar(t < 0 ? '-' : o.plus_sign);
-	while ((int)len < o.precision)
 	{
-		writed += ft_putchar('0');
-		len++;
+		writed += ft_putchar(t < 0 ? '-' : o.plus_sign);
+		len--;
+	}
+	if (o.precision != -1)
+		while ((int)len < o.precision)
+		{
+			writed += ft_putchar('0');
+			len++;
+		}
+	else if (o.pad_char != ' ')
+	{
+		int n = (int)o.flen - (int)gndigits(t);
+		if (n > 0 && !(o.flags & F_RIGHTALIGN) && o.pad_char == '0')
+			while (n--)
+				writed += ft_putchar('0');
 	}
 	if (t != 0 || (!t && o.precision))
 		nputs(t, 1, &writed);
-	writed += pad_post(o, len - (o.precision != -1 ? (unsigned int)o.precision : 0));
+	o.pad_char = ' ';
+	writed += pad_post(o, len);
 	return (writed);
 }
 

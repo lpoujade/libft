@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 18:41:39 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/03 12:30:57 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/05 16:12:33 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ static unsigned int		getflags(t_mod *opt, const char *c)
 		else if (c[i] == '0')
 			opt->pad_char = '0';
 		else if (c[i] == ' ' && opt->plus_sign)
+			;
+		else if (c[i] == '0' && opt->pad_char)
 			;
 		else
 			break ;

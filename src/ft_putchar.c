@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:24:06 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/01 18:22:01 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/05 12:22:41 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** then split to char
 */
 
-# define M1		0xc080
+//# define M1		0xc080
 /*
 # define MASK_1 0b 1100 0000 1000 0000
 # define MASK_2 0b111000001000000010000000
