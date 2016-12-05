@@ -39,11 +39,18 @@ int	p_str(va_list ap)
 	char			*str;
 	t_mod			o;
 
+
+	r = 0;
 	o = geto();
 	str = va_arg(ap, char *);
 	len = (unsigned int)ft_strlen(str);
-	pad_pre(o, len);
-	r = (int)write(STDOUT_FILENO, str, o.precision >= 0 ? (unsigned int)o.precision : len);
-	pad_post(o, len);
+	if (o.precision > -1 && len > (unsigned int)o.precision)
+		len -= (unsigned int)o.precision;
+	r += pad_pre(o, len);
+	if (len)
+		r += (int)write(STDOUT_FILENO, str, len);
+	else if (str == 0)
+		r += ft_putstr(NULL_PTR);
+	r += pad_post(o, len);
 	return (o.flen ? (int)o.flen : r);
 }

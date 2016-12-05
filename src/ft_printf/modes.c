@@ -62,10 +62,12 @@ static unsigned int		getflags(t_mod *opt, const char *c)
 		}
 		else if (c[i] == '+')
 			opt->plus_sign = '+';
-		else if (c[i] == ' ' && !opt->plus_sign)
+		else if (c[i] == ' ' && !(opt->plus_sign))
 			opt->plus_sign = ' ';
 		else if (c[i] == '0')
 			opt->pad_char = '0';
+		else if (c[i] == ' ' && opt->plus_sign)
+			;
 		else
 			break ;
 		i++;
@@ -110,6 +112,8 @@ unsigned int			parse_opt(const char *c)
 		opt.lmod[0] = 'l';
 		opt.flags |= F_ALTMODE;
 	}
+	if (c[i] == 'o')
+		opt.flags |= F_OCTAL;
 	save_opt(opt, 1);
 	return (i);
 }

@@ -24,12 +24,13 @@ static void	register_printers(int (*f[127])(va_list))
 	f['i'] = &p_sdec;
 	f['u'] = &p_udec;
 	f['U'] = &p_udec;
+	f['o'] = &p_udec;
+	f['O'] = &p_udec;
 	f['c'] = &p_uchar;
 	f['C'] = &p_uchar;
 	f['s'] = &p_str;
 	f['S'] = &p_str;
 	f['p'] = &p_uhex;
-	f['O'] = NULL;
 	f['x'] = &p_uhex;
 	f['X'] = &p_uhex;
 }

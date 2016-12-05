@@ -23,6 +23,13 @@
 # define	F_ALTMODE		0x01
 # define	F_RIGHTALIGN	0x02
 # define	F_HEXMAJ		0x04
+# define	F_OCTAL			0x08
+
+# ifdef __APPLE__
+#  define NULL_PTR "0x0"
+# elif __linux__
+#  define NULL_PTR "(null)"
+# endif
 
 typedef struct	s_mod
 {
@@ -48,9 +55,6 @@ int flong(va_list ap, char **dest, size_t *len, const char *format);
 int p_sdec(va_list ap);
 int p_udec(va_list ap);
 
-int p_soct(va_list ap);
-int p_uoct(va_list ap);
-
 int p_shex(va_list ap);
 int p_uhex(va_list ap);
 
@@ -67,6 +71,7 @@ int	p_str(va_list ap);
 int		ft_puts(signed long long t);
 int		ft_putu(unsigned long long t);
 
+int ft_puto(unsigned long long t);
 void		ft_puthex(unsigned long long num, int casse, int *w);
 
 /* ~parsing format/options/… */
@@ -78,6 +83,7 @@ t_mod			geto(void);
 void			putxchar(char c, unsigned int n);
 unsigned int	gndigits(long long int a);
 unsigned int	gndigits_hex(long long int a);
+unsigned int	gndigits_oct(long long int a);
 int				isupcase(char c);
 int				percent_symbol(va_list ap);
 

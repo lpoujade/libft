@@ -19,13 +19,45 @@
 ** then split to char
 */
 
+# define M1		0xc080
+/*
+# define MASK_1 0b 1100 0000 1000 0000
+# define MASK_2 0b111000001000000010000000
+# define MASK_3 0b11110000100000001000000010000000
+# define MASK_4 0b1111100010000000100000001000000010000000
+*/
+
 static ssize_t pwchar(wchar_t c, int n_b)
 {
+	//char alpha[2] = { (char)206, (char)177 };
 	//unsigned int it = 0;
 	unsigned int i;
-	char	t[4];
+	char	t[4] = { 0 };
+	/*
 
 	i = 0;
+	ft_putnbr(M1);
+	if (n_b < 16)
+		it = ((unsigned int)c) | M1;
+	ft_putchar('\n');
+	ft_pmem((void*)&c, sizeof(c));
+	ft_putchar('\n');
+
+	it = 0;
+
+	ft_pmem((void*)(alpha + 0), sizeof(alpha[1]));
+	ft_pmem((void*)(alpha + 1), sizeof(alpha[1]));
+	it = (unsigned int)(alpha[1]);
+	//it = ((unsigned int)alpha[1] << 8) | (unsigned int)alpha[0];
+	ft_pmem((void*)&it, sizeof(it));
+	ft_putchar('\n');
+
+	write (1, alpha, 2);
+	write (1, &(alpha[0]), 1);
+	write (1, &(alpha[1]), 1);
+	*/
+
+	//ft_pmem((void*)&c, sizeof(c));
 	if (n_b < 11 && n_b <= 16) // || c & 0x800
 	{
 		t[0] = (char) ((c >> 6) | 0xc0);

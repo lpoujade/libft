@@ -32,6 +32,8 @@ all: $(NAME)
 test_t: test.c $(NAME) $(NAME)
 	$(CC) $(CPPFLAGS) -Weverything $< $(NAME) -o $@
 	@echo -e "compiling\033[32m" $@ "\033[0m"
+	@echo -e "exec\033[32m $@ \033[0m"
+	./test_t | sort | uniq -u
 
 $(NAME): $(OBJS)
 	@$(AR) $(ARFLAGS) $@ $^

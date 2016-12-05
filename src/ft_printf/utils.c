@@ -48,6 +48,21 @@ unsigned int	gndigits_hex(long long int a)
 	return (c);
 }
 
+unsigned int	gndigits_oct(long long int a)
+{
+	unsigned int c;
+
+	c = 0;
+	if (!a)
+		return (1);
+	while (a)
+	{
+		a /= 8;
+		c++;
+	}
+	return (c);
+}
+
 int				pad_pre(t_mod o, size_t len)
 {
 	int writed;
