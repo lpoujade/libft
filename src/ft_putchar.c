@@ -27,7 +27,7 @@
 # define MASK_4 0b1111100010000000100000001000000010000000
 */
 
-static ssize_t pwchar(wchar_t c, int n_b)
+static ssize_t pwchar(wchar_t c)
 {
 	//char alpha[2] = { (char)206, (char)177 };
 	//unsigned int it = 0;
@@ -58,13 +58,13 @@ static ssize_t pwchar(wchar_t c, int n_b)
 	*/
 
 	//ft_pmem((void*)&c, sizeof(c));
-	if (n_b < 11 && n_b <= 16) // || c & 0x800
+	if (c > 0x800 && c < 0x8000)
 	{
 		t[0] = (char) ((c >> 6) | 0xc0);
 		t[1] = (char) ((c & 0x3f) | 0x80);
 		i = 2;
 	}
-	else if (n_b < 16) // || c & 0x8000
+	else if (c < 0x80000)
 	{
 		t[0] = (char) ((c >> 12) | 0xc0);
 		t[1] = (char) (((c >> 6 & 0x3f)) | 0x80);
@@ -84,12 +84,8 @@ static ssize_t pwchar(wchar_t c, int n_b)
 
 ssize_t	ft_putchar(wchar_t c)
 {
-	int n_b = 0;
-
-	while (c >> n_b)
-		n_b++;
-	if (n_b > 7) // || c & 0x80
-		return (pwchar(c, n_b));
+	if (c > 0x80)
+		return (pwchar(c));
 	return (write(STDOUT_FILENO, &c, 1));
 }
 

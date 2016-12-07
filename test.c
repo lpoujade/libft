@@ -5,6 +5,16 @@ int main(void)
 {
 	int myp = 0, p = 0;
 
+	p = printf("%%*s: %*s\n", NULL);
+	myp = ft_printf("%%*s: %*s\n", NULL);
+	if (myp != p)
+		printf("	myp: %d, p: %d\n", myp, p);
+
+	p = printf("%%*s: %*s\n", "HELLO");
+	myp = ft_printf("%%*s: %*s\n", "HELLO");
+	if (myp != p)
+		printf("	myp: %d, p: %d\n", myp, p);
+
 	p = printf("str\n");
 	myp = ft_printf("str\n");
 	if (myp != p)

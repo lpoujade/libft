@@ -70,6 +70,8 @@ static unsigned int		getflags(t_mod *opt, const char *c)
 			;
 		else if (c[i] == '0' && opt->pad_char)
 			;
+		else if (c[i] == '*')
+			;
 		else
 			break ;
 		i++;
