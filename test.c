@@ -5,13 +5,13 @@ int main(void)
 {
 	int myp = 0, p = 0;
 
-	p = printf("%%*s: %*s\n", NULL);
-	myp = ft_printf("%%*s: %*s\n", NULL);
+	p = printf("%%s null: %s\n", NULL);
+	myp = ft_printf("%%s null: %s\n", NULL);
 	if (myp != p)
 		printf("	myp: %d, p: %d\n", myp, p);
 
-	p = printf("%%*s: %*s\n", "HELLO");
-	myp = ft_printf("%%*s: %*s\n", "HELLO");
+	p = printf("%%s: %s\n", "HELLO");
+	myp = ft_printf("%%s: %s\n", "HELLO");
 	if (myp != p)
 		printf("	myp: %d, p: %d\n", myp, p);
 
@@ -242,6 +242,21 @@ int main(void)
 
 	p = printf("%%10.5d: '%10.5d'\n", 4242);
 	myp = ft_printf("%%10.5d: '%10.5d'\n", 4242);
+	if (myp != p)
+		printf("	myp: %d, p: %d\n", myp, p);
+
+	p = printf("%+d\n", 0);
+	myp = ft_printf("%+d\n", 0);
+	if (myp != p)
+		printf("	myp: %d, p: %d\n", myp, p);
+
+	p = printf("%%03.2u: %03.2u\n", 42);
+	myp = ft_printf("%%03.2u: %03.2u\n", 42);
+	if (myp != p)
+		printf("	myp: %d, p: %d\n", myp, p);
+
+	p = printf("%%p null: %p\n", &main);
+	myp = ft_printf("%%p null: %p\n", &main);
 	if (myp != p)
 		printf("	myp: %d, p: %d\n", myp, p);
 }

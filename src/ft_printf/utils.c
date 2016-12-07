@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 19:25:22 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/30 19:04:30 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/07 11:16:05 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ int				percent_symbol(va_list ap)
 
 	(void)ap;
 	o = geto();
-	pad_pre(o, 1);
-	r = (int)ft_putchar('%');
-	pad_post(o, 1);
+	r = pad_pre(o, 1);
+	r += (int)ft_putchar('%');
+	r += pad_post(o, 1);
 	return (r);
 }

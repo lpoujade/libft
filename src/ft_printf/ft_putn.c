@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 14:33:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/05 16:15:04 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/07 11:28:07 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static void		putu(unsigned long long n, int fd, int *w)
 
 int				ft_puts(signed long long t)
 {
+	int field_len = 0;
 	unsigned int	len;
 	int	writed;
 	t_mod			o;
@@ -60,10 +61,14 @@ int				ft_puts(signed long long t)
 	o = geto();
 	o.pad_char = ' ';
 	if (t)
+	{
 		len = gndigits(t);
-	writed += pad_pre(o, len
-			- ((o.precision != -1 && (unsigned int)o.precision < len) ? (unsigned int)o.precision : 0)
-				- ((t < 0 || o.plus_sign) ? 1 : 0));
+		if (o.precision != -1 && (unsigned int)o.precision > len)
+			field_len = o.precision;
+		else
+			field_len = (int)len;
+	}
+	writed += pad_pre(o, (unsigned int)field_len + ((t < 0 || o.plus_sign) ? 1 : 0));
 	if (t < 0 || o.plus_sign)
 		writed += ft_putchar(t < 0 ? '-' : o.plus_sign);
 	while ((int)len < o.precision)
@@ -73,7 +78,7 @@ int				ft_puts(signed long long t)
 	}
 	if (t != 0 || (!t && o.precision))
 		nputs(t, 1, &writed);
-	writed += pad_post(o, len);
+	writed += pad_post(o, len + ((t < 0 || o.plus_sign) ? 1 : 0));
 	return (writed);
 }
 

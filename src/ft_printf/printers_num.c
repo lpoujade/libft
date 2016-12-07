@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 18:40:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/03 13:26:37 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/07 12:11:04 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	putit(unsigned long long t, t_mod o)
 		len = gndigits_hex((long)t) + (o.flags & F_ALTMODE ? 2 : 0);
 	if (!(o.pad_char == '0'))
 		w += pad_pre(o, len);
-	if (o.flags & F_ALTMODE && t != 0)
+	if (o.flags & F_ALTMODE && (t != 0 || ))
 		w += ft_putstr(o.flags & F_HEXMAJ ? "0X" : "0x");
 	if (o.pad_char == '0')
 		w += pad_pre(o, len);
