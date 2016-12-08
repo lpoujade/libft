@@ -259,4 +259,14 @@ int main(void)
 	myp = ft_printf("%%p null: %p\n", &main);
 	if (myp != p)
 		printf("	myp: %d, p: %d\n", myp, p);
+
+	p = printf("%%u : %u\n", 0);
+	myp = ft_printf("%%u : %u\n", 0);
+	if (myp != p)
+		printf("	myp: %d, p: %d\n", myp, p);
+
+	p = printf("%%u : %u\n", "10");
+	myp = ft_printf("%%u : %u\n", "10");
+	if (myp != p)
+		printf("	myp: %d, p: %d\n", myp, p);
 }
