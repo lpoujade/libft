@@ -6,7 +6,7 @@
 #    By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/11 13:41:06 by lpoujade          #+#    #+#              #
-#    Updated: 2016/12/03 12:34:53 by lpoujade         ###   ########.fr        #
+#    Updated: 2016/12/11 20:27:28 by lpoujade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ OBJS=$(addprefix $(OBJDIR)/,$(OBJ))
 all: $(NAME)
 
 test_t: test.c $(NAME) $(NAME)
-	$(CC) $(CPPFLAGS) -Weverything $< $(NAME) -o $@
+	clang -Wno-error $(CPPFLAGS) $< $(NAME) -o $@
 	@echo -e "compiling\033[32m" $@ "\033[0m"
 	@echo -e "exec\033[32m $@ \033[0m"
 	./test_t | sort | uniq -u

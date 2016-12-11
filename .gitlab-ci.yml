@@ -1,0 +1,11 @@
+
+
+image: rsmmr/clang
+
+before_script:
+    - apt-get update && apt-get install -y binutils build-essential
+    - make
+
+mk_test:
+    script:
+        - make test_t
