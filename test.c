@@ -318,8 +318,8 @@ int main(void)
 	if (myp != p)
 		printf("	myp: %d, p: %d\n", myp, p); fflush(stdout);
 
-	p = printf("%%O x2: %O, %O\n", (short)0,(short)__UINT16_MAX__);
-	myp = ft_printf("%%O x2: %hO, %hO\n", (short)0,(short)__UINT16_MAX__);
+	p = printf("%%hho x2: %hho, %hho\n", (unsigned char)0,(unsigned char)__UINT16_MAX__);
+	myp = ft_printf("%%hho x2: %hho, %hho\n", (unsigned char)0,(unsigned char)__UINT16_MAX__);
 	if (myp != p)
 		printf("	myp: %d, p: %d\n", myp, p); fflush(stdout);
 
