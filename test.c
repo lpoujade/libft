@@ -313,8 +313,8 @@ int main(void)
 	if (myp != p)
 		printf("	myp: %d, p: %d\n", myp, p); fflush(stdout);
 
-	p = printf("%%llO x2 : %llO, %llO\n", (unsigned long long)0, (unsigned long long)__UINT16_MAX__);
-	myp = ft_printf("%%llO x2 : %llO, %llO\n", (unsigned long long)0, (unsigned long long)__UINT16_MAX__);
+	p = printf("%%llo x2 : %llo, %llo\n", (unsigned long long)0, (unsigned long long)__UINT16_MAX__);
+	myp = ft_printf("%%llo x2 : %llo, %llo\n", (unsigned long long)0, (unsigned long long)__UINT16_MAX__);
 	if (myp != p)
 		printf("	myp: %d, p: %d\n", myp, p); fflush(stdout);
 
