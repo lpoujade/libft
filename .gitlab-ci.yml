@@ -3,7 +3,7 @@
 image: rsmmr/clang
 
 before_script:
-    - apt-get update && apt-get install -y binutils build-essential python2
+    - apt-get update && apt-get install -y binutils build-essential python
     - make
 
 mk_test:
