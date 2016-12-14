@@ -6,15 +6,11 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 11:43:31 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/01 12:00:43 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/14 17:18:01 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-**	f['o'] = &p_octal;
-*/
 
 static void	register_printers(int (*f[127])(va_list))
 {
@@ -39,7 +35,8 @@ int			a_format(const char **format, va_list ap)
 {
 	static int		(*formatt[127])(va_list ap) = {NULL};
 
-	(*format)++;
+	if (!*(*format)++)
+		return (0);
 	if (!formatt['d'])
 		register_printers(formatt);
 	(*format) += parse_opt(*format);
@@ -58,7 +55,11 @@ int			ft_printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
+		{
 			c += a_format(&format, ap);
+			if (!*format)
+				break ;
+		}
 		else
 			c += ft_putchar(*format);
 		format++;

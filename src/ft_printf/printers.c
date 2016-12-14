@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 17:03:02 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/07 11:34:58 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/14 19:32:33 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,29 @@ int	p_str(va_list ap)
 {
 	unsigned int	len;
 	int				r;
-	char			*str;
+	wchar_t			*str;
 	t_mod			o;
+	char			null_str[] = "(null)";
 
 	r = 0;
 	o = geto();
-	str = va_arg(ap, char *);
+	if (!o.lmod[0])
+		str = va_arg(ap, char *);
+	else
+		str = va_arg(ap, wchar_t *);
 	len = (unsigned int)ft_strlen(str);
 	if (o.precision > -1 && len > (unsigned int)o.precision)
-		len -= (unsigned int)o.precision;
+		len = (unsigned int)o.precision;
 	r += pad_pre(o, len);
 	if (len)
-		r += (int)write(STDOUT_FILENO, str, len);
+	{
+		if (!o.lmod[0])
+			r += (int)write(STDOUT_FILENO, str, len);
+		else
+			ft_putstr(str);
+	}
 	else if (str == 0)
-		r += ft_putstr(NULL_STR);
+		r += (int)write(STDOUT_FILENO, null_str, len);
 	r += pad_post(o, len);
 	return (o.flen ? (int)o.flen : r);
 }

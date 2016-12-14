@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 11:45:58 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/07 11:34:36 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/14 18:24:31 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ typedef struct	s_mod
 	char			plus_sign;
 	char			pad_char;
 	char			lmod[2];
-	short	_pad;
+	char			name;
+	char _pad;
 }				t_mod;
 
 /*

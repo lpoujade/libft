@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:24:06 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/05 12:22:41 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/14 19:27:14 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@
 # define MASK_4 0b1111100010000000100000001000000010000000
 */
 
-static ssize_t pwchar(wchar_t c)
+static ssize_t pwchar(wchar_t c, int fd)
 {
 	//char alpha[2] = { (char)206, (char)177 };
 	//unsigned int it = 0;
 	unsigned int i;
 	char	t[4] = { 0 };
-	/*
 
+	/*
 	i = 0;
 	ft_putnbr(M1);
 	if (n_b < 16)
@@ -58,7 +58,8 @@ static ssize_t pwchar(wchar_t c)
 	*/
 
 	//ft_pmem((void*)&c, sizeof(c));
-	if (c > 0x800 && c < 0x8000)
+	i = 0;
+	if (c < 0x8000)
 	{
 		t[0] = (char) ((c >> 6) | 0xc0);
 		t[1] = (char) ((c & 0x3f) | 0x80);
@@ -79,17 +80,23 @@ static ssize_t pwchar(wchar_t c)
 		t[3] = (char) ((c & 0x3f) | 0x80);
 		i = 4;
 	}
-	return (write(STDOUT_FILENO, t, i));
+	return (write(fd, t, i));
 }
 
 ssize_t	ft_putchar(wchar_t c)
 {
 	if (c > 0x80)
-		return (pwchar(c));
+	{
+		return (pwchar(c, STDOUT_FILENO));
+	}
 	return (write(STDOUT_FILENO, &c, 1));
 }
 
-ssize_t	ft_putchar_fd(char c, int fd)
+ssize_t	ft_putchar_fd(wchar_t c, int fd)
 {
+	if (c > 0x80)
+	{
+		return (pwchar(c, fd));
+	}
 	return (write(fd, &c, 1));
 }

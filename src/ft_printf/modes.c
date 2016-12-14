@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 18:41:39 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/05 16:12:33 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/14 18:27:49 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,11 @@ static unsigned int		get_lmod(t_mod *o, const char *c)
 	o->lmod[0] = *c;
 	if (o->lmod[0] == *(c + 1))
 	{
-		o->lmod[1] += *(c + 1);
+		o->lmod[1] = *(c + 1);
 		return (1);
 	}
+	else
+		o->lmod[1] = 0;
 	return (0);
 }
 
@@ -97,7 +99,7 @@ unsigned int			parse_opt(const char *c)
 
 	setemptyopt(&opt);
 	i = getflags(&opt, c);
-	while (is_opt(c[i]))
+	while (c[i] && is_opt(c[i]))
 	{
 		if (ft_isdigit(c[i]) && !opt.flen && opt.precision == -1)
 			opt.flen = (unsigned int)ft_atoi(c + i);
@@ -108,16 +110,20 @@ unsigned int			parse_opt(const char *c)
 		i++;
 	}
 	if (c[i] != 'X' && isupcase(c[i]))
+	{
 		opt.lmod[0] = 'l';
+		opt.lmod[1] = 0;
+	}
 	else if (c[i] == 'X')
 		opt.flags |= F_HEXMAJ;
-	else if (c[i] == 'p')
+	if (c[i] == 'p')
 	{
 		opt.lmod[0] = 'l';
 		opt.flags |= F_ALTMODE;
 	}
-	if (c[i] == 'o')
+	if (c[i] == 'o' || c[i] == 'O')
 		opt.flags |= F_OCTAL;
+	opt.name = c[i];
 	save_opt(opt, 1);
 	return (i);
 }

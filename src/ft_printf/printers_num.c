@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 18:40:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/08 16:33:14 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/14 19:10:08 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,25 @@ static int	putit(unsigned long long t, t_mod o)
 {
 	int		w;
 	size_t	len;
+	int		field_len;
 
+	field_len = 0;
 	w = 0;
 	len = 0;
-	if (t != 0 || o.precision == -1)
-		len = gndigits_hex((long)t) + (o.flags & F_ALTMODE ? 2 : 0);
+	if (t)
+	{
+		len = gndigits_hex((signed long long)t);
+		if (o.precision != -1 && (unsigned int)o.precision > len)
+			field_len = o.precision;
+		else
+			field_len = (int)len;
+	}
 	if (!(o.pad_char == '0'))
-		w += pad_pre(o, len);
-	if (o.flags & F_ALTMODE && t != 0)
+		w += pad_pre(o, (size_t)field_len);
+	if (o.flags & F_ALTMODE && (t || o.name == 'p'))
 		w += ft_putstr(o.flags & F_HEXMAJ ? "0X" : "0x");
 	if (o.pad_char == '0')
-		w += pad_pre(o, len);
+		w += pad_pre(o, (size_t)field_len);
 	while ((int)len < o.precision)
 	{
 		w += ft_putchar('0');
