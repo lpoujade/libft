@@ -3,9 +3,19 @@
 image: rsmmr/clang
 
 before_script:
-    - apt-get update && apt-get install -y binutils build-essential
+    - apt-get update && apt-get install -y binutils build-essential python2
     - make
 
 mk_test:
     script:
         - make test_t
+        - env LC_ALL='C' ./tests/test_t | sort | uniq -d
+
+print_python_checker:
+    script:
+        - ./tests/ppycheck/check.py -head includes/libft.h -p libftprintf.a -f tests/full.txt
+
+moulitest:
+    script:
+        - echo "FT_PRINTF_PATH = \"$PWD\"" > tests/moulitest/config.ini
+        - make -C tests/moulitest ft_printf
