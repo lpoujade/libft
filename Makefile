@@ -11,43 +11,56 @@
 # **************************************************************************** #
 
 NAME=libftprintf.a
-SRCDIR=./src
-OBJDIR=./.obj
+src_path=./src
+obj_path=./.obj
 
 CC=clang
 CFLAGS=#-Wall -Werror -Wextra -g #-Weverything -Wno-documentation-unknown-command
 CPPFLAGS=-Iincludes/
 ARFLAGS=scr
 
-SRC_PRINTF=ft_printf.c printers.c printers_num.c modes.c ft_putn.c utils.c #ft_sprintf.c formatters.c
-SRC=ft_bzero.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strcat.c ft_strchr.c ft_strcpy.c ft_strdup.c ft_strlcat.c ft_strlen.c ft_strncat.c ft_strncpy.c ft_strnstr.c ft_strrchr.c ft_strstr.c ft_strncmp.c ft_strcmp.c ft_atoi.c ft_isit.c ft_to.c ft_striter.c ft_striteri.c ft_strclr.c ft_memalloc.c ft_strnew.c ft_memdel.c ft_strdel.c ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_putchar.c ft_put.c ft_itoa.c ft_tabmax.c ft_strcchr.c ft_strclchr.c ft_strinv.c ft_realloc.c ft_lstmanage_funcs.c ft_lstadd_funcs.c ft_swap.c ft_getndigits.c get_next_line.c ft_pmem.c ft_mat.c ft_strtdel.c ft_strtnew.c ft_strrmstr.c ft_strinsert.c ft_putnbr.c $(addprefix ft_printf/,$(SRC_PRINTF))
+# libft ft_printf logf env line_edition ft_select
+obj=ft_realloc.o ft_printf/printers.o ft_printf/printers_num.o ft_printf/ft_printf.o ft_printf/utils.o ft_printf/modes.o ft_printf/ft_putn.o ft_strcchr.o ft_atoi_base.o ft_strncat.o ft_put.o ft_strmapi.o ft_strinsert.o ft_strtrim.o ft_strdel.o ft_putchar.o ft_strncmp.o ft_strlen.o ft_strnew.o ft_strlcat.o ft_striter.o ft_swap.o ft_strrmstr.o ft_to.o ft_strsub.o ft_memalloc.o ft_strtnew.o ft_lstadd_funcs.o ft_strnstr.o ft_striteri.o logf.o ft_strclchr.o ft_atoi.o ft_strcat.o ft_strrchr.o ft_memcmp.o ft_memset.o ft_strcmp.o ft_srtrmstr.o ft_strchr.o ft_isit.o ft_putnbr.o ft_bzero.o ft_memchr.o ft_strdup.o ft_strinv.o ft_strclr.o ft_strjoin.o ft_strtdel.o ft_memdel.o ft_strnequ.o ft_strcpy.o ft_strequ.o ft_strsplit.o ft_getndigits.o get_next_line.o ft_tabmax.o ft_memccpy.o ft_lstmanage_funcs.o ft_memmove.o ft_strmap.o ft_itoa.o ft_mat.o ft_pmem.o ft_memcpy.o ft_strncpy.o ft_strstr.o 
 
-OBJ=$(SRC:.c=.o)
+all: $(obj_path) $(NAME)
 
-SRCS=$(addprefix $(SRCDIR)/,$(SRC))
-OBJS=$(addprefix $(OBJDIR)/,$(OBJ))
-
-all: $(NAME)
-
-test_t: tests/test.c $(NAME) $(NAME)
+test_t: tests/test.c $(NAME)
 	@clang -Wformat -Werror $(CPPFLAGS) $< $(NAME) -o tests/$@
 	@echo -e "compiling\033[32m" $@ "\033[0m"
 
-$(NAME): $(OBJS)
+src_dirs=$(shell find src/ -type d | sed -e 's/src\///')
+
+$(obj_path):
+	@echo $(src_dirs)
+	mkdir -p $(obj_path) $(addprefix $(obj_path)/,$(src_dirs))
+
+$(NAME): $(addprefix $(obj_path)/,$(obj))
 	@$(AR) $(ARFLAGS) $@ $^
 	@echo -e "linking to\033[32m" $@ "\033[0m"
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+$(obj_path)/%.o: $(src_path)/%.c
 	@mkdir -p .obj && mkdir -p .obj/ft_printf
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 	@echo -e "compiling\033[36m" $@ "\033[0m"
 
 clean:
-	-rm $(OBJS)
+	-rm $(addprefix $(obj_path)/,$(obj))
 
 fclean: clean
 	-rm $(NAME)
 
+depgen:
+	# remove olds deps in Makefile & add marker at bottom
+	sed -i.bcp -e '/^#STARTDEPS$$/,$$d' Makefile && echo "#STARTDEPS" >> Makefile \
+		|| echo "FAIL DETELING OLD RULES"
+	# append new ones
+	clang -MM $(addprefix $(src_path)/,$(obj:.o=.c)) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $(LDLIBS) \
+		| sed -e '/^ /! s/^/.obj\//' >> Makefile || echo "FAIL"
+
 re: fclean all
 
 .PHONY: all, clean, fclean, re
+
+# ---- dependances ----
+#
+#STARTDEPS

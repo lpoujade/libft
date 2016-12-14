@@ -19,3 +19,9 @@ moulitest:
     script:
         - echo "FT_PRINTF_PATH = \"$PWD\"" > tests/moulitest/config.ini
         - make -C tests/moulitest ft_printf
+
+randoms:
+    script:
+        - echo "start printf randoms test"
+        - cd ./tests/randoms
+        - ./ft_printf_random_checker.pl && echo "OK" || echo "FAIL"
