@@ -55,7 +55,7 @@ int	p_str(va_list ap)
 		if (!o.lmod[0])
 			r += (int)write(STDOUT_FILENO, str, len);
 		else
-			ft_putstr(str);
+			ft_pwstr_fd(str, STDOUT_FILENO);
 	}
 	else if (str == 0)
 		r += (int)write(STDOUT_FILENO, null_str, len);

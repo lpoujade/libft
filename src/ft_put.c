@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static ssize_t pwstr_fd(const wchar_t *s, int fd)
+ssize_t ft_pwstr_fd(const wchar_t *s, int fd)
 {
 	ssize_t r;
 
@@ -25,17 +25,13 @@ static ssize_t pwstr_fd(const wchar_t *s, int fd)
 	return (r);
 }
 
-ssize_t	ft_putstr(const wchar_t *s)
+ssize_t	ft_putstr(const char *s)
 {
-	if (*s > 0x80)
-		return (pwstr_fd(s, 1));
 	return (write(STDOUT_FILENO, s, ft_strlen((char*)s)));
 }
 
-ssize_t	ft_putstr_fd(const wchar_t *s, int fd)
+ssize_t	ft_putstr_fd(const char *s, int fd)
 {
-	if (*s > 0x80)
-		return (pwstr_fd(s, fd));
 	return (write(fd, s, ft_strlen((char*)s)));
 }
 
