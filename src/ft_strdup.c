@@ -40,5 +40,6 @@ char    *ft_strndup(char const *str, size_t len)
                 ret[c] = str[c];
                 c++;
         }
+		ret[c] = 0;
         return (ret);
 }
