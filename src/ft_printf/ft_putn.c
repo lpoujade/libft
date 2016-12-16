@@ -6,22 +6,11 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 14:33:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/14 18:54:41 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/16 15:12:28 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void			ft_putoctal(unsigned long long num, int *w)
-{
-	if (num >= 8)
-	{
-		ft_putoctal(num / 8, w);
-		ft_putoctal(num % 8, w);
-	}
-	else
-		*w += ft_putchar((char)(num + '0'));
-}
 
 static void		nputs(signed long long n, int fd, int *w)
 {
@@ -51,38 +40,38 @@ static void		putu(unsigned long long n, int fd, int *w)
 
 int				ft_puts(signed long long t)
 {
-	int field_len = 0;
+	int				f_len;
 	unsigned int	len;
-	int	writed;
+	int				w;
 	t_mod			o;
 
-	writed = 0;
+	f_len = 0;
+	w = 0;
 	len = 0;
 	o = geto();
 	if (t)
 	{
 		len = gndigits(t);
 		if (o.precision != -1 && (unsigned int)o.precision > len)
-			field_len = o.precision;
+			f_len = o.precision;
 		else
-			field_len = (int)len;
+			f_len = (int)len;
 	}
 	if (o.pad_char == ' ' || (o.precision > 0 && (o.pad_char = ' ')))
-		writed += pad_pre(o, (unsigned int)field_len + ((t < 0 || o.plus_sign) ? 1 : 0));
+		w += pad_pre(o, (unsigned int)f_len + ((t < 0 || o.plus_sign) ? 1 : 0));
 	if (t < 0 || o.plus_sign)
-		writed += ft_putchar(t < 0 ? '-' : o.plus_sign);
+		w += ft_putchar(t < 0 ? '-' : o.plus_sign);
 	if (o.pad_char == '0')
-		writed += pad_pre(o, (unsigned int)field_len + ((t < 0 || o.plus_sign) ? 1 : 0));
+		w += pad_pre(o, (unsigned int)f_len + ((t < 0 || o.plus_sign) ? 1 : 0));
 	while ((int)len < o.precision)
 	{
-		writed += ft_putchar('0');
+		w += ft_putchar('0');
 		len++;
 	}
-	//if (t != 0 || (!t && o.precision))
-		nputs(t, 1, &writed);
+	nputs(t, 1, &w);
 	o.pad_char = ' ';
-	writed += pad_post(o, len + ((t < 0 || o.plus_sign) ? 1 : 0));
-	return (writed);
+	w += pad_post(o, len + ((t < 0 || o.plus_sign) ? 1 : 0));
+	return (w);
 }
 
 int				ft_putu(unsigned long long t)
@@ -117,7 +106,7 @@ int				ft_putu(unsigned long long t)
 	return (writed);
 }
 
-int ft_puto(unsigned long long t)
+int				ft_puto(unsigned long long t)
 {
 	int				field_len;
 	int				writed;

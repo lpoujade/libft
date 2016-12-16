@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/14 19:19:55 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/16 15:12:21 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,4 +118,5 @@ ssize_t	ft_putchar_fd(wchar_t c, int fd);
 char		*ft_itoa(int n);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putnbr(int n);
+void			ft_putoctal(unsigned long long num, int *w);
 #endif

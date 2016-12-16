@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:30:38 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/27 16:30:38 by lpoujade         ###   ######## fr       */
+/*   Updated: 2016/12/16 15:12:42 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,15 @@ void			ft_putnbr_fd(int n, int fd)
 void			ft_putnbr(int n)
 {
 	ft_putnbr_fd(n, STDOUT_FILENO);
+}
+
+void			ft_putoctal(unsigned long long num, int *w)
+{
+	if (num >= 8)
+	{
+		ft_putoctal(num / 8, w);
+		ft_putoctal(num % 8, w);
+	}
+	else
+		*w += ft_putchar((char)(num + '0'));
 }
