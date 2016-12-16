@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:24:06 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/14 19:27:14 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/16 13:08:22 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,35 +29,9 @@
 
 static ssize_t pwchar(wchar_t c, int fd)
 {
-	//char alpha[2] = { (char)206, (char)177 };
-	//unsigned int it = 0;
 	unsigned int i;
 	char	t[4] = { 0 };
 
-	/*
-	i = 0;
-	ft_putnbr(M1);
-	if (n_b < 16)
-		it = ((unsigned int)c) | M1;
-	ft_putchar('\n');
-	ft_pmem((void*)&c, sizeof(c));
-	ft_putchar('\n');
-
-	it = 0;
-
-	ft_pmem((void*)(alpha + 0), sizeof(alpha[1]));
-	ft_pmem((void*)(alpha + 1), sizeof(alpha[1]));
-	it = (unsigned int)(alpha[1]);
-	//it = ((unsigned int)alpha[1] << 8) | (unsigned int)alpha[0];
-	ft_pmem((void*)&it, sizeof(it));
-	ft_putchar('\n');
-
-	write (1, alpha, 2);
-	write (1, &(alpha[0]), 1);
-	write (1, &(alpha[1]), 1);
-	*/
-
-	//ft_pmem((void*)&c, sizeof(c));
 	i = 0;
 	if (c < 0x8000)
 	{
@@ -72,7 +46,7 @@ static ssize_t pwchar(wchar_t c, int fd)
 		t[2] = (char) ((c & 0x3f) | 0x80);
 		i = 3;
 	}
-	else // || c & 0x80000 ?
+	else
 	{
 		t[0] = (char) ((c >> 18) | 0xc0);
 		t[1] = (char) (((c >> 12) & 0x3f) | 0x80);

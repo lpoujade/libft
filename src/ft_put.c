@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:24:45 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/14 19:17:58 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/16 13:11:49 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 
 ssize_t ft_pwstr_fd(const wchar_t *s, int fd)
 {
-	ssize_t r;
+	ssize_t r, tm;
 
 	r = 0;
 	while (*s)
 	{
-		r += ft_putchar_fd(*s, fd);
+		tm = ft_putchar_fd(*s, fd);
+		if (tm == -1)
+		{
+			ft_putendl("WRITE ERROR pwstr");
+			return (-1);
+		}
+		r += tm;
 		s++;
 	}
 	return (r);

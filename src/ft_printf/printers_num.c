@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 18:40:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/14 19:10:08 by lpoujade         ###   ########.fr       */
+/*   Updated: 2016/12/16 13:16:23 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	putit(unsigned long long t, t_mod o)
 	len = 0;
 	if (t)
 	{
-		len = gndigits_hex((signed long long)t);
+		len = gndigits_hex((signed long long)t) + (o.flags & F_ALTMODE ? 2 : 0);
 		if (o.precision != -1 && (unsigned int)o.precision > len)
 			field_len = o.precision;
 		else

@@ -64,3 +64,73 @@ re: fclean all
 # ---- dependances ----
 #
 #STARTDEPS
+.obj/ft_realloc.o: src/ft_realloc.c includes/libft.h
+.obj/printers.o: src/ft_printf/printers.c includes/ft_printf.h \
+  includes/libft.h
+.obj/printers_num.o: src/ft_printf/printers_num.c includes/ft_printf.h \
+  includes/libft.h
+.obj/ft_printf.o: src/ft_printf/ft_printf.c includes/ft_printf.h \
+  includes/libft.h
+.obj/utils.o: src/ft_printf/utils.c includes/ft_printf.h includes/libft.h
+.obj/modes.o: src/ft_printf/modes.c includes/ft_printf.h includes/libft.h
+.obj/ft_putn.o: src/ft_printf/ft_putn.c includes/ft_printf.h includes/libft.h
+.obj/ft_strcchr.o: src/ft_strcchr.c includes/libft.h
+.obj/ft_atoi_base.o: src/ft_atoi_base.c
+.obj/ft_strncat.o: src/ft_strncat.c includes/libft.h
+.obj/ft_put.o: src/ft_put.c includes/libft.h
+.obj/ft_strmapi.o: src/ft_strmapi.c includes/libft.h
+.obj/ft_strinsert.o: src/ft_strinsert.c includes/libft.h
+.obj/ft_strtrim.o: src/ft_strtrim.c includes/libft.h
+.obj/ft_strdel.o: src/ft_strdel.c includes/libft.h
+.obj/ft_putchar.o: src/ft_putchar.c includes/libft.h
+.obj/ft_strncmp.o: src/ft_strncmp.c includes/libft.h
+.obj/ft_strlen.o: src/ft_strlen.c includes/libft.h
+.obj/ft_strnew.o: src/ft_strnew.c includes/libft.h
+.obj/ft_strlcat.o: src/ft_strlcat.c includes/libft.h
+.obj/ft_striter.o: src/ft_striter.c includes/libft.h
+.obj/ft_swap.o: src/ft_swap.c includes/libft.h
+.obj/ft_strrmstr.o: src/ft_strrmstr.c includes/libft.h
+.obj/ft_to.o: src/ft_to.c includes/libft.h
+.obj/ft_strsub.o: src/ft_strsub.c includes/libft.h
+.obj/ft_memalloc.o: src/ft_memalloc.c includes/libft.h
+.obj/ft_strtnew.o: src/ft_strtnew.c includes/libft.h
+.obj/ft_lstadd_funcs.o: src/ft_lstadd_funcs.c includes/libft.h
+.obj/ft_strnstr.o: src/ft_strnstr.c includes/libft.h
+.obj/ft_striteri.o: src/ft_striteri.c includes/libft.h
+.obj/logf.o: src/logf.c includes/logf.h includes/libft.h
+.obj/ft_strclchr.o: src/ft_strclchr.c includes/libft.h
+.obj/ft_atoi.o: src/ft_atoi.c includes/libft.h
+.obj/ft_strcat.o: src/ft_strcat.c includes/libft.h
+.obj/ft_strrchr.o: src/ft_strrchr.c includes/libft.h
+.obj/ft_memcmp.o: src/ft_memcmp.c includes/libft.h
+.obj/ft_memset.o: src/ft_memset.c includes/libft.h
+.obj/ft_strcmp.o: src/ft_strcmp.c includes/libft.h
+.obj/ft_srtrmstr.o: src/ft_srtrmstr.c includes/libft.h
+.obj/ft_strchr.o: src/ft_strchr.c includes/libft.h
+.obj/ft_isit.o: src/ft_isit.c includes/libft.h
+.obj/ft_putnbr.o: src/ft_putnbr.c includes/libft.h
+.obj/ft_bzero.o: src/ft_bzero.c includes/libft.h
+.obj/ft_memchr.o: src/ft_memchr.c includes/libft.h
+.obj/ft_strdup.o: src/ft_strdup.c includes/libft.h
+.obj/ft_strinv.o: src/ft_strinv.c includes/libft.h
+.obj/ft_strclr.o: src/ft_strclr.c includes/libft.h
+.obj/ft_strjoin.o: src/ft_strjoin.c includes/libft.h
+.obj/ft_strtdel.o: src/ft_strtdel.c includes/libft.h
+.obj/ft_memdel.o: src/ft_memdel.c includes/libft.h
+.obj/ft_strnequ.o: src/ft_strnequ.c includes/libft.h
+.obj/ft_strcpy.o: src/ft_strcpy.c includes/libft.h
+.obj/ft_strequ.o: src/ft_strequ.c includes/libft.h
+.obj/ft_strsplit.o: src/ft_strsplit.c includes/libft.h
+.obj/ft_getndigits.o: src/ft_getndigits.c includes/libft.h
+.obj/get_next_line.o: src/get_next_line.c includes/libft.h
+.obj/ft_tabmax.o: src/ft_tabmax.c includes/libft.h
+.obj/ft_memccpy.o: src/ft_memccpy.c includes/libft.h
+.obj/ft_lstmanage_funcs.o: src/ft_lstmanage_funcs.c includes/libft.h
+.obj/ft_memmove.o: src/ft_memmove.c includes/libft.h
+.obj/ft_strmap.o: src/ft_strmap.c includes/libft.h
+.obj/ft_itoa.o: src/ft_itoa.c includes/libft.h
+.obj/ft_mat.o: src/ft_mat.c includes/libft.h
+.obj/ft_pmem.o: src/ft_pmem.c includes/libft.h
+.obj/ft_memcpy.o: src/ft_memcpy.c includes/libft.h
+.obj/ft_strncpy.o: src/ft_strncpy.c includes/libft.h
+.obj/ft_strstr.o: src/ft_strstr.c includes/libft.h
