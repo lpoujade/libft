@@ -52,10 +52,8 @@ int				ft_puts(signed long long t)
 	if (t)
 	{
 		len = gndigits(t);
-		if (o.precision != -1 && (unsigned int)o.precision > len)
-			f_len = o.precision;
-		else
-			f_len = (int)len;
+		f_len = (o.precision != -1 && (unsigned int)o.precision > len) ?
+			o.precision : (int)len;
 	}
 	if (o.pad_char == ' ' || (o.precision > 0 && (o.pad_char = ' ')))
 		w += pad_pre(o, (unsigned int)f_len + ((t < 0 || o.plus_sign) ? 1 : 0));
@@ -70,8 +68,7 @@ int				ft_puts(signed long long t)
 	}
 	nputs(t, 1, &w);
 	o.pad_char = ' ';
-	w += pad_post(o, len + ((t < 0 || o.plus_sign) ? 1 : 0));
-	return (w);
+	return ((w += pad_post(o, len + ((t < 0 || o.plus_sign) ? 1 : 0))));
 }
 
 int				ft_putu(unsigned long long t)
@@ -88,10 +85,8 @@ int				ft_putu(unsigned long long t)
 	if (t)
 	{
 		len = gndigits((signed long long)t);
-		if (o.precision != -1 && (unsigned int)o.precision > len)
-			field_len = o.precision;
-		else
-			field_len = (int)len;
+		field_len = (o.precision != -1 && (unsigned int)o.precision > len) ?
+			o.precision : (int)len;
 	}
 	writed += pad_pre(o, (size_t)field_len);
 	while ((int)len < o.precision)
@@ -99,11 +94,10 @@ int				ft_putu(unsigned long long t)
 		writed += ft_putchar('0');
 		len++;
 	}
-	if (t != 0 || (!t && o.precision))
+	if (t || o.precision)
 		putu(t, 1, &writed);
 	o.pad_char = ' ';
-	writed += pad_post(o, len);
-	return (writed);
+	return ((writed += pad_post(o, len)));
 }
 
 int				ft_puto(unsigned long long t)
@@ -120,10 +114,8 @@ int				ft_puto(unsigned long long t)
 	if (t)
 	{
 		len = gndigits_oct((signed long long)t);
-		if (o.precision != -1 && (unsigned int)o.precision > len)
-			field_len = o.precision;
-		else
-			field_len = (int)len;
+		field_len = (o.precision != -1 && (unsigned int)o.precision > len) ?
+			o.precision : (int)len;
 	}
 	writed += pad_pre(o, (size_t)field_len + (o.flags & F_ALTMODE ? 1 : 0));
 	if (o.flags & F_ALTMODE)
@@ -136,6 +128,5 @@ int				ft_puto(unsigned long long t)
 	if (t || o.precision)
 		ft_putoctal(t, &writed);
 	o.pad_char = ' ';
-	writed += pad_post(o, len + (o.flags & F_ALTMODE ? 1 : 0));
-	return (writed);
+	return ((writed += pad_post(o, len + (o.flags & F_ALTMODE ? 1 : 0))));
 }
