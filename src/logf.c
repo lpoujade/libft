@@ -90,7 +90,10 @@ int				logf_log(char *fname, char *msg)
 	t_logf	*list_logf;
 
 	if (!(list_logf = use_logf(fname)))
+	{
 		ft_putendl_fd("LOGF error: can't retrieve/create log file", 2);
-	ft_putendl_fd(msg, list_logf->fd);
+		return(-1);
+	}
+	ft_putstr_fd(msg, list_logf->fd);
 	return (0);
 }

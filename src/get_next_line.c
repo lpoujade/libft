@@ -99,7 +99,7 @@ int				get_next_line(int const fd, char **line)
 	}
 	s_fd = 1;
 	while (s_fd > 0 && f->buff && !ft_strchr(f->buff, '\n'))
-		if ((s_fd = ft_str_read_add(fd, &f->buff)) == -1)
+		if ((s_fd = ft_str_read_add(fd, &(f->buff))) == -1)
 			ret = -1;
 	if ((s_fd || *f->buff) && (*line = ft_strnew((unsigned int)ft_strclchr(f->buff, '\n'))))
 		ret = (ft_strncpy(*line, f->buff, (unsigned int)ft_strclchr(f->buff, '\n'))) ? 1 : -1;

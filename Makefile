@@ -14,8 +14,8 @@ NAME=libftprintf.a
 src_path=./src
 obj_path=./.obj
 
-CC=clang
-CFLAGS=#-Wall -Werror -Wextra -g #-Weverything -Wno-documentation-unknown-command
+CC=gcc
+CFLAGS=-g#-Wall -Werror -Wextra -g #-Weverything -Wno-documentation-unknown-command
 CPPFLAGS=-Iincludes/
 ARFLAGS=scr
 
@@ -25,7 +25,7 @@ obj=ft_realloc.o ft_printf/printers.o ft_printf/printers_num.o ft_printf/ft_prin
 all: $(obj_path) $(NAME)
 
 test_t: tests/test.c $(NAME)
-	@clang -Wformat -Werror $(CPPFLAGS) $< $(NAME) -o tests/$@
+	@gcc -Wformat -Werror $(CPPFLAGS) $< $(NAME) -o tests/$@
 	@echo -e "compiling\033[32m" $@ "\033[0m"
 
 src_dirs=$(shell find src/ -type d | sed -e 's/src\///')
@@ -54,7 +54,7 @@ depgen:
 	sed -i.bcp -e '/^#STARTDEPS$$/,$$d' Makefile && echo "#STARTDEPS" >> Makefile \
 		|| echo "FAIL DETELING OLD RULES"
 	# append new ones
-	clang -MM $(addprefix $(src_path)/,$(obj:.o=.c)) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $(LDLIBS) \
+	gcc -MM $(addprefix $(src_path)/,$(obj:.o=.c)) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $(LDLIBS) \
 		| sed -e '/^ /! s/^/.obj\//' >> Makefile || echo "FAIL"
 
 re: fclean all
