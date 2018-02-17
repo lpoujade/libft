@@ -21,10 +21,10 @@ int		ft_strclchr(char const *s, char c)
 		return (0);
 	str = s;
 	len = 0;
-	while (*str != c && *str)
+	while (*str && *str != c )
 	{
 		str++;
-		len++;
+		++len;
 	}
 	return (len);
 }

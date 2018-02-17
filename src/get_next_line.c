@@ -12,36 +12,57 @@
 
 #include "libft.h"
 
-static int		buff_delfline(char **buff)
-{
-	char	*new;
-	int		ret;
-
-	ret = 0;
-	if (!buff || !*buff || !**buff)
-		return (0);
-	new = NULL;
-	if ((new = ft_strnew(ft_strlen(*buff) - (unsigned int)ft_strclchr(*buff, '\n'))))
-		new = ft_strcpy(new, (*buff + 1 + ft_strclchr(*buff, '\n')));
-	else
-		ret = -1;
-	ft_strdel(buff);
-	*buff = new;
-	return (ret);
+void dump(t_file *f) {
+	t_file *m = f;
+	while (f) {
+		ft_printf("fd %d, buf ptr %p, buff_size: %d, buf strlen: %zd, next fd : %d\n", f->fd, f->buff, f->buff_size, ft_strlen(f->buff), (f->nxt ? f->nxt->fd : -1));
+		f = f->nxt;
+		if (f == m)
+			break ;
+	}
 }
 
-static int		ft_str_read_add(int fd, char **buff)
+static int		buff_delfline(t_file *f)
+{
+	char	*new;
+	int		offset;
+
+	new = NULL;
+	if (!f->buff)
+		return (-1);
+	offset = ft_strclchr(f->buff, '\n');
+	if (!(new = ft_memalloc(f->buff_size - offset + 1)))
+		return (-3);
+	new = ft_memcpy(new, (f->buff + 1 + offset), f->buff_size - offset);
+	free(f->buff);
+	f->buff = new;
+	f->buff_size -= offset;
+	return (0);
+}
+
+static int		buf_read_add(t_file *f)
 {
 	char	*tmp;
-	size_t	len;
+	int		len;
+	int		read_index;
 
-	len = ft_strlen(*buff);
-	tmp = ft_strdup(*buff);
-	ft_strdel(buff);
-	*buff = ft_strnew(len + BUFF_SIZE);
-	ft_strcat(*buff, tmp);
-	ft_strdel(&tmp);
-	return ((int)read(fd, (*buff + len), BUFF_SIZE));
+	//ft_printf("FIRST  > "); dump(f);
+	if (!f->buff)
+		return (-1);
+	if (!(tmp = ft_memalloc(f->buff_size)))
+		return(-3);
+	tmp = ft_memcpy(tmp, f->buff, f->buff_size);
+	free(f->buff);
+	if (!(f->buff = ft_memalloc(f->buff_size + BUFF_SIZE + 1)))
+		return(-3);
+	f->buff = ft_memcpy(f->buff, tmp, f->buff_size);
+	free(tmp);
+	read_index = (int)read(f->fd, (f->buff + ft_strlen(f->buff)), BUFF_SIZE);
+	//ft_printf("SECOND > "); dump(f);
+	f->buff_size += read_index;
+	//if (read_index != BUFF_SIZE)
+		//ft_printf("\n\n>>>>> EOF <<<<<\n\n");
+	return(read_index);
 }
 
 static t_file	*f_add(int fd, t_file *link)
@@ -51,34 +72,57 @@ static t_file	*f_add(int fd, t_file *link)
 	if ((ret = (t_file *)ft_memalloc(sizeof(t_file))))
 	{
 		ret->fd = fd;
-		ret->buff = (char *)ft_memalloc(BUFF_SIZE);
-		if (link && !link->nxt)
+		ret->buff = (char *)ft_memalloc(2);
+		*(ret->buff) = '0';
+		ret->buff_size = 0;
+		if (!link)
+			ret->nxt = NULL;
+		else if (!link->nxt)
 		{
 			ret->nxt = link;
 			link->nxt = ret;
 		}
-		else if (link && link->nxt)
+		else if (link->nxt)
 		{
+			while (link->nxt != link)
+				link = link->nxt;
 			ret->nxt = link->nxt;
 			link->nxt = ret;
 		}
-		else
-			ret->nxt = NULL;
 	}
 	return (ret);
 }
 
-/*
-**static void		free_node(t_file *file)
-**{
-**	if (file->buff)
-**		ft_strdel(&file->buff);
-**	if (file->nxt)
-**		file = file->nxt;
-**	else
-**		ft_memdel((void **)&file);
-**}
-*/
+static void		free_node(t_file **file)
+{
+	t_file *t;
+
+	t = NULL;
+	if ((*file)->buff)
+	{
+		free((*file)->buff);
+		(*file)->buff = NULL;
+	}
+	if ((*file)->nxt)
+	{
+		while (t != (*file))
+		{
+			if (!t)
+				t = (*file);
+			if (t->nxt == (*file))
+			{
+				t->nxt = (*file)->nxt;
+				break ;
+			}
+			t = t->nxt;
+		}
+		t = (*file)->nxt;
+		ft_memdel((void **)file);
+		*file = t;
+	}
+	else
+		ft_memdel((void **)file);
+}
 
 int				get_next_line(int const fd, char **line)
 {
@@ -95,17 +139,19 @@ int				get_next_line(int const fd, char **line)
 		if (f && f->nxt)
 			f = f->nxt;
 		if (!f || f->fd == s_fd)
-			f = f_add(fd, f);
+			f = f_add(fd, (f ? f : NULL));
 	}
 	s_fd = 1;
 	while (s_fd > 0 && f->buff && !ft_strchr(f->buff, '\n'))
-		if ((s_fd = ft_str_read_add(fd, &(f->buff))) == -1)
+		if ((s_fd = buf_read_add(f)) < 0)
 			ret = -1;
-	if ((s_fd || *f->buff) && (*line = ft_strnew((unsigned int)ft_strclchr(f->buff, '\n'))))
-		ret = (ft_strncpy(*line, f->buff, (unsigned int)ft_strclchr(f->buff, '\n'))) ? 1 : -1;
+	if ((s_fd || *f->buff) && (*line = ft_strnew(ft_strclchr(f->buff, '\n'))))
+		ret = (ft_strncpy(*line, f->buff, ft_strclchr(f->buff, '\n')) ? 1 : -1);
 	else if (s_fd || *f->buff)
 		ret = -1;
-	if (buff_delfline(&f->buff) == -1)
+	if (buff_delfline(f))
 		ret = -1;
+	if (ret <= 0)
+		free_node(&f);
 	return ((ret == 1 && !f->buff) ? 0 : ret);
 }

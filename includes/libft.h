@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <sys/types.h>
 
-# define BUFF_SIZE 128
+# define BUFF_SIZE 256
 
 typedef struct		s_list
 {
@@ -31,7 +31,7 @@ typedef	struct		s_file
 	char			*buff;
 	struct s_file	*nxt;
 	int				fd;
-	int				_pad;
+	int				buff_size;
 }					t_file;
 
 int	ft_printf(const char *format, ...)__attribute__((format (printf, 1, 2)));

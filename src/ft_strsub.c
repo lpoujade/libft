@@ -17,7 +17,7 @@ char	*ft_strsub(const char *s, unsigned int start, size_t len)
 	char	*ret;
 	size_t	i;
 
-	if (!(ret = malloc(len)))
+	if (!(ret = malloc(len + 1)))
 		return (NULL);
 	i = 0;
 	while (i < len)
@@ -25,5 +25,6 @@ char	*ft_strsub(const char *s, unsigned int start, size_t len)
 		ret[i] = s[i + start];
 		i++;
 	}
+	ret[i] = 0;
 	return (ret);
 }

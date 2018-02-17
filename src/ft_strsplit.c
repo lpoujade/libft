@@ -45,12 +45,12 @@ char	**ft_strsplit(const char *s, char *c)
 	size_t	n_w;
 	size_t	i;
 	char	**ret;
-	
+
 	len = 0;
 	n_w = 0;
 	i = 0;
 	count = count_w(s, c);
-	if (!(ret = malloc(sizeof(char *) * count + 1)))
+	if (!(ret = malloc(sizeof(char *) * (count + 1))))
 		return (NULL);
 	while (s[i] && n_w < count)
 	{

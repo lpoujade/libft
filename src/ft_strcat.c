@@ -14,14 +14,15 @@
 
 char	*ft_strcat(char *dest, const char *src)
 {
-	size_t	i;
+	int	i;
+	char *s = dest;
 
 	i = 0;
-	while (*dest)
-		dest++;
+	while (*s)
+		s++;
 	while (src[i])
 	{
-		dest[i] = src[i];
+		s[i] = src[i];
 		i++;
 	}
 	dest[i] = 0;
