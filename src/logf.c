@@ -97,3 +97,65 @@ int				logf_log(char *fname, char *msg)
 	ft_putstr_fd(msg, list_logf->fd);
 	return (0);
 }
+
+static void		_print_format(char *f, va_list ap, int fd)
+{
+	char	*s;
+	int		d;
+
+	if (*f == 's')
+	{
+		s = (char *)va_arg(ap, char *);
+		ft_putstr_fd(s, fd);
+	} else if (*f == 'd')
+	{
+		d = (int)va_arg(ap, int);
+		ft_putnbr_fd(d, fd);
+	} else if (*f == '%')
+		ft_putchar_fd('%', fd);
+}
+
+int				logf_log_format(char *fname, char *msg_format, ...)
+{
+	unsigned int	next;
+	int				i;
+	t_logf			*l;
+	va_list			ap;
+	char			*tmp;
+
+	i = 0;
+	va_start(ap, msg_format);
+	if (!(l = use_logf(fname)))
+		return(-1);
+	while(msg_format[i])
+	{
+		next = ft_strclchr(msg_format + i, '%');
+		if (next == ft_strlen(msg_format + i))
+		{
+			ft_putstr_fd(msg_format + i, l->fd);
+			break ;
+		}
+		if (next > 0)
+		{
+			tmp = ft_strsub(msg_format + i, 0, next);
+			ft_putstr_fd(tmp, l->fd);
+			free(tmp);
+		}
+		_print_format(msg_format + i + next + 1, ap, l->fd);
+		i += next + 2;
+	}
+	va_end(ap);
+	return(0);
+}
+
+int				logf_getfd(char *fname)
+{
+	t_logf	*list_logf;
+
+	if (!(list_logf = use_logf(fname)))
+	{
+		ft_putendl_fd("LOGF error: can't retrieve/create log file", 2);
+		return(-1);
+	}
+	return(list_logf->fd);
+}

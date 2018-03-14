@@ -14,6 +14,7 @@
 # define LOGF_H
 
 # include <fcntl.h>
+# include <stdarg.h>
 # include "libft.h"
 
 typedef struct	s_logf
@@ -27,5 +28,7 @@ typedef struct	s_logf
 
 int		logf_log(char *fname, char *msg);
 int		logf_quit(void);
+int		logf_getfd(char *fname);
+int		logf_log_format(char *fname, char *msg_format, ...);
 
 #endif

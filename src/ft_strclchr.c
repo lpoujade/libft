@@ -14,7 +14,7 @@
 
 int		ft_strclchr(char const *s, char c)
 {
-	int		len;
+	int			len;
 	const char	*str;
 
 	if (!s)
