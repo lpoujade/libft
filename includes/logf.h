@@ -29,6 +29,6 @@ typedef struct	s_logf
 int		logf_log(char *fname, char *msg);
 int		logf_quit(void);
 int		logf_getfd(char *fname);
-int		logf_log_format(char *fname, char *msg_format, ...);
+int		logf_log_format(char *fname, char *msg_format, ...)__attribute__((format (printf, 2, 3)));
 
 #endif

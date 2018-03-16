@@ -14,22 +14,26 @@
 
 int		ft_strinsert(char *target, int pos, char *new)
 {
-	char	*ret;
-	int	c;
+	char *tmp = NULL;
+	int c = 0;
 
-	if (!target || !new || pos < 0)
+	if (pos < 0 || pos > (int)ft_strlen(target) || !target || !new)
 		return (1);
-	c = 0;
-	if (!(ret = ft_strnew(ft_strlen(target + pos))))
+	if (!(tmp = ft_strdup(target + pos)))
 		return (3);
-	while (new[c] || target[c + pos])
+	while (new[c])
 	{
-		ret[c] = target[c + pos];
 		target[c + pos] = new[c];
-		c++;
+		++c;
 	}
-	ft_strcat(target, ret);
-	free(ret);
+	pos += c;
+	c = 0;
+	while (tmp[c])
+	{
+		target[pos + c] = tmp[c];
+		++c;
+	}
+	free(tmp);
 	return (0);
 }
 
