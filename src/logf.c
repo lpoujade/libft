@@ -23,8 +23,8 @@ static t_logf	*create_logf(char *fname)
 	}
 	if (!(new->fname = ft_strdup(fname)))
 		return (NULL);
-	new->next = NULL;
-	new->prev = NULL;
+	new->next = new;
+	new->prev = new;
 	if ((new->fd = open(new->fname,
 					O_WRONLY | O_APPEND | O_CREAT, S_IRUSR | S_IWUSR)) < 0)
 	{
@@ -43,19 +43,23 @@ static t_logf	*use_logf(char *fname)
 
 	t = NULL;
 	if (!fname)
+		return (NULL);
+	if (!ft_strcmp(fname, "__last__"))
 		return (list_logf);
 	if (!list_logf)
 		return ((list_logf = create_logf(fname)));
 	else
 		while (ft_strcmp(list_logf->fname, fname))
 		{
-			if (!t || t == list_logf)
+			if (t == list_logf)
 			{
 				t = create_logf(fname);
 				t->next = list_logf->next;
 				t->prev = (t_list*)list_logf;
-				t->next->prev = (t_list*)t;
+				if (t->next)
+					t->next->prev = (t_list*)t;
 				list_logf->next = (t_list*)t;
+				return (t);
 			}
 			if (!t)
 				t = list_logf;
@@ -68,13 +72,17 @@ int				logf_quit(void)
 {
 	t_logf	*t;
 	t_logf	*n;
+	t_logf	*o;
 	int		errcount;
 
 	errcount = 0;
-	if (!(t = use_logf(NULL)))
+	o = NULL;
+	if (!(t = use_logf("__last__")))
 		ft_putendl_fd("logf_quit: can't retrieve logf's list", 2);
-	while (t)
+	while (t != o)
 	{
+		if (!o)
+			o = t;
 		n = (t_logf*)t->next;
 		ft_strdel(&t->fname);
 		if (close(t->fd))
@@ -106,7 +114,10 @@ static void		_print_format(char *f, va_list ap, int fd)
 	if (*f == 's')
 	{
 		s = (char *)va_arg(ap, char *);
-		ft_putstr_fd(s, fd);
+		if (s)
+			ft_putstr_fd(s, fd);
+		else
+			ft_putstr_fd("(null)", fd);
 	} else if (*f == 'd')
 	{
 		d = (int)va_arg(ap, int);

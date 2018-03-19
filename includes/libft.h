@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/types.h>
+# include <execinfo.h>
 
 # define BUFF_SIZE 256
 
@@ -43,6 +44,7 @@ int					ft_getndigits(int a);
 //void				ft_puthex(unsigned char num);
 int					ft_strtdel(char ***str);
 char				**ft_strtnew(size_t size);
+char		**ft_strtdup(char **strt);
 const char	*ft_strchr(const char *s, int c);
 int					ft_strcchr(char const *s, char c);
 int					ft_strclchr(char const *s, char c);

@@ -20,5 +20,23 @@ char		**ft_strtnew(size_t size)
 		return (NULL);
 	while (size)
 		k[size--] = NULL;
+	k[0] = NULL;
 	return (k);
+}
+
+char		**ft_strtdup(char **strt)
+{
+	int		len;
+	char	**ret;
+
+	ret = NULL;
+	len = 0;
+	while(strt[len])
+		len++;
+	ret = ft_strtnew(len);
+	while(len--)
+	{
+		ret[len] = ft_strdup(strt[len]);
+	}
+	return (ret);
 }
