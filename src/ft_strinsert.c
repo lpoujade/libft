@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_strinsert(char *target, int pos, char *new)
+int		ft_strinsert(char *target, int tsize, int pos, char *new)
 {
 	char *tmp = NULL;
 	int c = 0;
@@ -21,14 +21,14 @@ int		ft_strinsert(char *target, int pos, char *new)
 		return (1);
 	if (!(tmp = ft_strdup(target + pos)))
 		return (3);
-	while (new[c])
+	while (new[c] && c < tsize)
 	{
 		target[c + pos] = new[c];
 		++c;
 	}
 	pos += c;
 	c = 0;
-	while (tmp[c])
+	while (tmp[c] && (c + pos) < tsize)
 	{
 		target[pos + c] = tmp[c];
 		++c;

@@ -52,7 +52,7 @@ int		ft_strrmchar(char *str, int c);
 char				*ft_strrmstr(char *str, char *torm);
 char    *ft_strndup(char const *str, size_t len);
 char				*ft_strinv(char *s);
-int					ft_strinsert(char *target, int pos, char *new);
+int					ft_strinsert(char *target, int tsize, int pos, char *new);
 void				*ft_realloc(void **src, size_t src_size, size_t final_size);
 int					ft_pow(int n, int p);
 signed int	ft_abs(signed int n);

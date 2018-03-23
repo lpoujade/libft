@@ -32,7 +32,6 @@ static t_logf	*create_logf(char *fname)
 		ft_putendl_fd(new->fname, 2);
 		return (NULL);
 	}
-	ft_putendl_fd("-------------------------------------------------", new->fd);
 	return (new);
 }
 
