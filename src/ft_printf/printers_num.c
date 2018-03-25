@@ -80,11 +80,11 @@ static int	putit(unsigned long long t, t_mod o)
 		else
 			field_len = (int)len;
 	}
-	if (!(o.pad_char == '0'))
+	if (o.pad_char != '0')
 		w += pad_pre(o, (size_t)field_len);
 	if (o.flags & F_ALTMODE && (t || o.name == 'p'))
 		w += ft_putstr(o.flags & F_HEXMAJ ? "0X" : "0x");
-	if (o.pad_char == '0')
+	if (t && o.pad_char == '0')
 		w += pad_pre(o, (size_t)field_len);
 	while ((int)len < o.precision)
 	{

@@ -55,8 +55,11 @@ int				ft_puts(signed long long t)
 		f_len = (o.precision != -1 && (unsigned int)o.precision > len) ?
 			o.precision : (int)len;
 	}
-	if (o.pad_char == ' ' || (o.precision > 0 && (o.pad_char = ' ')))
+	if (o.pad_char == ' ' && o.precision > 0)
+	{
+		o.pad_char = ' ';
 		w += pad_pre(o, (unsigned int)f_len + ((t < 0 || o.plus_sign) ? 1 : 0));
+	}
 	if (t < 0 || o.plus_sign)
 		w += ft_putchar(t < 0 ? '-' : o.plus_sign);
 	if (o.pad_char == '0')
@@ -66,7 +69,8 @@ int				ft_puts(signed long long t)
 		w += ft_putchar('0');
 		len++;
 	}
-	nputs(t, 1, &w);
+	if (o.precision || t)
+		nputs(t, 1, &w);
 	o.pad_char = ' ';
 	return ((w += pad_post(o, len + ((t < 0 || o.plus_sign) ? 1 : 0))));
 }

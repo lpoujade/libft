@@ -42,23 +42,16 @@ int	p_str(va_list ap)
 
 	r = 0;
 	o = geto();
-	if (!o.lmod[0])
-		str = (wchar_t*)va_arg(ap, char *);
-	else
-		str = va_arg(ap, wchar_t *);
-	len = (unsigned int)ft_strlen(str);
+	str = (o.lmod[0] ? va_arg(ap, wchar_t *) : (wchar_t*)va_arg(ap, char *) );
+	len = (str ? (unsigned int)ft_strlen(str) : 6);
 	if (o.precision > -1 && len > (unsigned int)o.precision)
 		len = (unsigned int)o.precision;
 	r += pad_pre(o, len);
-	if (len)
-	{
-		if (!o.lmod[0])
-			r += (int)write(STDOUT_FILENO, str, len);
-		else
-			r += ft_pwstr_fd(str, STDOUT_FILENO);
-	}
-	else if (str == 0)
-		r += (int)write(STDOUT_FILENO, null_str, len);
+	if (str)
+		r += (o.lmod[0] ? ft_pwstr_fd(str, STDOUT_FILENO)
+				: (int)write(STDOUT_FILENO, str, len));
+	else
+		r += (int)write(STDOUT_FILENO, null_str, 6);
 	r += pad_post(o, len);
 	return (o.flen ? (int)o.flen : r);
 }
