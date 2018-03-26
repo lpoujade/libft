@@ -37,7 +37,7 @@ typedef struct	s_mod
 	char			pad_char;
 	char			lmod[2];
 	char			name;
-	char _pad;
+	char			_pad;
 }				t_mod;
 
 /*
@@ -52,7 +52,6 @@ int flong(va_list ap, char **dest, size_t *len, const char *format);
 /* conversion functions (get via va_arg in valable type) */
 int p_sdec(va_list ap);
 int p_udec(va_list ap);
-
 int p_shex(va_list ap);
 int p_uhex(va_list ap);
 

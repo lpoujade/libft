@@ -94,15 +94,17 @@ int				isupcase(char c)
 	return (c >= 'A' && c <= 'Z');
 }
 
+/* TODO re-enable padding ? */
 int				percent_symbol(va_list ap)
 {
 	int		r;
 	t_mod	o;
 
 	(void)ap;
+	r = 0;
 	o = geto();
-	r = pad_pre(o, 1);
+	//r = pad_pre(o, 1);
 	r += (int)ft_putchar('%');
-	r += pad_post(o, 1);
+	//r += pad_post(o, 1);
 	return (r);
 }

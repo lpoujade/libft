@@ -71,10 +71,10 @@ static int	putit(unsigned long long t, t_mod o)
 
 	field_len = 0;
 	w = 0;
-	len = 0;
+	len = 1;
 	if (t)
 	{
-		len = gndigits_hex((signed long long)t) + (o.flags & F_ALTMODE ? 2 : 0);
+		len = gndigits_hex((signed long long)t);
 		if (o.precision != -1 && (unsigned int)o.precision > len)
 			field_len = o.precision;
 		else

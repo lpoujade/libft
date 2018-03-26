@@ -45,17 +45,14 @@ int				ft_puts(signed long long t)
 	int				w;
 	t_mod			o;
 
-	f_len = 0;
 	w = 0;
-	len = 0;
 	o = geto();
-	if (t)
-	{
-		len = gndigits(t);
-		f_len = (o.precision != -1 && (unsigned int)o.precision > len) ?
-			o.precision : (int)len;
-	}
-	if (o.pad_char == ' ' && o.precision > 0)
+	len = (t ? gndigits(t) : 0);
+	f_len = ((o.precision != -1 && (unsigned int)o.precision > len) ?
+		o.precision : (int)len);
+	if (!t)
+		len = 1;
+	if (o.pad_char == ' ' || o.precision > 0)
 	{
 		o.pad_char = ' ';
 		w += pad_pre(o, (unsigned int)f_len + ((t < 0 || o.plus_sign) ? 1 : 0));
@@ -69,8 +66,8 @@ int				ft_puts(signed long long t)
 		w += ft_putchar('0');
 		len++;
 	}
-	if (o.precision || t)
-		nputs(t, 1, &w);
+	if (t || o.precision)
+		nputs(t, STDOUT_FILENO, &w);
 	o.pad_char = ' ';
 	return ((w += pad_post(o, len + ((t < 0 || o.plus_sign) ? 1 : 0))));
 }
@@ -85,7 +82,7 @@ int				ft_putu(unsigned long long t)
 	writed = 0;
 	field_len = 0;
 	o = geto();
-	len = 0;
+	len = 1;
 	if (t)
 	{
 		len = gndigits((signed long long)t);
@@ -114,7 +111,7 @@ int				ft_puto(unsigned long long t)
 	field_len = 0;
 	writed = 0;
 	o = geto();
-	len = 0;
+	len = 1;
 	if (t)
 	{
 		len = gndigits_oct((signed long long)t);

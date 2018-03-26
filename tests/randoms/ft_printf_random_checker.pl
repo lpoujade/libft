@@ -245,10 +245,10 @@ system("/usr/bin/make -C $libftprintf_dir >/dev/null") == 0
 done();
 print "compiling .c files...\n";
 
-system("/usr/bin/clang ft_random_tests.c -I $libftprintf_dir/includes -I $libftprintf_dir/libft/includes -L$libftprintf_dir -lftprintf -o ft_out 2>&-") == 0
-	or die "system command clang failed on ft_random_test.c";
-system("/usr/bin/clang random_tests.c -I $libftprintf_dir/includes -I $libftprintf_dir/libft/includes -o ft_real 2>&-") == 0
-	or die "system command clang failed on random_test.c";
+system("/usr/bin/gcc -Werror ft_random_tests.c -I$libftprintf_dir/includes -L$libftprintf_dir -lftprintf -o ft_out") == 0
+	or die "system command gcc failed on ft_random_test.c";
+system("/usr/bin/gcc -Werror random_tests.c -I$libftprintf_dir/includes -o ft_real") == 0
+	or die "system command gcc failed on random_test.c";
 
 done();
 print "Executing programs...\n";
