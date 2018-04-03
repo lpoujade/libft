@@ -117,7 +117,7 @@ ssize_t	ft_putstr(const char *s);
 ssize_t ft_pwstr_fd(const wchar_t *s, int fd);
 ssize_t	ft_putchar(wchar_t c);
 ssize_t	ft_putchar_fd(wchar_t c, int fd);
-char		*ft_itoa(int n);
+char		*ft_itoa(signed int n);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putnbr(int n);
 void			ft_putoctal(unsigned long long num, int *w);

@@ -27,7 +27,7 @@ static int	get_ndigits(int num)
 	return (c);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(signed int n)
 {
 	int		digits;
 	int		sign;

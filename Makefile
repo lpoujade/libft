@@ -20,7 +20,7 @@ CPPFLAGS=-Iincludes/
 ARFLAGS=scr
 
 # libft ft_printf logf env line_edition ft_select
-obj=ft_realloc.o ft_printf/printers.o ft_printf/printers_num.o ft_printf/ft_printf.o ft_printf/utils.o ft_printf/modes.o ft_printf/ft_putn.o ft_strcchr.o ft_atoi_base.o ft_strncat.o ft_put.o ft_strmapi.o ft_strinsert.o ft_strtrim.o ft_strdel.o ft_putchar.o ft_strncmp.o ft_strlen.o ft_strnew.o ft_strlcat.o ft_striter.o ft_swap.o ft_strrmstr.o ft_to.o ft_strsub.o ft_memalloc.o ft_strtnew.o ft_lstadd_funcs.o ft_strnstr.o ft_striteri.o logf.o ft_strclchr.o ft_atoi.o ft_strcat.o ft_strrchr.o ft_memcmp.o ft_memset.o ft_strcmp.o ft_srtrmstr.o ft_strchr.o ft_isit.o ft_putnbr.o ft_bzero.o ft_memchr.o ft_strdup.o ft_strinv.o ft_strclr.o ft_strjoin.o ft_strtdel.o ft_memdel.o ft_strnequ.o ft_strcpy.o ft_strequ.o ft_strsplit.o ft_getndigits.o get_next_line.o ft_tabmax.o ft_memccpy.o ft_lstmanage_funcs.o ft_memmove.o ft_strmap.o ft_itoa.o ft_mat.o ft_pmem.o ft_memcpy.o ft_strncpy.o ft_strstr.o \
+obj=ft_realloc.o ft_printf/printers.o ft_printf/printers_num.o ft_printf/ft_printf.o ft_printf/utils.o ft_printf/modes.o ft_printf/utils_modes.o ft_printf/ft_putn.o ft_printf/utils_ndigits_pads.o ft_strcchr.o ft_atoi_base.o ft_strncat.o ft_put.o ft_strmapi.o ft_strinsert.o ft_strtrim.o ft_strdel.o ft_putchar.o ft_strncmp.o ft_strlen.o ft_strnew.o ft_strlcat.o ft_striter.o ft_swap.o ft_strrmstr.o ft_to.o ft_strsub.o ft_memalloc.o ft_strtnew.o ft_lstadd_funcs.o ft_strnstr.o ft_striteri.o logf.o ft_strclchr.o ft_atoi.o ft_strcat.o ft_strrchr.o ft_memcmp.o ft_memset.o ft_strcmp.o ft_srtrmstr.o ft_strchr.o ft_isit.o ft_putnbr.o ft_bzero.o ft_memchr.o ft_strdup.o ft_strinv.o ft_strclr.o ft_strjoin.o ft_strtdel.o ft_memdel.o ft_strnequ.o ft_strcpy.o ft_strequ.o ft_strsplit.o ft_getndigits.o get_next_line.o ft_tabmax.o ft_memccpy.o ft_lstmanage_funcs.o ft_memmove.o ft_strmap.o ft_itoa.o ft_mat.o ft_pmem.o ft_memcpy.o ft_strncpy.o ft_strstr.o \
 	stack_indent.o
 
 all: $(obj_path) $(NAME)
@@ -69,14 +69,18 @@ re: fclean all
 #STARTDEPS
 .obj/ft_realloc.o: src/ft_realloc.c includes/libft.h
 .obj/printers.o: src/ft_printf/printers.c includes/ft_printf.h \
-  includes/libft.h
+ includes/libft.h
 .obj/printers_num.o: src/ft_printf/printers_num.c includes/ft_printf.h \
-  includes/libft.h
+ includes/libft.h
 .obj/ft_printf.o: src/ft_printf/ft_printf.c includes/ft_printf.h \
-  includes/libft.h
+ includes/libft.h
 .obj/utils.o: src/ft_printf/utils.c includes/ft_printf.h includes/libft.h
 .obj/modes.o: src/ft_printf/modes.c includes/ft_printf.h includes/libft.h
+.obj/utils_modes.o: src/ft_printf/utils_modes.c includes/ft_printf.h \
+ includes/libft.h
 .obj/ft_putn.o: src/ft_printf/ft_putn.c includes/ft_printf.h includes/libft.h
+.obj/utils_ndigits_pads.o: src/ft_printf/utils_ndigits_pads.c \
+ includes/ft_printf.h includes/libft.h
 .obj/ft_strcchr.o: src/ft_strcchr.c includes/libft.h
 .obj/ft_atoi_base.o: src/ft_atoi_base.c
 .obj/ft_strncat.o: src/ft_strncat.c includes/libft.h
@@ -137,3 +141,4 @@ re: fclean all
 .obj/ft_memcpy.o: src/ft_memcpy.c includes/libft.h
 .obj/ft_strncpy.o: src/ft_strncpy.c includes/libft.h
 .obj/ft_strstr.o: src/ft_strstr.c includes/libft.h
+.obj/stack_indent.o: src/stack_indent.c includes/libft.h

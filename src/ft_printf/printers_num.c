@@ -33,7 +33,7 @@ int			p_sdec(va_list ap)
 		t = va_arg(ap, intmax_t);
 	else if (o.lmod[0] == 'z')
 		t = va_arg(ap, ssize_t);
-	return (ft_puts(t));
+	return (ft_puts(t, o));
 }
 
 int			p_udec(va_list ap)
@@ -59,7 +59,7 @@ int			p_udec(va_list ap)
 		t = va_arg(ap, uintmax_t);
 	else if (o.lmod[0] == 'z')
 		t = va_arg(ap, size_t);
-	w += (o.flags & F_OCTAL ? ft_puto(t) : ft_putu(t));
+	w += (o.flags & F_OCTAL ? ft_puto(t, o) : ft_putu(t, o));
 	return (w);
 }
 
@@ -71,21 +71,14 @@ static int	putit(unsigned long long t, t_mod o)
 
 	field_len = 0;
 	w = 0;
-	len = 1;
+	len = (t ? gndigits_hex((signed long long)t) : 1);
 	if (t)
-	{
-		len = gndigits_hex((signed long long)t);
-		if (o.precision != -1 && (unsigned int)o.precision > len)
-			field_len = o.precision;
-		else
-			field_len = (int)len;
-	}
-	if (o.pad_char != '0')
-		w += pad_pre(o, (size_t)field_len);
+		field_len = (o.precision != -1 && (unsigned int)o.precision > len) ?
+			o.precision : (int)len;
+	w += (o.pad_char != '0' ? pad_pre(o, (size_t)field_len) : 0);
 	if (o.flags & F_ALTMODE && (t || o.name == 'p'))
 		w += ft_putstr(o.flags & F_HEXMAJ ? "0X" : "0x");
-	if (t && o.pad_char == '0')
-		w += pad_pre(o, (size_t)field_len);
+	w += (t && o.pad_char == '0' ? pad_pre(o, (size_t)field_len) : 0);
 	while ((int)len < o.precision)
 	{
 		w += ft_putchar('0');
@@ -94,8 +87,7 @@ static int	putit(unsigned long long t, t_mod o)
 	if (o.precision == -1 || (t != 0 && o.precision))
 		ft_puthex(t, (o.flags & F_HEXMAJ ? 0 : 1), &w);
 	o.pad_char = ' ';
-	w += pad_post(o, len);
-	return (w);
+	return ((w += pad_post(o, len)));
 }
 
 int			p_uhex(va_list ap)

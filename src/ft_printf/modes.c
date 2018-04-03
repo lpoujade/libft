@@ -29,62 +29,19 @@ t_mod					geto(void)
 	return (save_opt(n, 0));
 }
 
-static int				is_opt(char c)
+static	int				optsloop(int i, const char *c, t_mod *opt)
 {
-	return (c == '#' || c == ' ' || c == '-' || c == '+' || ft_isdigit(c) ||
-			c == '.' || c == 'l' || c == 'h' || c == 'z' || c == 'j');
-}
-
-static void				setemptyopt(t_mod *o)
-{
-	o->flen = 0;
-	o->flags = 0;
-	o->precision = -1;
-	o->plus_sign = 0;
-	o->pad_char = ' ';
-	o->lmod[0] = 0;
-	o->lmod[1] = 0;
-}
-
-static unsigned int		getflags(t_mod *opt, const char *c)
-{
-	unsigned int i;
-
-	i = 0;
-	while (1)
+	while (c[i] && is_opt(c[i]))
 	{
-		if (c[i] == '#')
-			opt->flags |= F_ALTMODE;
-		else if (c[i] == '-')
-		{
-			opt->flags |= F_RIGHTALIGN;
-			opt->pad_char = ' ';
-		}
-		else if (c[i] == '+')
-			opt->plus_sign = '+';
-		else if (c[i] == ' ' && !(opt->plus_sign))
-			opt->plus_sign = ' ';
-		else if (c[i] == '0')
-			opt->pad_char = '0';
-		else if (!(c[i] == ' ' && opt->plus_sign) &&
-			!(c[i] == '0' && opt->pad_char) && !(c[i] == '*'))
-			break ;
+		if (ft_isdigit(c[i]) && !opt->flen && opt->precision == -1)
+			opt->flen = (unsigned int)ft_atoi(c + i);
+		else if (c[i] == '.')
+			opt->precision = (ft_isdigit(c[i + 1]) ? ft_atoi(c + i + 1) : 0);
+		else if (c[i] == 'l' || c[i] == 'h' || c[i] == 'z' || c[i] == 'j')
+			i += get_lmod(opt, c + i);
 		i++;
 	}
 	return (i);
-}
-
-static unsigned int		get_lmod(t_mod *o, const char *c)
-{
-	o->lmod[0] = *c;
-	if (o->lmod[0] == *(c + 1))
-	{
-		o->lmod[1] = *(c + 1);
-		return (1);
-	}
-	else
-		o->lmod[1] = 0;
-	return (0);
 }
 
 unsigned int			parse_opt(const char *c)
@@ -93,17 +50,8 @@ unsigned int			parse_opt(const char *c)
 	t_mod			opt;
 
 	setemptyopt(&opt);
-	i = getflags(&opt, c);
-	while (c[i] && is_opt(c[i]))
-	{
-		if (ft_isdigit(c[i]) && !opt.flen && opt.precision == -1)
-			opt.flen = (unsigned int)ft_atoi(c + i);
-		else if (c[i] == '.')
-			opt.precision = (ft_isdigit(c[i + 1]) ? ft_atoi(c + i + 1) : 0);
-		else if (c[i] == 'l' || c[i] == 'h' || c[i] == 'z' || c[i] == 'j')
-			i += get_lmod(&opt, c + i);
-		i++;
-	}
+	i = getflags(&opt, c, 0);
+	i = optsloop(i, c, &opt);
 	if (c[i] != 'X' && isupcase(c[i]))
 	{
 		opt.lmod[0] = 'l';

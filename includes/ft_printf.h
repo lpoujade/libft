@@ -65,16 +65,19 @@ int p_ulong(va_list ap);
 */
 int	p_str(va_list ap);
 
-int		ft_puts(signed long long t);
-int		ft_putu(unsigned long long t);
-
-int ft_puto(unsigned long long t);
-void		ft_puthex(unsigned long long num, int casse, int *w);
+int		ft_puts(signed long long t, t_mod o);
+int		ft_putu(unsigned long long t, t_mod o);
+int		ft_puto(unsigned long long t, t_mod o);
+void	ft_puthex(unsigned long long num, int casse, int *w);
 
 /* ~parsing format/options/… */
 int				a_format(const char **format, va_list ap);
 unsigned int	parse_opt(const char *c);
 t_mod			geto(void);
+unsigned int	get_lmod(t_mod *o, const char *c);
+unsigned int	getflags(t_mod *opt, const char *c, int i);
+void			setemptyopt(t_mod *o);
+int				is_opt(char c);
 
 /* utils */
 void			putxchar(char c, unsigned int n);

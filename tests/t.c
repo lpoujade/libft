@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "includes/libft.h"
+#include "libft.h"
 
 int main()
 {
@@ -11,4 +11,7 @@ int main()
 
 	ft_printf("'#0 .9hhx':\n%#0 .9hhx\n", 4577);
 	printf("%#0 .9hhx\n", 4577);
+
+	ft_printf("@moulitest: %#.o %#.0o\n", 0, 0);
+	printf("@moulitest: %#.o %#.0o\n", 0, 0);
 }
