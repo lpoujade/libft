@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 
 	i = ft_strlen(s);
-	if (!(ret = malloc(i + 1)))
+	if (!(ret = ft_memalloc(i + 1)))
 		return (NULL);
 	while (i + 1)
 	{
