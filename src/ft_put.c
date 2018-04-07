@@ -12,9 +12,10 @@
 
 #include "libft.h"
 
-ssize_t ft_pwstr_fd(const wchar_t *s, int fd)
+ssize_t	ft_pwstr_fd(const wchar_t *s, int fd)
 {
-	ssize_t r, tm;
+	ssize_t r;
+	ssize_t tm;
 
 	r = 0;
 	while (*s)
@@ -44,6 +45,7 @@ ssize_t	ft_putstr_fd(const char *s, int fd)
 ssize_t	ft_putendl(const char *s)
 {
 	ssize_t	r;
+
 	r = write(STDOUT_FILENO, s, ft_strlen(s));
 	r += ft_putchar('\n');
 	return (r);
@@ -57,4 +59,3 @@ ssize_t	ft_putendl_fd(const char *s, int fd)
 	r += ft_putchar_fd('\n', fd);
 	return (r);
 }
-

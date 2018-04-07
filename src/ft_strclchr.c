@@ -17,11 +17,11 @@ int		ft_strclchr(char const *s, char c)
 	int			len;
 	const char	*str;
 
+	len = 0;
+	str = s;
 	if (!s)
 		return (0);
-	str = s;
-	len = 0;
-	while (*str && *str != c )
+	while (*str && *str != c)
 	{
 		str++;
 		++len;

@@ -15,9 +15,9 @@
 char	*ft_strrmstr(char *str, char *torm)
 {
 	const char	*subs;
-	size_t	c;
-	size_t	sec;
-	size_t	len;
+	size_t		c;
+	size_t		sec;
+	size_t		len;
 
 	c = 0;
 	sec = 0;

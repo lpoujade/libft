@@ -25,7 +25,7 @@ static void			ft_puthex(unsigned char num)
 		ft_putchar((char)(num + 87));
 }
 
-static const char			*print_line_ascii(const char *addr, int b)
+static const char	*print_line_ascii(const char *addr, int b)
 {
 	int c;
 

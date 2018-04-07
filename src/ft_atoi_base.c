@@ -18,7 +18,7 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
-static int	_isdigit(char c)
+static int	s_isdigit(char c)
 {
 	if ((c >= '0' && c <= '9') ||
 			(c >= 'A' && c <= 'F'))
@@ -26,7 +26,7 @@ static int	_isdigit(char c)
 	return (0);
 }
 
-static char	_toupper(char c)
+static char	s_toupper(char c)
 {
 	if (c >= 'a' && c <= 'f')
 		return (c - 32);
@@ -53,10 +53,10 @@ int			ft_atoi_base(char *str, int str_base)
 		i++;
 	while (str[i])
 	{
-		if (!_isdigit(_toupper(str[i])))
+		if (!s_isdigit(s_toupper(str[i])))
 			return (-1);
 		ret *= str_base;
-		ret += (str[i] <= '9') ? str[i] - '0' : _toupper(str[i]) - 55;
+		ret += (str[i] <= '9') ? str[i] - '0' : s_toupper(str[i]) - 55;
 		i++;
 	}
 	return (ret * neg);

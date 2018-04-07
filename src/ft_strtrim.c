@@ -17,7 +17,7 @@ static int	bl(char c)
 	return (c == ' ' || c == '\t' || c == '\n');
 }
 
-char	*ft_ftstrtrim(const char *s)
+char		*ft_ftstrtrim(const char *s)
 {
 	char	*ret;
 	size_t	len;
@@ -60,7 +60,7 @@ char	*ft_ftstrtrim(const char *s)
  ** Will return pointer to "fyah"
 */
 
-char	*ft_strtrim(const char *s, const char *set)
+char		*ft_strtrim(const char *s, const char *set)
 {
 	char	*ret;
 	size_t	len;

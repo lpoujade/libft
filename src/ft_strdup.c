@@ -14,9 +14,10 @@
 
 char	*ft_strdup(const char *s)
 {
-	char	*ret = NULL;
+	char	*ret;
 	size_t	i;
 
+	ret = NULL;
 	i = ft_strlen(s);
 	if (!(ret = ft_memalloc(i + 1)))
 		return (NULL);
@@ -28,19 +29,19 @@ char	*ft_strdup(const char *s)
 	return (ret);
 }
 
-char    *ft_strndup(char const *str, size_t len)
+char	*ft_strndup(char const *str, size_t len)
 {
-        char    *ret;
-        size_t  c;
+	char    *ret;
+	size_t  c;
 
-        c = 0;
-        if (!(ret = malloc(len + 1)))
-                return (NULL);
-        while (str[c] && c < len)
-        {
-                ret[c] = str[c];
-                c++;
-        }
-		ret[c] = 0;
-        return (ret);
+	c = 0;
+	if (!(ret = malloc(len + 1)))
+		return (NULL);
+	while (str[c] && c < len)
+	{
+		ret[c] = str[c];
+		c++;
+	}
+	ret[c] = 0;
+	return (ret);
 }

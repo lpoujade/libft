@@ -14,9 +14,11 @@
 
 int		ft_strinsert(char *target, int tsize, int pos, char *new)
 {
-	char *tmp = NULL;
-	int c = 0;
+	char	*tmp;
+	int		c;
 
+	c = 0;
+	tmp = NULL;
 	if (pos < 0 || pos > (int)ft_strlen(target) || !target || !new)
 		return (1);
 	if (!(tmp = ft_strdup(target + pos)))

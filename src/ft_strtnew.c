@@ -31,10 +31,10 @@ char		**ft_strtdup(char **strt)
 
 	ret = NULL;
 	len = 0;
-	while(strt[len])
+	while (strt[len])
 		len++;
 	ret = ft_strtnew(len);
-	while(len--)
+	while (len--)
 	{
 		ret[len] = ft_strdup(strt[len]);
 	}

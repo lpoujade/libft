@@ -34,15 +34,15 @@ int	p_uchar(va_list ap)
 
 int	p_str(va_list ap)
 {
+	static	char	null_str[] = "(null)";
 	unsigned int	len;
 	int				r;
 	wchar_t			*str;
 	t_mod			o;
-	char			null_str[] = "(null)";
 
 	r = 0;
 	o = geto();
-	str = (o.lmod[0] ? va_arg(ap, wchar_t *) : (wchar_t*)va_arg(ap, char *) );
+	str = (o.lmod[0] ? va_arg(ap, wchar_t *) : (wchar_t*)va_arg(ap, char *));
 	len = (str ? (unsigned int)ft_strlen(str) : 6);
 	if (o.precision > -1 && len > (unsigned int)o.precision)
 		len = (unsigned int)o.precision;

@@ -14,7 +14,7 @@
 
 static inline size_t	count_w(char const *s, char *c)
 {
-	int	i;
+	int		i;
 	size_t	co;
 
 	i = 0;
@@ -38,7 +38,7 @@ static inline size_t	count_w(char const *s, char *c)
 	return (co);
 }
 
-char	**ft_strsplit(const char *s, char *c)
+char					**ft_strsplit(const char *s, char *c)
 {
 	size_t	count;
 	size_t	len;

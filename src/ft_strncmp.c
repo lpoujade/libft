@@ -16,7 +16,7 @@ int		ft_strncmp(char const *s1, char const *s2, size_t n)
 {
 	unsigned const char *s;
 	unsigned const char *d;
-	size_t	i;
+	size_t				i;
 
 	i = 0;
 	s = (unsigned const char *)s1;
@@ -27,5 +27,5 @@ int		ft_strncmp(char const *s1, char const *s2, size_t n)
 			return ((int)((s[i] ? s[i] : d[i])));
 		i++;
 	}
-	return ((int) (s[i] > d[i] ? s[i] - d[i] : d[i] - s[i]));
+	return ((int)(s[i] > d[i] ? s[i] - d[i] : d[i] - s[i]));
 }

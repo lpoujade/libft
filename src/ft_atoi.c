@@ -18,7 +18,7 @@ static int		ft_isspace(int c)
 			|| c == '\r');
 }
 
-int		ft_atoi(const char *s)
+int				ft_atoi(const char *s)
 {
 	int	ret;
 	int neg;

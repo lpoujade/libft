@@ -27,10 +27,10 @@
 # define MASK_4 0b1111100010000000100000001000000010000000
 */
 
-static ssize_t pwchar(wchar_t c, int fd)
+static ssize_t	pwchar(wchar_t c, int fd)
 {
-	unsigned int i;
-	char	t[4] = { 0 };
+	unsigned int	i;
+	char			t[4] = { 0 };
 
 	i = 0;
 	if (c < 0x8000)
@@ -57,7 +57,7 @@ static ssize_t pwchar(wchar_t c, int fd)
 	return (write(fd, t, i));
 }
 
-ssize_t	ft_putchar(wchar_t c)
+ssize_t			ft_putchar(wchar_t c)
 {
 	if (c > 0x80)
 	{
@@ -66,7 +66,7 @@ ssize_t	ft_putchar(wchar_t c)
 	return (write(STDOUT_FILENO, &c, 1));
 }
 
-ssize_t	ft_putchar_fd(wchar_t c, int fd)
+ssize_t			ft_putchar_fd(wchar_t c, int fd)
 {
 	if (c > 0x80)
 	{

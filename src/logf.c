@@ -99,7 +99,7 @@ int				logf_log(char *fname, char *msg)
 	if (!(list_logf = use_logf(fname)))
 	{
 		ft_putendl_fd("LOGF error: can't retrieve/create log file", 2);
-		return(-1);
+		return (-1);
 	}
 	ft_putstr_fd(msg, list_logf->fd);
 	return (0);
@@ -136,8 +136,8 @@ int				logf_log_format(char *fname, char *msg_format, ...)
 	i = 0;
 	va_start(ap, msg_format);
 	if (!(l = use_logf(fname)))
-		return(-1);
-	while(msg_format[i])
+		return (-1);
+	while (msg_format[i])
 	{
 		next = ft_strclchr(msg_format + i, '%');
 		if (next == ft_strlen(msg_format + i))
@@ -155,7 +155,7 @@ int				logf_log_format(char *fname, char *msg_format, ...)
 		i += next + 2;
 	}
 	va_end(ap);
-	return(0);
+	return (0);
 }
 
 int				logf_getfd(char *fname)
@@ -165,7 +165,7 @@ int				logf_getfd(char *fname)
 	if (!(list_logf = use_logf(fname)))
 	{
 		ft_putendl_fd("LOGF error: can't retrieve/create log file", 2);
-		return(-1);
+		return (-1);
 	}
-	return(list_logf->fd);
+	return (list_logf->fd);
 }

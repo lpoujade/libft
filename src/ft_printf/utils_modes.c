@@ -6,7 +6,7 @@ int				is_opt(char c)
 			c == '.' || c == 'l' || c == 'h' || c == 'z' || c == 'j');
 }
 
-void				setemptyopt(t_mod *o)
+void			setemptyopt(t_mod *o)
 {
 	o->flen = 0;
 	o->flags = 0;
@@ -17,7 +17,7 @@ void				setemptyopt(t_mod *o)
 	o->lmod[1] = 0;
 }
 
-unsigned int		getflags(t_mod *opt, const char *c, int i)
+unsigned int	getflags(t_mod *opt, const char *c, int i)
 {
 	if (c[i] == '#')
 		opt->flags |= F_ALTMODE;
@@ -34,13 +34,13 @@ unsigned int		getflags(t_mod *opt, const char *c, int i)
 		opt->pad_char = '0';
 	else if (!(c[i] == ' ' && opt->plus_sign) &&
 			!(c[i] == '0' && opt->pad_char) && !(c[i] == '*'))
-		return (i) ;
+		return (i);
 	++i;
 	getflags(opt, c, i);
 	return (i);
 }
 
-unsigned int		get_lmod(t_mod *o, const char *c)
+unsigned int	get_lmod(t_mod *o, const char *c)
 {
 	o->lmod[0] = *c;
 	if (o->lmod[0] == *(c + 1))

@@ -50,11 +50,11 @@ static int		buf_read_add(t_file *f)
 	if (!f->buff)
 		return (-1);
 	if (!(tmp = ft_memalloc(f->buff_size)))
-		return(-3);
+		return (-3);
 	tmp = ft_memcpy(tmp, f->buff, f->buff_size);
 	free(f->buff);
 	if (!(f->buff = ft_memalloc(f->buff_size + BUFF_SIZE + 1)))
-		return(-3);
+		return (-3);
 	f->buff = ft_memcpy(f->buff, tmp, f->buff_size);
 	free(tmp);
 	read_index = (int)read(f->fd, (f->buff + ft_strlen(f->buff)), BUFF_SIZE);
@@ -62,7 +62,7 @@ static int		buf_read_add(t_file *f)
 	f->buff_size += read_index;
 	//if (read_index != BUFF_SIZE)
 		//ft_printf("\n\n>>>>> EOF <<<<<\n\n");
-	return(read_index);
+	return (read_index);
 }
 
 static t_file	*f_add(int fd, t_file *link)
