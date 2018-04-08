@@ -145,13 +145,14 @@ int				get_next_line(int const fd, char **line)
 	while (s_fd > 0 && f->buff && !ft_strchr(f->buff, '\n'))
 		if ((s_fd = buf_read_add(f)) < 0)
 			ret = -1;
-	if ((s_fd || *f->buff) && (*line = ft_strnew(ft_strclchr(f->buff, '\n'))))
+	if ((s_fd || *f->buff)
+			&& (*line = ft_strnew(ft_strclchr(f->buff, '\n'))))
 		ret = (ft_strncpy(*line, f->buff, ft_strclchr(f->buff, '\n')) ? 1 : -1);
 	else if (s_fd || *f->buff)
 		ret = -1;
 	if (buff_delfline(f))
 		ret = -1;
-	if (ret <= 0)
-		free_node(&f);
+	//if (ret <= 0)
+	//	free_node(&f);
 	return ((ret == 1 && !f->buff) ? 0 : ret);
 }

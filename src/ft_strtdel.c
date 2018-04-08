@@ -20,7 +20,8 @@ int		ft_strtdel(char ***str)
 	while ((*str)[c])
 	{
 		free((*str)[c]);
-		(*str)[c++] = NULL;
+		(*str)[c] = NULL;
+		++c;
 	}
 	free(*str);
 	*str = NULL;

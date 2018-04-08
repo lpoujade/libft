@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include <execinfo.h>
+# include <fcntl.h>
 
 # define BUFF_SIZE 256
 
@@ -39,6 +40,9 @@ int					ft_printf(const char *format, ...)
 	__attribute__((format (printf, 1, 2)));
 void				ft_pmem(const void *addr, size_t t);
 int					get_next_line(int const fd, char **line);
+int					ft_readfile(char *fname, char **buf, size_t buflen,
+		int rev);
+int					ft_readfile_rev(char *fname, char **buf, size_t buflen);
 void				ft_swap(void *a, void *b);
 void				ft_iswap(int *a, int *b);
 int					ft_getndigits(int a);
