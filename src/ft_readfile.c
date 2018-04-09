@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/08 17:17:31 by lpoujade          #+#    #+#             */
-/*   Updated: 2018/04/08 17:17:31 by lpoujade         ###   ########.fr       */
+/*   Updated: 2018/04/09 10:38:30 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int			ft_readfile(char *fname, char **buf, size_t buflen, int rev)
 {
 	int	fd;
 	int	i;
-	int	r;
 
 	i = (rev ? buflen - 1 : 0);
 	fd = open(fname, O_RDONLY);
@@ -42,7 +41,7 @@ static int	fill_ibuf(char **ibuf, size_t ibufsize, int fd)
 		i++;
 		if ((size_t)i == ibufsize - 1)
 		{
-			if (!(ibuf = ft_realloc(&ibuf, ibufsize, ibufsize + 100)))
+			if (!(ibuf = ft_realloc((void**)&ibuf, ibufsize, ibufsize + 100)))
 				return (-2);
 			ibufsize += 100;
 		}

@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/19 11:39:55 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/03 12:12:11 by lpoujade         ###   ########.fr       */
+/*   Updated: 2018/04/09 10:37:54 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static int		buff_delfline(t_file *f)
 static int		buf_read_add(t_file *f)
 {
 	char	*tmp;
-	int		len;
 	int		read_index;
 
 	if (!f->buff)

@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 09:02:26 by lpoujade          #+#    #+#             */
-/*   Updated: 2018/04/09 09:02:26 by lpoujade         ###   ########.fr       */
+/*   Updated: 2018/04/09 11:17:09 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_logf	*create_logf(char *fname)
 	}
 	if (!(new->fname = ft_strdup(fname)))
 		return (NULL);
-	new->next = new;
-	new->prev = new;
+	new->next = (t_list*)new;
+	new->prev = (t_list*)new;
 	if ((new->fd = open(new->fname,
 					O_WRONLY | O_APPEND | O_CREAT, S_IRUSR | S_IWUSR)) < 0)
 	{
@@ -52,7 +52,8 @@ t_logf	*use_logf(char *fname)
 		{
 			if (t == list_logf)
 			{
-				t = create_logf(fname);
+				if (!(t = create_logf(fname)))
+					return (NULL);
 				t->next = list_logf->next;
 				t->prev = (t_list*)list_logf;
 				if (t->next)
