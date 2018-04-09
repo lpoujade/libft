@@ -6,7 +6,7 @@
 /*   By: liums <lpoujade@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/01 19:46:35 by liums             #+#    #+#             */
-/*   Updated: 2016/10/01 19:46:35 by liums            ###   ######## fr       */
+/*   Updated: 2018/04/09 11:34:28 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,4 @@ int		logf_log_format(char *fname, char *msg_format, ...)__attribute__((format (p
 t_logf	*create_logf(char *fname);
 t_logf	*use_logf(char *fname);
 void	s_print_format(char *f, va_list ap, int fd);
-
 #endif

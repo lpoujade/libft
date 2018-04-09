@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 21:45:54 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/12/16 15:12:21 by lpoujade         ###   ########.fr       */
+/*   Updated: 2018/04/09 11:21:28 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int					ft_readfile_rev(char *fname, char **buf, size_t buflen);
 void				ft_swap(void *a, void *b);
 void				ft_iswap(int *a, int *b);
 int					ft_getndigits(int a);
-//void				ft_puthex(unsigned char num);
 int					ft_strtdel(char ***str);
 char				**ft_strtnew(size_t size);
 char				**ft_strtdup(char **strt);
