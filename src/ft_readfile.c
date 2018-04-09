@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_readfile(char *fname, char **buf, size_t buflen, int rev)
+int			ft_readfile(char *fname, char **buf, size_t buflen, int rev)
 {
 	int	fd;
 	int	i;
@@ -32,7 +32,25 @@ int		ft_readfile(char *fname, char **buf, size_t buflen, int rev)
 	return (0);
 }
 
-int		ft_readfile_rev(char *fname, char **buf, size_t buflen)
+static int	fill_ibuf(char **ibuf, size_t ibufsize, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (get_next_line(fd, &(ibuf[i])) > 0)
+	{
+		i++;
+		if ((size_t)i == ibufsize - 1)
+		{
+			if (!(ibuf = ft_realloc(&ibuf, ibufsize, ibufsize + 100)))
+				return (-2);
+			ibufsize += 100;
+		}
+	}
+	return (0);
+}
+
+int			ft_readfile_rev(char *fname, char **buf, size_t buflen)
 {
 	char	**ibuf;
 	int		fd;
@@ -43,31 +61,14 @@ int		ft_readfile_rev(char *fname, char **buf, size_t buflen)
 	ibufsize = 100;
 	i = 0;
 	icp = 0;
-	fd = open(fname, O_RDONLY);
-	if (fd < 0)
+	if ((fd = open(fname, O_RDONLY)) < 0)
 		return (-1);
 	if (!(ibuf = ft_memalloc(ibufsize)))
 		return (-2);
-	ft_printf("GO ");
-	while (get_next_line(fd, &(ibuf[i])) > 0)
-	{
-		ft_printf("%d, ", i);
-		i++;
-		if ((size_t)i == ibufsize - 1)
-		{
-			ft_printf(" [realloc] ");
-			break ;
-			if (!(ibuf = ft_realloc(&ibuf, ibufsize, ibufsize + 100)))
-				return (-2);
-			ibufsize += 100;
-		}
-	}
-	ft_printf(" OUT\n");
+	if (fill_ibuf(ibuf, ibufsize, fd))
+		return (-2);
 	while (icp < (int)buflen && i >= 0)
-	{
-		buf[icp++] = ibuf[i];
-		--i;
-	}
+		buf[icp++] = ibuf[i--];
 	close(fd);
 	return (0);
 }

@@ -37,16 +37,16 @@ typedef struct		s_mod
 	char			pad_char;
 	char			lmod[2];
 	char			name;
-	char			_pad;
+	char			pad;
 }					t_mod;
 
 /*
-int	ft_printf_b(const char *format, ...)__attribute__((format (printf, 1, 2)));
-int	ft_sprintf(char **str, const char *format, ...)__attribute__((format (printf, 2, 3)));
-int	fchar(va_list ap, char **dest, size_t *len, const char *format);
-int	fint(va_list ap, char **dest, size_t *len, const char *format);
-int	fstr(va_list ap, char **dest, size_t *len, const char *format);
-int flong(va_list ap, char **dest, size_t *len, const char *format);
+  ** int	ft_printf_b(const char *format, ...)__attribute__((format (printf, 1, 2)));
+  ** int	ft_sprintf(char **str, const char *format, ...)__attribute__((format (printf, 2, 3)));
+  ** int	fchar(va_list ap, char **dest, size_t *len, const char *format);
+  ** int	fint(va_list ap, char **dest, size_t *len, const char *format);
+  ** int	fstr(va_list ap, char **dest, size_t *len, const char *format);
+  ** int flong(va_list ap, char **dest, size_t *len, const char *format);
 */
 
 /* conversion functions (get via va_arg in valable type) */

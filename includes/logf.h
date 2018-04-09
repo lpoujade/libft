@@ -30,5 +30,8 @@ int		logf_log(char *fname, char *msg);
 int		logf_quit(void);
 int		logf_getfd(char *fname);
 int		logf_log_format(char *fname, char *msg_format, ...)__attribute__((format (printf, 2, 3)));
+t_logf	*create_logf(char *fname);
+t_logf	*use_logf(char *fname);
+void	s_print_format(char *f, va_list ap, int fd);
 
 #endif

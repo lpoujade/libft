@@ -54,7 +54,7 @@ static const char	*print_line_ascii(const char *addr, int b)
 
 void				ft_pmem(const void *addr, size_t t)
 {
-	size_t			i;
+	size_t				i;
 	unsigned const char *p;
 	const char			*c;
 

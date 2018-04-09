@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:14:46 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/27 16:14:46 by lpoujade         ###   ######## fr       */
+/*   Updated: 2016/11/27 16:14:46 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char					**ft_strsplit(const char *s, char *c)
 	n_w = 0;
 	i = 0;
 	count = count_w(s, c);
-	if (!(ret = malloc(sizeof(char *) * (count + 1))))
+	if (!(ret = ft_memalloc(sizeof(char *) * (count + 1))))
 		return (NULL);
 	while (s[i] && n_w < count)
 	{

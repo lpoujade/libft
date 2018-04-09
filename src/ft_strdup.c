@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 12:54:21 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/27 12:54:21 by lpoujade         ###   ######## fr       */
+/*   Updated: 2016/11/27 12:54:21 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ char	*ft_strdup(const char *s)
 
 char	*ft_strndup(char const *str, size_t len)
 {
-	char    *ret;
-	size_t  c;
+	size_t	c;
+	char	*ret;
 
 	c = 0;
 	if (!(ret = malloc(len + 1)))

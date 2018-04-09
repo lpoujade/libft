@@ -31,8 +31,6 @@ int				percent_symbol(va_list ap)
 	(void)ap;
 	r = 0;
 	o = geto();
-	//r = pad_pre(o, 1);
 	r += (int)ft_putchar('%');
-	//r += pad_post(o, 1);
 	return (r);
 }

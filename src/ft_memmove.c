@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 12:41:56 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/27 12:41:56 by lpoujade         ###   ######## fr       */
+/*   Updated: 2016/11/27 12:41:56 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned const char	*s;
 	unsigned char		*d;
 	unsigned char		*tmp;
-	size_t	i;
+	size_t				i;
 
 	i = 0;
 	s = src;

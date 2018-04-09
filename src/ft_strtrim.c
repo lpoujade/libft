@@ -6,7 +6,7 @@
 /*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:08:32 by lpoujade          #+#    #+#             */
-/*   Updated: 2016/11/27 16:08:32 by lpoujade         ###   ######## fr       */
+/*   Updated: 2016/11/27 16:08:32 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,6 @@ char		*ft_ftstrtrim(const char *s)
 	ret[i] = 0;
 	return (ret);
 }
-
-/**
- ** @name    Trim a string
- ** @brief   Remove trailings and leadings set of characters
- ** @ingroup libft
- **
- ** ft_strtrim(char *str, char *char_set) returns a string without each 
- ** character in the char_set string if between the beginning or the end
- ** and the first other character (which don't appear in char_set)
- **
- ** @param [in] s const char *str        String to trim
- ** @param [in] set const char *char_set   Characters to use for trim
- **
- ** @retval char *  Pointer to new string trimmed
- **
- ** Example Usage:
- ** @code
- **    ft_strtrim("' fyah '", "' ")
- ** @endcode
- ** Will return pointer to "fyah"
-*/
 
 char		*ft_strtrim(const char *s, const char *set)
 {

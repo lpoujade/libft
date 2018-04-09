@@ -12,16 +12,6 @@
 
 #include "libft.h"
 
-void dump(t_file *f) {
-	t_file *m = f;
-	while (f) {
-		ft_printf("fd %d, buf ptr %p, buff_size: %d, buf strlen: %zd, next fd : %d\n", f->fd, f->buff, f->buff_size, ft_strlen(f->buff), (f->nxt ? f->nxt->fd : -1));
-		f = f->nxt;
-		if (f == m)
-			break ;
-	}
-}
-
 static int		buff_delfline(t_file *f)
 {
 	char	*new;
@@ -46,7 +36,6 @@ static int		buf_read_add(t_file *f)
 	int		len;
 	int		read_index;
 
-	//ft_printf("FIRST  > "); dump(f);
 	if (!f->buff)
 		return (-1);
 	if (!(tmp = ft_memalloc(f->buff_size)))
@@ -58,10 +47,7 @@ static int		buf_read_add(t_file *f)
 	f->buff = ft_memcpy(f->buff, tmp, f->buff_size);
 	free(tmp);
 	read_index = (int)read(f->fd, (f->buff + ft_strlen(f->buff)), BUFF_SIZE);
-	//ft_printf("SECOND > "); dump(f);
 	f->buff_size += read_index;
-	//if (read_index != BUFF_SIZE)
-		//ft_printf("\n\n>>>>> EOF <<<<<\n\n");
 	return (read_index);
 }
 
@@ -69,26 +55,25 @@ static t_file	*f_add(int fd, t_file *link)
 {
 	t_file	*ret;
 
-	if ((ret = (t_file *)ft_memalloc(sizeof(t_file))))
+	if (!(ret = (t_file *)ft_memalloc(sizeof(t_file))))
+		return (NULL);
+	ret->fd = fd;
+	ret->buff = (char *)ft_memalloc(2);
+	*(ret->buff) = '0';
+	ret->buff_size = 0;
+	if (!link)
+		ret->nxt = NULL;
+	else if (!link->nxt)
 	{
-		ret->fd = fd;
-		ret->buff = (char *)ft_memalloc(2);
-		*(ret->buff) = '0';
-		ret->buff_size = 0;
-		if (!link)
-			ret->nxt = NULL;
-		else if (!link->nxt)
-		{
-			ret->nxt = link;
-			link->nxt = ret;
-		}
-		else if (link->nxt)
-		{
-			while (link->nxt != link)
-				link = link->nxt;
-			ret->nxt = link->nxt;
-			link->nxt = ret;
-		}
+		ret->nxt = link;
+		link->nxt = ret;
+	}
+	else if (link->nxt)
+	{
+		while (link->nxt != link)
+			link = link->nxt;
+		ret->nxt = link->nxt;
+		link->nxt = ret;
 	}
 	return (ret);
 }
@@ -99,16 +84,12 @@ static void		free_node(t_file **file)
 
 	t = NULL;
 	if ((*file)->buff)
-	{
-		free((*file)->buff);
-		(*file)->buff = NULL;
-	}
+		ft_strdel(&((*file)->buff));
 	if ((*file)->nxt)
 	{
 		while (t != (*file))
 		{
-			if (!t)
-				t = (*file);
+			t = (t ? t : *file);
 			if (t->nxt == (*file))
 			{
 				t->nxt = (*file)->nxt;
@@ -136,23 +117,18 @@ int				get_next_line(int const fd, char **line)
 	s_fd = (f) ? f->fd : -1;
 	while (!f || f->fd != fd)
 	{
-		if (f && f->nxt)
-			f = f->nxt;
-		if (!f || f->fd == s_fd)
-			f = f_add(fd, (f ? f : NULL));
+		f = (f && f->nxt ? f->nxt : f);
+		f = (!f || f->fd == s_fd ? f_add(fd, f) : f);
 	}
 	s_fd = 1;
 	while (s_fd > 0 && f->buff && !ft_strchr(f->buff, '\n'))
-		if ((s_fd = buf_read_add(f)) < 0)
-			ret = -1;
-	if ((s_fd || *f->buff)
-			&& (*line = ft_strnew(ft_strclchr(f->buff, '\n'))))
+		ret = (((s_fd = buf_read_add(f)) < 0) ? -1 : ret);
+	if ((s_fd || *f->buff) && (*line = ft_strnew(ft_strclchr(f->buff, '\n'))))
 		ret = (ft_strncpy(*line, f->buff, ft_strclchr(f->buff, '\n')) ? 1 : -1);
 	else if (s_fd || *f->buff)
 		ret = -1;
-	if (buff_delfline(f))
-		ret = -1;
-	//if (ret <= 0)
-	//	free_node(&f);
+	ret = (buff_delfline(f) ? -1 : ret);
+	if (ret <= 0)
+		free_node(&f);
 	return ((ret == 1 && !f->buff) ? 0 : ret);
 }
